@@ -5,8 +5,11 @@
 .header{
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 100%;
+    background-color: rgb(22, 22, 22);
+    padding: 10px 10;
     color: beige;
-    padding: 10px 0;
+    width: 100%;
+    border-bottom: 4px solid #25c998 ;
 }
 
 .container1{
@@ -27,6 +30,10 @@ ul {
     list-style: none;
 }
 
+li{
+    cursor: pointer;
+}
+
 .button-cad{
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: medium;
@@ -35,7 +42,7 @@ ul {
     color: beige;
     padding: 10px 30px;
     border-radius: 20px;;
-    cursor: pointer;
+    
 }
 
 .button-log{
@@ -51,7 +58,7 @@ ul {
 
 h1{
     margin: 30px;
-    color: #25c998;
+    color: #00ff7f;
     display: flex;
     align-items: center;
 }
@@ -72,3 +79,9 @@ h1{
     font-size: 30px;
 }
 
+
+
+/* 008000
+32cd32
+00ff7f
+ */
