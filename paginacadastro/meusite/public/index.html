@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background-image: url("mosaico.jpeg");
+            color: cornsilk;
+        }
+        form {
+            text-align: center;
+            font-family: arial;
+        }
+        h2 {
+            padding-top: 5px;
+        }
+        #card {
+            position: relative;
+            transform-style: preserve-3d;
+            transition: all 0.5s ease;
+        } 
+        #front {
+            text-align: center;
+            position: absolute;
+            border-radius: 10px;
+            margin-top: 17%;
+            margin-left: 30%;
+            margin-right: 30%;
+            padding-bottom: 50px;
+            padding-top: 15px;
+            padding-left: 40px;
+            padding-right: 40px;
+            backface-visibility: hidden;
+            /* background-color: rgba(255, 127, 80, 0.472); */
+            background-color: rgba(222, 184, 135, 0.450);
+        }
+        #back {
+            text-align: center;
+            transform: translatex(200px);
+            position: absolute;  
+            border-radius: 10px;
+            margin-top: 17%; 
+            margin-left: 30%;
+            margin-right: 30%;
+            padding-bottom: 50px;
+            padding-top: 15px;
+            padding-left: 40px;
+            padding-right: 40px;
+            /* background-color: rgba(255, 127, 80, 0.472); */
+            background-color: rgba(222, 184, 135, 0.450);
+            backface-visibility: hidden;
+            transform: rotateY(180deg);
+        }
+        #login, #nome, #user, #email {
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+        #senha, #senha_nova {
+            border-radius: 10px;
+        }
+        button {
+            margin-top: 10px;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.649);
+            color: cornsilk;
+        }
+        a {
+            color: cornsilk;
+        }
+        #cad {
+            cursor:pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <form onsubmit = 'return cadastrar ()' method = "POST" id='form_registro'>
+        <div id='card'>
+            <div id='front'>
+                 <h2>LOGIN</h2>
+                 usuário <input type='text' id='login'><br>
+                 senha <input type='password' id='senha'><br>
+                <button type='button' onclick='validar_login()'>Entrar</button><br><br>
+                <a href="http://br.linkedin.com">esqueceu senha</a>
+                <u id="cad" onclick='fazer_cadastro ()'>fazer cadastro</u>
+            </div>
+            <div id="back">
+                <h2>Cadastre-se</h2>
+                 Nome: <input type='text' id='nome'></input><br>
+                 usuário: <input type='text' id='user'></input><br>
+                 e-mail: <input type='email' id='email'></input><br>
+                 senha: <input type='password' id='senha_nova'></inout><br>
+                <button>Cadastrar</button>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>
+
+<script>
+    function validar_login() {
+        if (login.value == '' || senha.value == '') {
+            alert(`É necessário colocar um usuário e senha cadastrado`);
+        }
+        else if (login.value == 'teodoro' || senha.value == 'j1o2a3o4') {
+            window.location = "https://www.google.com/";
+        }
+    }
+    function fazer_cadastro () {
+        card.style.transform= 'rotateY(180deg)';
+
+    }
+    function cadastrar () {
+        if (nome.value == '' || user.value == '' || email.value == '' || senha_nova == ''){
+            alert(`É necessário preencher os campos para fazer cadastrado`);
+        }
+        else {
+            var formulario = new URLSearcheParams(new FormData(form_registro));
+            console.log(formulario);
+            fetch('/users/registrar', {
+                metohd:"POST",
+                body:formulario
+            }).then((response)=>{
+                if(response.ok){
+                    setTimeout(function (){window.location = 'pagina_usuario.html'},2000);
+                }else{
+                    console.log('Erro no registro');
+                }
+            });
+            return false;
+        }
+    }
+</script>
