@@ -1,0 +1,238 @@
+<!Doctype html>
+<html lang="pt-br">
+	<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Emerald</title>
+		<link rel="stylesheet" href="dashboard.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+		<link rel="icon" href="../public/assets/Logos/v1.png ">
+		<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+	</head>
+    <!DOCTYPE html>
+
+	<body>
+		
+		<div id="mySidenav" class="sidenav">
+		<p class="logo"><span>E</span>merald</p>
+		
+	
+		<a href="passeio.html"class="icon-a"><i class="fa fa-users icons"></i>  login</a>
+		<a href="feedFotos.html"class="icon-a"><i class="fa fa-dashboard icons"></i> Tela inicial</a>
+		<a href="login.html"class="icon-a"><i class="fa fa-list-alt icons"></i>   Sair</a>
+
+	</div>
+	<div id="main">
+
+		<div class="head">
+			<div class="col-div-6">
+	<span style="font-size:30px;cursor:pointer; color: white;" class="nav"  >☰ Emerald</span>
+	<span style="font-size:30px;cursor:pointer; color: white;" class="nav2"  >☰ Emerald</span>
+	</div>
+	<div class="hello">
+		<h3>Olá, <span id="b_usuario">Gabriel</span>, Veja o atual estado dos graficos!</h3>
+	</div>
+		
+		<div class="col-div-6">
+			
+		
+	</div>
+		<div class="clearfix"></div>
+	</div>
+    <div class="col-div-8">
+        <div class="box">
+        <div class="content-box">
+            <p>Suas informações</p>
+            <br/>
+            <table>
+  <tr>
+    <th>Temperatura atualㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ</th>
+    <th>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ</th>
+    <th>umidade</th>
+  </tr>
+  <tr>
+    <td id="td_nome"></td>
+    <td id="td_velocidade"></td>
+    <td id="td_moto"></td>
+  </tr>
+  
+
+  
+  
+</table>
+
+
+        </div>
+        
+        
+    </div>
+    </div>
+		<div class="clearfix"></div>
+		<br/>
+
+		<div class="main_grafico">
+			<div class="grafico1">
+				<canvas   id="myChart"></canvas>
+				
+			</div>
+		
+			<div class="grafico2">
+				<canvas id="CJSbarra"></canvas>
+			</div>
+		</div> <br>
+		
+		
+	
+		<div class="clearfix"></div>
+		<br/><br/>
+	
+
+		
+			
+		<div class="clearfix"></div>
+	</div>
+	
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+
+
+	  $(".nav").click(function(){
+	    $("#mySidenav").css('width','70px');
+	    $("#main").css('margin-left','70px');
+	    $(".logo").css('visibility', 'hidden');
+	    $(".logo span").css('visibility', 'visible');
+	     $(".logo span").css('margin-left', '-10px');
+	     $(".icon-a").css('visibility', 'hidden');
+	     $(".icons").css('visibility', 'visible');
+	     $(".icons").css('margin-left', '-8px');
+	      $(".nav").css('display','none');
+	      $(".nav2").css('display','block');
+		  $(".box").css('width','142.7%');
+		  $(".main_grafico").css('width','100.0%');
+		  $(".main_grafico").css('height','40.0%');
+		  $(".grafico1").css('width','47vw');
+		  $(".grafico2").css('width','47vw');
+		  $(".hello").css('margin-right','60%');
+		  $(".hello").css('margin-left','-6%');
+		  
+		  
+	  });
+
+	$(".nav2").click(function(){
+	    $("#mySidenav").css('width','300px');
+	    $("#main").css('margin-left','300px');
+	    $(".logo").css('visibility', 'visible');
+	     $(".icon-a").css('visibility', 'visible');
+	     $(".icons").css('visibility', 'visible');
+	     $(".nav").css('display','block');
+	      $(".nav2").css('display','none');
+		  $(".box").css('width','142.7%');
+		  $(".main_grafico").css('width','100.0%');
+		  $(".grafico1").css('width','37vw');
+		  $(".grafico2").css('width','37vw');
+		  $(".hello").css('margin-right','55%');
+		  $(".hello").css('margin-left','-4%');
+		  
+		  
+	 });
+
+	
+
+    const labels = [
+      '12:00',
+      '13:00',
+      '14:00',
+      '15:00',
+      '16:00',
+      '17:00',
+    ];
+  
+    const data = {
+      labels: labels,
+      datasets: [{
+        label: 'temperatura',
+        backgroundColor: 'rgb(50, 205, 50)',
+        borderColor: 'rgb(50, 205, 50)',
+        data: [30, 29, 28, 25, 22, 23],
+      },
+      {
+        label: 'umidade',
+        backgroundColor: 'rgb(255, 255, 255)',
+        borderColor: 'rgb(255, 255, 255)',
+        data: [80, 82, 80, 85, 80, 83],
+      }
+    ]
+      
+    };
+  
+    const config = {
+      type: 'line',
+      data: data,
+      options: {}
+    };
+  </script>
+
+<script>
+    const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
+
+
+    const labels2 = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+    ];
+
+    const data2 = {
+        labels: labels,
+        datasets: [{
+            label: 'Temperatura média',
+            backgroundColor: 'rgb(50, 205, 50)',
+        borderColor: 'rgb(50, 205, 50)',
+            data: [20+2, 30-6, 40-13, 50-27, 60-20, 70-52, 80, 90],
+        },{
+            label: 'Umidade média',
+            backgroundColor: 'rgb(255, 255, 255)',
+        borderColor: 'rgb(255, 255, 255)',
+            data: [20+70, 30+59, 40+53, 50+37, 60+28, 70+12, 80, 90],
+        },
+    ]
+    };
+    const config2 = {
+        type: 'bar',
+        data: data2,
+        options: {}
+    };
+    
+</script>
+
+<script>
+
+    const CJSbarra = new Chart(
+        document.getElementById('CJSbarra'),
+        config2
+    );
+    
+</script>
+
+	
+  </script>
+
+  
+
+  
+
+	</body>
+
+
+	</html>
+	
