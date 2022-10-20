@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@200;300;400;500;600;700;800&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    color: #F1F1F1;
+    font-family: 'Oxanium', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+::-webkit-scrollbar-track{
+    background-color: #181818;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #00AC4D;
+}
+
+.header {
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    border-radius: 0 0 10px 10px;
+    z-index: 10000000;
+}
+
+.logo {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav_home {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    overflow: hidden;
+}
+
+a {
+    color: #181818;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.log_cad {
+    list-style: none;
+    width: 20%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.botao_log {
+    background-color: transparent;
+    border: 1px solid #00AC4D;
+    margin-left: 40px;
+    padding: .5rem;
+    border-radius: 40px;
+}
+
+.botao_log:hover {
+    background-color: #00AC4D;
+    border: 1px solid #00AC4D;
+    margin-left: 40px;
+    padding: .5rem;
+}
+
+.botao_cad {
+    background: #00AC4D;
+    border-radius: 40px;
+    padding: .5rem;
+    transform: scale(1.0);
+    transition: all 0.5s;
+}
+
+.botao_cad:hover {
+    transform: scale(1.1);
+    transition: all 0.5s;
+}
+
+.container {
+    margin: 0 auto;
+    width: 93%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+ul {
+    display: flex;
+    width: 350px;
+    justify-content: space-between;
+    list-style: none;
+}
+
+li {
+    color: white
+}
+
+.banner {
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    background-color: #181818;
+    background-image: url(./data-center-1.jpg);
+}
+
+.banner .container {
+    height: 350px;
+    align-items: center;
+    justify-content: center;
+}
+
+.caixa {
+    flex-direction: column;
+    align-items: center;
+    margin: 0 15px;
+}
+
+
+.footer {
+    padding: 45px 0;
+    background-color: black;
+    border-top: 2px solid;
+    border-color: white;
+}
+
+.footer .container {
+    justify-content: center;
+}
+    
+.caixa-formulario{
+    background-color: rgba(255, 255, 255, 0.603);
+    width: 100%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: min-content;
+    padding: 2% 0;
+    margin: 0 2%;
+    border: solid black 2px;
+}
+
+.teste{
+   display: flex;
+    justify-content: center;
+    width: 90%;
+    margin: auto;
+}
+.div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.div2{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+.campo input {
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid black;
+    color: black;
+    display: flex;
+}   
+.campo select {
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid black;
+    color: black;    
+}
+
+.caixa-formulario button {
+    margin-top: 20px;
+    width: 120px;
+    color: black;
+    background-color: #16be41;
+    padding: 10px 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.caixa-formulario button:hover{
+    opacity: 0.8;
+}
+
+label{
+    color: black;
+}
+
+h1 {
+    color: #16be41;
+}
+
+.campo label {
+    margin: 15px 0;
+}
+
+.caixa-formulario h1 {
+    color: black;
+    display: flex;
+}
+
+.resul{
+    background-color: transparent;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.container p {
+    color: white;
+}
+input::placeholder{
+    color: black;
+}   
+div {
+    color: black;
+}
+b {
+    color: black;
+}
