@@ -1,0 +1,288 @@
+/* <div class="btn-logout" onclick="limparSessao()">
+                <h3>Sair</h3> */
+                body{
+                    margin:0px;
+                    padding: 0px;
+                    background-color:#000000;
+                    overflow-x: hidden;
+                    font-family: system-ui;
+                  }
+  
+                  :root {
+                    --criticoQuente: #a6ff00;
+                    --alertaQuente: #5eff00;
+                    --ideal: #36a91c;
+                    --alertaFrio: #28ff82;
+                    --criticoFrio: #009a31;
+                    --blue: #add8e6;
+                    --pink: #e74f89;
+                    --white: #fff;
+                    --grey: #f5f5f5;
+                    --black1: #222;
+                    --black2: #999;
+                  }
+                  .clearfix{
+                    clear: both;
+                  }
+                  .logo{
+                    margin: 0px;
+                    margin-left: 28px;
+                      font-weight: bold;
+                      color: rgb(43, 255, 0);
+                      margin-bottom: 30px;
+                  }
+                  .logo span{
+                    color: rgb(50, 205, 50);
+                    color: rgb(255, 255, 255);
+                  }
+                 
+                  .sidenav {
+                    height: 100%;
+                    width: 300px;
+                    position: fixed;
+                    z-index: 1;
+                    top: 0;
+                    left: 0;
+                    background-color: #1b1b1b;
+                    overflow: hidden;
+                    transition: 0.5s;
+                    padding-top: 30px;
+                  }
+                  .sidenav a {
+                    padding: 15px 8px 15px 32px;
+                    text-decoration: none;
+                    font-size: 20px;
+                    color: #818181;
+                    display: block;
+                    transition: 0.3s;
+                  }
+                  .sidenav a:hover {
+                    color: #f1f1f1;
+                    background-color:#1b203d;
+                  }
+                  .sidenav{
+                    position: absolute;
+                    top: 0;
+                    right: 25px;
+                    font-size: 36px;
+                  }
+                  #main {
+                    transition: margin-left .5s;
+                    padding: 16px;
+                    margin-left: 300px;
+                  }
+                  .head{
+                    padding:20px;
+                  }
+                  .col-div-6{
+                    width: 50%;
+                    float: left;
+                  }
+                  
+                  
+                  
+                  
+                  .box-icon{
+                    font-size: 40px;
+                      float: right;
+                      margin-top: 35px;
+                      color: #818181;
+                      padding-right: 10px;
+                  }
+                  .col-div-8{
+                    width: 70%;
+                    float: left;
+                    transition: 0.7s;
+                  }
+                  .col-div-4{
+                    width: 30%;
+                    float: left;
+                  }
+                  .content-box{
+                    padding: 20px;
+                  }
+                  .content-box p{
+                    margin: 0px;
+                      font-size: 20px;
+                      color: #32cd32;
+                  }
+                  .content-box p span{
+                    float: right;
+                      background-color: #ddd;
+                      padding: 3px 10px;
+                      font-size: 15px;
+                  }
+                  .box, .box-4{
+                    width: 142.7%;
+                    background-color: #000000;
+                    height: 150px;
+                    margin-top: -2%;
+                    transition: 0.7s;
+                    
+                  }
+                  .nav2{
+                    display: none;
+                  }
+                  
+                  
+                  table {
+                    font-family: arial, sans-serif;
+                    border-collapse: collapse;
+                    width: 100%;
+                    
+                  }
+                  td, th {
+                    text-align: left;
+                    padding:10px;
+                    color: #ddd;
+                    border-bottom: 1px solid #414141;
+                  }
+                  
+                  
+                  .main_grafico{
+                    display: flex;
+                    background-color: #000000;
+                    height: 250px;
+                    width: 100%;
+                   
+                    
+                  }
+                  .grafico1{
+                    position: relative; 
+                    width:37vw;
+                    border-right: 1px solid #ffffff;
+                    transition: 0.7s;
+                   
+                  
+                  }
+                  .grafico2{
+                    position: relative; 
+                    width:37vw;
+                    transition: 0.7s;
+                  
+                   
+                  }
+                  
+                  
+                
+                  .hello {
+                    
+                    display: flex;
+                    justify-content: center;
+                    margin-right: 50%;
+                    margin-top: 5%;
+                    transition: 0.9s;
+                  }
+                  
+                  .hello h3 {
+                    color: #ffffff;
+                    font-weight: 300;
+                    font-size: 1.3rem;
+                  }
+                  
+                  .hello h3 span {
+                    font-weight: 700;
+                    color: #66ff00;
+                  }
+  
+                  .cardBox {
+                    position: relative;
+                    width: 100%;
+                    padding: 20px;
+                    display: grid;
+                    grid-template-columns: repeat(5, 1fr);
+                    grid-gap: 30px;
+                  }
+                  
+                  .cardBox .card,
+                  .cardAlert .card {
+                    position: relative;
+                    background: var(--white);
+                    padding: 30px;
+                    border-radius: 20px;
+                    display: flex;
+                    justify-content: space-between;
+                    cursor: pointer;
+                    box-shadow: 0 7px 25px rgba(255, 255, 255, 0.1);
+                  }
+                  
+                  .cardBox .card .numbers,
+                  .cardAlert .card .numbers {
+                    position: relative;
+                    font-weight: 500;
+                    font-size: 2.5rem;
+                  }
+                  
+                  .cardBox .card:nth-child(1) {
+                    background: var(--criticoFrio);
+                    color: var(--white);
+                  }
+                  
+                  .cardBox .card:nth-child(2) {
+                    background: var(--alertaFrio);
+                    color: var(--white);
+                  }
+                  
+                  .cardBox .card:nth-child(3) {
+                    background: var(--ideal);
+                    color: var(--white);
+                  }
+                  
+                  .cardBox .card:nth-child(4) {
+                    background: var(--alertaQuente);
+                    color: var(--white);
+                  }
+                  
+                  .cardBox .card:nth-child(5) {
+                    background: var(--criticoQuente);
+                    color: var(--white);
+                  }
+                  
+                  .cardBox .card .cardName {
+                    color: var(--white);
+                  }
+                  
+                  .cardBox .card .iconbx {
+                    font-size: 3.5rem;
+                    color: var(--white);
+                  }
+                  
+                  .cardAlert .card .cardName {
+                    font-size: 1.1rem;
+                    color: var(--black2);
+                  }
+                  
+                  .cardAlert .card:nth-child(1) {
+                    font-size: 3.5rem;
+                    color: var(--criticoFrio);
+                  }
+                  
+                  .cardAlert .card:nth-child(2) {
+                    font-size: 3.5rem;
+                    color: var(--alertaFrio);
+                  }
+                  
+                  .cardAlert .card:nth-child(3) {
+                    font-size: 3.5rem;
+                    color: var(--ideal);
+                  }
+                  
+                  .cardAlert .card:nth-child(4) {
+                    font-size: 3.5rem;
+                    color: var(--alertaQuente);
+                  }
+                  
+                  .cardAlert .card:hover .numbers,
+                  .cardAlert .card:hover .iconbx,
+                  .cardAlert .card:hover .cardName {
+                    color: var(--white);
+                  }
+                  
+                  .cardAlert {
+                    position: relative;
+                    width: 100%;
+                    padding: 20px;
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    grid-gap: 30px;
+                  }
