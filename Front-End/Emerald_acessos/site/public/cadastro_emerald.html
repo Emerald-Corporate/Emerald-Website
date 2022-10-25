@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emerald</title>
-    <link rel="stylesheet" href="../CSS/style_cadastro_emerald.css">
-   <link rel="shortcut icon" href="../Imagens/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="CSS/style_cadastro_emerald.css">
+   <link rel="shortcut icon" href="Imagens/favicon.png" type="image/x-icon">
 </head>
 
 <script src="./js/funcoes.js"></script>
@@ -15,15 +15,15 @@
 <body>
     <div class="header">
         <div class="logo">
-            <a href="emerald.html"><img src="../Imagens/emerald_logo.png" width="160"></a>
+            <a href="index.html"><img src="Imagens/emerald_logo.png" width="160"></a>
         </div>
 
         <div class="nav_home">
             <ul>
-                <li><a href="emerald.html">Home</a></li>
-                <li><a href="emerald.html">Serviços</a></li>
-                <li><a href="emerald.html">Quem Somos?</a></li>
-                <li><a href="emerald.html">Contato</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">Serviços</a></li>
+                <li><a href="index.html">Quem Somos?</a></li>
+                <li><a href="index.html">Contato</a></li>
             </ul>
         </div>
 
@@ -93,85 +93,3 @@
 </body>
 
 </html>
-
-<script>
-      function cadastrar() {
-        aguardar();
-
-        var nome = in_nome.value   
-        var cnpj = in_cnpj.value
-        var email = in_emai.value
-        var server = in_server.value
-        var senha = in_senha.value
-        var confirmacao = in_confirmacao.value
-        var tier = sel_dtcenter.value
-        var cep = in_cep.value
-        var pais = in_pais.value
-        var estado = in_estado.value
-        var cidade = in_cidade.value
-        var bairro = in_bairro.value
-        var rua = in_rua.value
-
-        if (nome == "" || cnpj == "" || email == "" || server == "" || senha == "" || confirmacao == "" || tier == "" || cep == "" || pais == "" || estado == "" || cidade == "" || bairro == "" || rua == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-
-            finalizarAguardar();
-            return false;
-        }
-        else {
-            setInterval(sumirMensagem, 5000)
-        }
-        fetch("/usuarios/cadastrar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
-                NomeServer: nome,
-                CNPJServer: cnpj,
-                EmailServer: email,
-                serverServer: server,
-                SenhaServer: senha,
-                RuaServer: rua,
-                BairroServer: bairro,
-                CepServer: cep,
-                EstadoServer: estado,
-                CidadeServer: cidade,
-                paisServer: pais,
-                TierServer: tier,
-
-
-            })
-        }).then(function (resposta) {
-
-            console.log("resposta: ", resposta);
-
-            if (resposta.ok) {
-                cardErro.style.display = "block";
-
-                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
-                setTimeout(() => {
-                    window.location = "login_emerald.html";
-                }, "2000")
-                
-                limparFormulario();
-                finalizarAguardar();
-            } else {
-                throw ("Houve um erro ao tentar realizar o cadastro!");
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-            finalizarAguardar();
-        });
-
-        return false;
-    }
-
-    function sumirMensagem() {
-        cardErro.style.display = "none"
-    }
-</script>
