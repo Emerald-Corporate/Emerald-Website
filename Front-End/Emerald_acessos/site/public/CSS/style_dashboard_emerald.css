@@ -86,9 +86,6 @@ body {
   float: left;
 }
 
-
-
-
 .box-icon {
   font-size: 40px;
   float: right;
@@ -125,7 +122,6 @@ body {
   font-size: 15px;
 }
 
-.box,
 .box-4 {
   width: 142.7%;
   background-color: #000000;
@@ -147,7 +143,6 @@ table {
 
 }
 
-td,
 th {
   text-align: left;
   padding: 10px;
@@ -181,8 +176,6 @@ th {
 
 
 }
-
-
 
 .hello {
 

@@ -1,8 +1,9 @@
-
+-- DDL Data Definition Language
 create database sprint02;
 
 use sprint02;
 
+-- DDL
 create table endereçoDC (
 idendereço int primary key auto_increment,
 Rua varchar (45),
@@ -10,15 +11,16 @@ Bairro varchar (45),
 Cep char (8),
 Estado varchar (45),
 Cidade varchar (45),
-país varchar (45)
+País varchar (45)
 );
 
 create table Empresa (
 idEmpresa int primary key auto_increment,
-nome varchar(50),
+Nome varchar(50),
 CNPJ char(14),
 fkEmpresaTipo int,
-foreign key (fkEmpresaTipo) references Empresa(idEmpresa)
+foreign key (fkEmpresaTipo) references Empresa(idEmpresa),
+TipoE varchar(45), constraint chkTipoE check (TipoE in ('matriz', 'filial'))
 );
 
 create table Usuario (
@@ -49,9 +51,9 @@ primary key (idDataCenter, fkempresa, fkendereço)
 
 create table Sensor (
 idsensor int auto_increment,
-codigoSerial varchar (45),
-estado varchar (45), constraint chkestado check (estado in ('Ativo', 'Manutenção', 'Desativado')),
-dataM date,
+CodigoSerial varchar (45),
+Modo varchar (45), constraint chkModo check (Modo in ('Ativo', 'Manutenção', 'Desativado')),
+DataM date,
 fkdatacenter int,
 foreign key (fkdatacenter) references DataCenter(idDataCenter),
 primary key (idsensor, fkdatacenter)
@@ -61,12 +63,13 @@ create table Metrica (
 idMetrica int auto_increment,
 Temperatura float,
 Umidade float,
-dataH datetime,
+DataH datetime,
 fksensor int,
 foreign key (fksensor) references Sensor(idsensor),
 primary key (idMetrica, fksensor)
 );
 
+-- DML Date Manipulation Language
 insert into endereçoDC values
 (null, 'rua jardim gameiro', 'Tatuapé', '20568712', 'bahia', 'salvador', 'brasil'),
 (null, 'rua  augusto cinco', 'Ibirapuera', '20145980', 'mato grosso', 'cuiabá', 'brasil'),
@@ -75,10 +78,10 @@ insert into endereçoDC values
 select * from endereçoDC;
 
 insert into Empresa values
-(null, 'tecnolog', '24589752145872', 1),
-(null, 'blue origin', '15789654852145', 2),
-(null, 'print', '12458796584214', 3),
-(null, 'gomes', '15874595685475', 4);
+(null, 'tecnolog', '24589752145872', 1, 'matriz'),
+(null, 'blue origin', '15789654852145', 2, 'filial'),
+(null, 'print', '12458796584214', 3, 'matriz'),
+(null, 'gomes', '15874595685475', 4, 'matriz');
 select * from Empresa;
 
 
@@ -109,4 +112,3 @@ insert into Metrica values
 (null, '32.10','30.12','2022-09-17 13:12:11', 3),
 (null, '26.17','22.17','2022-01-19 14:23:45', 4);
 select * from Metrica;
-
