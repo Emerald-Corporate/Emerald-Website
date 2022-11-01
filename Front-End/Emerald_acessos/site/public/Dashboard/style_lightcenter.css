@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@200;300;400;500;600;700;800&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Oxanium', sans-serif;
+    outline: none;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #181818;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+::-webkit-scrollbar-track{
+    background-color: #181818;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #FFFFFF;
+}
+
+.navbar {
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    flex-direction: column;
+    padding: 10px;
+    position: fixed;
+    width: 11%;
+    height: 100vh;
+    border-radius: 0 10px 10px 0;
+}
+
+.navegacao{
+    display: flex;
+    flex-direction: column;
+}
+
+.navegacao img{
+    width: 130px;
+}
+
+.navegacao ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: #181818;
+}
+
+.botoes{
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.painel{
+    width: 98%;
+}
+
+.painel h1{
+    color: #FFFFFF;
+}
+
+.container{
+    width: 100%;
+}
+
+.temperatura{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.indi_temp{
+    background-color: #2E2E2E;
+}
+
+.indi_umi{
+    background-color: #2E2E2E;
+}
+
+.legenda_temp ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    color: aqua;
+}
+
+.grafi_temp{
+    background-color: #2E2E2E;
+}
+
+.umidade{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.legenda_umi ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    color: lime;
+}
+
+.grafi_umi{
+    background-color: red;
+}
