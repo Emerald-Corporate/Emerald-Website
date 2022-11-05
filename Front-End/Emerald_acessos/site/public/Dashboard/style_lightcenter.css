@@ -71,10 +71,15 @@ html {
     
 }
 
-.botoes{
+.botoes ul{
     list-style-type: none;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.botoes li{
+    cursor: pointer;
 }
 
 .painel{
@@ -101,12 +106,9 @@ html {
     background-color: #2E2E2E;
     border-radius: 10px;
     margin-right: 20px;
-
+    padding: 10px;
 }
 
-.indi_umi{
-    background-color: #2E2E2E;
-}
 
 .legenda_temp{
     display: flex;
@@ -119,7 +121,6 @@ html {
 }
 
 .legenda_temp ul{
-    
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -127,7 +128,6 @@ html {
     width: 100%;
     color: rgb(255, 255, 255);
     list-style: none;
-    
 }
 
 
@@ -141,11 +141,33 @@ html {
     flex-direction: row;
 }
 
+.indi_umi{
+    margin-top: 10px;
+    width: 69%;
+    background-color: #2E2E2E;
+    border-radius: 10px;
+    margin-right: 20px;
+    padding: 10px;
+}
+
+.legenda_umi{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 4px;
+    margin: 10px;
+}
+
 .legenda_umi ul{
-    list-style: none;
     display: flex;
     flex-direction: row;
-    color: lime;
+    justify-content: space-between;
+    padding: 10px 0px 0px 0px;
+    width: 100%;
+    color: rgb(255, 255, 255);
+    list-style: none;
 }
 
 .grafi_umi{
@@ -159,6 +181,8 @@ html {
     margin-left: 10px;
     margin-right: 10px;
     color: white;
+    text-shadow: 2px 0 rgb(0, 0, 0), -2px 0 rgb(0, 0, 0), 0 2px rgb(0, 0, 0), 0 -2px rgb(0, 0, 0),
+    1px 1px rgb(0, 0, 0), -1px -1px rgb(0, 0, 0), 1px -1px rgb(0, 0, 0), -1px 1px rgb(0, 0, 0);
 }
 
 .k1{
