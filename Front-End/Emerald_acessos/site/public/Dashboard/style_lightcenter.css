@@ -83,6 +83,9 @@ html {
 
 .indi_temp{
     background-color: #2E2E2E;
+    border: 5px solid white;
+    border-radius: 10px;
+    padding: 3px;
 }
 
 .indi_umi{
@@ -94,6 +97,7 @@ html {
     display: flex;
     flex-direction: row;
     color: aqua;
+    
 }
 
 .grafi_temp{
