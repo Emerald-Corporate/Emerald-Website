@@ -43,6 +43,7 @@ html {
 .navegacao{
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .navegacao img{
@@ -55,6 +56,19 @@ html {
     flex-direction: column;
     align-items: center;
     border-radius: #181818;
+    width: 100%;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.navegacao li{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px 0px 5px 0px;
+    width: 100%;
+    cursor: pointer;
+    
 }
 
 .botoes{
@@ -67,7 +81,7 @@ html {
     width: 98%;
 }
 
-.painel h1{
+.painel h3{
     color: #FFFFFF;
 }
 
@@ -81,24 +95,41 @@ html {
     flex-direction: row;
 }
 
+
 .indi_temp{
+    width: 69%;
     background-color: #2E2E2E;
-    border: 5px solid white;
     border-radius: 10px;
-    padding: 3px;
+    margin-right: 20px;
+
 }
 
 .indi_umi{
     background-color: #2E2E2E;
 }
 
+.legenda_temp{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 4px;
+    margin: 10px;
+}
+
 .legenda_temp ul{
-    list-style: none;
+    
     display: flex;
     flex-direction: row;
-    color: aqua;
+    justify-content: space-between;
+    padding: 10px 0px 0px 0px;
+    width: 100%;
+    color: rgb(255, 255, 255);
+    list-style: none;
     
 }
+
 
 .grafi_temp{
     background-color: #2E2E2E;
@@ -119,4 +150,48 @@ html {
 
 .grafi_umi{
     background-color: red;
+}
+
+.kpi{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: white;
+}
+
+.k1{
+    padding: 4px;
+    background-color: rgb(0, 66, 136);
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+.k2{
+    padding: 4px;
+    background-color: rgb(0, 123, 255);
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
+.k3{
+    padding: 4px;
+    background-color: rgb(0, 216, 14);
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
+.k4{
+    padding: 4px;
+    background-color: rgb(221, 255, 0);
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
+.k5{
+    padding: 4px;
+    background-color: rgb(255, 0, 0);
+    border: 2px solid white; 
+    border-radius: 10px;   
 }
