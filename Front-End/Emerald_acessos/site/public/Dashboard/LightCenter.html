@@ -20,7 +20,7 @@
         <div class="navegacao">
             <img src="Group 38.png" alt="">
             <ul>
-                <li class="painel">Painéis</li>
+                <li class="pai">Painéis</li>
                 <li class="perfil" style="border-top:1px solid black ;">Perfil</li>
             </ul>
         </div>
@@ -46,11 +46,11 @@
                     <div class="legenda_temp">
                         <h3>Indíce de Temperatura:</h3>
                         <ul>
-                            <li>Miníma:<br>Abaixo de 19ºC</li>
-                            <li>Alerta miníma:<br> Entre 19ºC e 24ºC</li>
-                            <li>Ideal: <br> 25ºC</li>
-                            <li>Alerta maxíma: <br> 26ºC</li>
-                            <li>Maxíma: <br> Acima de 26ºC</li>
+                            <li><div class="bola b1"></div>Miníma:<br>Abaixo de 19ºC</li>
+                            <li><div class="bola b2"></div>Alerta miníma:<br> Entre 19ºC e 24ºC</li>
+                            <li><div class="bola b3"></div>Ideal: <br> 25ºC</li>
+                            <li><div class="bola b4"></div>Alerta maxíma: <br> 26ºC</li>
+                            <li><div class="bola b5"></div>Maxíma: <br> Acima de 26ºC</li>
                         </ul>
                     </div>
 
@@ -89,11 +89,11 @@
                     <div class="legenda_umi">
                         <h3>Indíce de Umidade:</h3>
                         <ul>
-                            <li>Miníma: <br> Abaixo de 40%</li>
-                            <li>Alerta miníma: <br> Entre 40% e 49%</li>
-                            <li>Ideal: <br> 50%</li>
-                            <li>Alerta maxíma: <br> Entre 51% e 60%</li>
-                            <li>Maxíma: <br> Acima de 60%</li>
+                            <li><div class="bola b1"></div>Miníma: <br> Abaixo de 40%</li>
+                            <li><div class="bola b2"></div>Alerta miníma: <br> Entre 40% e 49%</li>
+                            <li><div class="bola b3"></div>Ideal: <br> 50%</li>
+                            <li><div class="bola b4"></div>Alerta maxíma: <br> Entre 51% e 60%</li>
+                            <li><div class="bola b5"></div>Maxíma: <br> Acima de 60%</li>
                         </ul>
                     </div>
 
@@ -135,23 +135,14 @@
 
 <script>
     const alerta_temp = {
-        labels: [
-            'Miníma',
-            'Alerta Mínima',
-            'Ideal',
-            'Alerta Maxíma',
-            'Maxíma',
-        ],
-
         datasets: [{
-            legenda: 'My First Dataset',
             data: [20, 20, 20, 20, 20],
             backgroundColor: [
-                'rgb(0, 66, 136)',
-                'rgb(0, 123, 255)',
-                'rgb(0, 216, 14)',
-                'rgb(221, 255, 0)',
-                'rgb(255, 0, 0)',
+                'rgb(37, 59, 254)',
+                'rgb(0, 255, 240)',
+                'rgb(9, 194, 93)',
+                'rgb(189, 255, 0)',
+                'rgb(255, 46, 0)',
             ],
             hoverOffset: 4
         }]
@@ -174,23 +165,14 @@
 
 <script>
     const alerta_umi = {
-        labels: [
-            'Miníma',
-            'Alerta Mínima',
-            'Ideal',
-            'Alerta Maxíma',
-            'Maxíma',
-        ],
-
         datasets: [{
-            legenda: 'My First Dataset',
             data: [20, 20, 20, 20, 20],
             backgroundColor: [
-                'rgb(0, 66, 136)',
-                'rgb(0, 123, 255)',
-                'rgb(0, 216, 14)',
-                'rgb(221, 255, 0)',
-                'rgb(255, 0, 0)',
+                'rgb(37, 59, 254)',
+                'rgb(0, 255, 240)',
+                'rgb(9, 194, 93)',
+                'rgb(189, 255, 0)',
+                'rgb(255, 46, 0)',
             ],
             hoverOffset: 4
         }]

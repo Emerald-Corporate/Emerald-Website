@@ -83,7 +83,11 @@ html {
 }
 
 .painel{
-    width: 98%;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    background-color: red;
+    align-items: flex-end;
 }
 
 .painel h3{
@@ -92,6 +96,11 @@ html {
 
 .container{
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: lime;
 }
 
 .temperatura{
@@ -102,7 +111,7 @@ html {
 
 
 .indi_temp{
-    width: 69%;
+    width: 80%;
     background-color: #2E2E2E;
     border-radius: 10px;
     margin-right: 20px;
@@ -114,6 +123,7 @@ html {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #181818;
     border: 2px solid white;
     border-radius: 10px;
     padding: 4px;
@@ -126,10 +136,44 @@ html {
     justify-content: space-between;
     padding: 10px 0px 0px 0px;
     width: 100%;
-    color: rgb(255, 255, 255);
+    color: #FFFFFF;
     list-style: none;
+    gap: 1rem;
 }
 
+.legenda_temp ul li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+}
+
+.bola{
+    padding: 1px;
+    width: 15px;
+    height: 15px;
+    border-radius: 500px;
+}
+
+.bola b1{
+    background-color: #253bfe;
+}
+
+.bola b2{
+    background-color: #00fff0;
+}
+
+.bola b3{
+    background-color: #09c25d;
+}
+
+.bola b4{
+    background-color: #bdff00;
+}
+
+.bola b5{
+    background-color: #ff2e00;
+}
 
 .grafi_temp{
     background-color: #2E2E2E;
@@ -143,7 +187,7 @@ html {
 
 .indi_umi{
     margin-top: 10px;
-    width: 69%;
+    width: 80%;
     background-color: #2E2E2E;
     border-radius: 10px;
     margin-right: 20px;
@@ -154,6 +198,7 @@ html {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #181818;
     border: 2px solid white;
     border-radius: 10px;
     padding: 4px;
@@ -166,7 +211,7 @@ html {
     justify-content: space-between;
     padding: 10px 0px 0px 0px;
     width: 100%;
-    color: rgb(255, 255, 255);
+    color: #FFFFFF;
     list-style: none;
 }
 
@@ -181,41 +226,41 @@ html {
     margin-left: 10px;
     margin-right: 10px;
     color: white;
-    text-shadow: 2px 0 rgb(0, 0, 0), -2px 0 rgb(0, 0, 0), 0 2px rgb(0, 0, 0), 0 -2px rgb(0, 0, 0),
-    1px 1px rgb(0, 0, 0), -1px -1px rgb(0, 0, 0), 1px -1px rgb(0, 0, 0), -1px 1px rgb(0, 0, 0);
+    text-shadow: 2px 0 #000000, -2px 0 #000000, 0 2px #000000, 0 -2px #000000,
+    1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;
 }
 
 .k1{
     padding: 4px;
-    background-color: rgb(0, 66, 136);
-    border: 2px solid rgb(255, 255, 255);
+    background-color: #253bfe;
+    border: 2px solid #FFFFFF;
     border-radius: 10px;
 }
 
 .k2{
     padding: 4px;
-    background-color: rgb(0, 123, 255);
+    background-color: #00fff0;
     border: 2px solid white;
     border-radius: 10px;
 }
 
 .k3{
     padding: 4px;
-    background-color: rgb(0, 216, 14);
+    background-color: #09c25d;
     border: 2px solid white;
     border-radius: 10px;
 }
 
 .k4{
     padding: 4px;
-    background-color: rgb(221, 255, 0);
+    background-color: #bdff00;
     border: 2px solid white;
     border-radius: 10px;
 }
 
 .k5{
     padding: 4px;
-    background-color: rgb(255, 0, 0);
+    background-color: #ff2e00;
     border: 2px solid white; 
     border-radius: 10px;   
 }
