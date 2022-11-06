@@ -6,8 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style_lightcenter.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>Light Center</title>
 </head>
 
@@ -25,10 +28,10 @@
         <div class="botoes">
             <ul>
                 <li class="config"><span class="material-symbols-outlined">
-                    settings
+                        settings
                     </span></li>
                 <li class="sai"><span class="material-symbols-outlined">
-                    logout
+                        logout
                     </span></li>
             </ul>
         </div>
@@ -75,12 +78,14 @@
                 </div>
 
                 <div class="grafi_temp">
-
+                    <div>
+                        <canvas id="grafico_temp"></canvas>
+                    </div>
                 </div>
             </div>
-            
+
             <div class="umidade">
-                 <div class="indi_umi">
+                <div class="indi_umi">
                     <div class="legenda_umi">
                         <h3>Indíce de Umidade:</h3>
                         <ul>
@@ -116,7 +121,9 @@
                 </div>
 
                 <div class="grafi_umi">
-
+                    <div>
+                        <canvas id="grafico_umi"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
@@ -124,3 +131,82 @@
 </body>
 
 </html>
+
+
+<script>
+    const alerta_temp = {
+        labels: [
+            'Miníma',
+            'Alerta Mínima',
+            'Ideal',
+            'Alerta Maxíma',
+            'Maxíma',
+        ],
+
+        datasets: [{
+            legenda: 'My First Dataset',
+            data: [20, 20, 20, 20, 20],
+            backgroundColor: [
+                'rgb(0, 66, 136)',
+                'rgb(0, 123, 255)',
+                'rgb(0, 216, 14)',
+                'rgb(221, 255, 0)',
+                'rgb(255, 0, 0)',
+            ],
+            hoverOffset: 4
+        }]
+    };
+</script>
+
+<script>
+    const config_temp = {
+        type: 'pie',
+        data: alerta_temp,
+    };
+</script>
+
+<script>
+    const grafico_temp = new Chart(
+        document.getElementById('grafico_temp'),
+        config_temp
+    );
+</script>
+
+<script>
+    const alerta_umi = {
+        labels: [
+            'Miníma',
+            'Alerta Mínima',
+            'Ideal',
+            'Alerta Maxíma',
+            'Maxíma',
+        ],
+
+        datasets: [{
+            legenda: 'My First Dataset',
+            data: [20, 20, 20, 20, 20],
+            backgroundColor: [
+                'rgb(0, 66, 136)',
+                'rgb(0, 123, 255)',
+                'rgb(0, 216, 14)',
+                'rgb(221, 255, 0)',
+                'rgb(255, 0, 0)',
+            ],
+            hoverOffset: 4
+        }]
+    };
+</script>
+
+<script>
+    const config_umi = {
+        type: 'pie',
+        data: alerta_temp,
+    };
+</script>
+
+<script>
+    const grafico_umi = new Chart(
+        document.getElementById('grafico_umi'),
+        config_umi
+    );
+</script>
