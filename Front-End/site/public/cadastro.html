@@ -8,11 +8,79 @@
     <title>Emerald</title>
     <link rel="stylesheet" href="CSS/style_cadastro_emerald.css">
     <link rel="shortcut icon" href="Imagens/favicon.png" type="image/x-icon">
+    <script>
+        function limpa_formulário_cep() {
+                //Limpa valores do formulário de cep.
+                document.getElementById('uf').value=("");
+                document.getElementById('cidade').value=("");
+                document.getElementById('bairro').value=("");
+                document.getElementById('rua').value=("");
+        }
+    
+        function meu_callback(conteudo) {
+            if (!("erro" in conteudo)) {
+                //Atualiza os campos com os valores.
+                document.getElementById('in_uf').value=(conteudo.uf);
+                document.getElementById('in_cidade').value=(conteudo.localidade);
+                document.getElementById('in_bairro').value=(conteudo.bairro);
+                document.getElementById('in_rua').value=(conteudo.logradouro);
+            } //end if.
+            else {
+                //CEP não Encontrado.
+                limpa_formulário_cep();
+                alert("CEP não encontrado.");
+            }
+        }
+            
+        function pesquisacep(valor) {
+    
+            //Nova variável "cep" somente com dígitos.
+            var cep = valor.replace(/\D/g, '');
+    
+            //Verifica se campo cep possui valor informado.
+            if (cep != "") {
+    
+                //Expressão regular para validar o CEP.
+                var validacep = /^[0-9]{8}$/;
+    
+                //Valida o formato do CEP.
+                if(validacep.test(cep)) {
+    
+                    //Preenche os campos com "..." enquanto consulta webservice.
+                    document.getElementById('in_rua').value="...";
+                    document.getElementById('in_bairro').value="...";
+                    document.getElementById('in_cidade').value="...";
+                    document.getElementById('in_uf').value="...";
+    
+                    //Cria um elemento javascript.
+                    var script = document.createElement('script');
+    
+                    //Sincroniza com o callback.
+                    script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+    
+                    //Insere script no documento e carrega o conteúdo.
+                    document.body.appendChild(script);
+    
+                } //end if.
+                else {
+                    //cep é inválido.
+                    limpa_formulário_cep();
+                    alert("Formato de CEP inválido.");
+                }
+            } //end if.
+            else {
+                //cep sem valor, limpa formulário.
+                limpa_formulário_cep();
+            }
+        };
+    
+        </script>
 </head>
 
 <script src="./js/funcoes.js"></script>
 
 <body>
+    <form method="get" action=".">
     <div class="header">
         <div class="logo">
             <a href="index.html"><img src="Imagens/emerald_logo.png" width="160"></a>
@@ -53,7 +121,7 @@
                 </div>
 
                 <div class="forms">
-                    <h1>Data-Center e Endereço</h1>
+                    <h1>Data-Center</h1>
                     <div class="cl_input">
                         <input class="cl_server" type="number" placeholder="Servidores" id="in_server">
                         <select id="sel_center">
@@ -65,11 +133,10 @@
                         </select>
                         <input class="cl_tamanho" type="number" placeholder="Tamanho (m²)">
                     </div>
-
+                    <h1>Endereço</h1>
                     <div class="cl_input">
-                        <input class="cl_cep" type="text" placeholder="CEP" id="in_cep">
-                        <input class="cl_pais" type="text" placeholder="País" id="in_pais">
-                        <select class="cl_estado" id="in_estado">
+                        <input class="cl_cep" type="text" placeholder="CEP" id="in_cep" onblur="pesquisacep(this.value);">
+                        <select class="cl_estado" id="in_uf">
                             <option value="">-Selecione um estado-</option>
                             <option value="AC">AC</option>
                             <option value="AL">AL</option>
@@ -102,8 +169,8 @@
                     </div>
 
                     <div class="cl_input">
-                        <input class="cl_bairro" type="text" placeholder="Bairro" id="in_bairro">
                         <input class="cl_cidade" type="text" placeholder="Cidade" id="in_cidade">
+                        <input class="cl_bairro" type="text" placeholder="Bairro" id="in_bairro">
                         <input class="cl_rua" type="text" placeholder="Rua" id="in_rua">
                     </div>
 
@@ -131,14 +198,13 @@
         var tierVar = sel_center.value;
         var tamanhoVar = in_tamanho.value;
         var cepVar = in_cep.value
-        var paisVar = in_pais.value
         var estadoVar = in_estado.value
         var cidadeVar = in_cidade.value
         var bairroVar = in_bairro.value
         var ruaVar = in_rua.value
 
 
-        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "" || cnpjVar == "" || serverVar == "" || tierVar == "" || tamanhoVar == "" || cepVar == "" || paisVar == "" || estadoVar == "" || cidadeVar == "" || bairroVar == "" || ruaVar == "") {
+        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "" || cnpjVar == "" || serverVar == "" || tierVar == "" || tamanhoVar == "" || cepVar == "" || estadoVar == "" || cidadeVar == "" || bairroVar == "" || ruaVar == "") {
             cardErro.style.display = "block"
             status.innerHTML = `Campo em branco, por favor valide os campos corretamente`
 
@@ -166,7 +232,6 @@
                 tierServer: tierVar,
                 tamanhoServer: tamanhoVar,
                 cepServer: cepVar,
-                paisServer: paisVar,
                 estadoServer: estadoVar,
                 cidadeServer: cidadeVar,
                 bairroServer: bairroVar,
