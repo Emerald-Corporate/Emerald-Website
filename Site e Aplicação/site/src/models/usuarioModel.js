@@ -19,17 +19,14 @@ function entrar(email, senha) {
 }
 
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucao
-function cadastrar(nome, email, senha, cnpj, server, tier, tamanho, cep, pais, estado, cidade, bairro, rua) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, email, senha);
+function cadastrar(nome, cnpj, email, senha, confirmacao, servidor, tier, tamanho, cep, uf, cidade, bairro, rua) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, cnpj, email, senha, confirmacao, servidor, tier, tamanho, cep, uf, cidade, bairro, rua);
 
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucao = `
-        INSERT INTO empresa (nome, cnpj, email, senha) VALUES ('${nome}', '${cnpj}','${email}','${senha}');
-
-        INSERT INTO datacenter (qtServidores, tier, tamanho) VALUES ('${server}', '${tier}', '${tamanho}');
-        
-        INSERT INTO enderecoDC (rua, bairro, cep, estado, cidade, pais)VALUES (${rua}, ${bairro}, ${cep}, ${estado}, ${cidade}, ${pais}),`;
+    INSERT INTO enderecoDC (cep, estado, cidade, bairro, rua) VALUES ('${cep}', '${estado}', '${cidade}','${bairro}','${rua}');INSERT INTO empresa (nome, CNPJ, email, senha, confirmacao) VALUES ('${nome}', '${cnpj}', '${email}', '${senha}', '${confirmacao}');INSERT INTO usuario (qtServidores, tier, tamanho, fkEmpresa, fkEndereco) VALUES ('${servidor}', '${tier}', '${tamanho}', '${nome}','${cep}');
+    `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
