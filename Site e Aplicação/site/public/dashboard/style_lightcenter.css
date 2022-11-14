@@ -99,11 +99,15 @@ html {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding: 4rem 0;
+    gap: 2rem;
 }
 
-.temperatura{
+.content{
+    width: 80%;
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: row;
 }
 
@@ -177,20 +181,14 @@ html {
     background-color: #2E2E2E;
 }
 
-.umidade{
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-}
-
 .indi_umi{
-    margin-top: 10px;
     width: 80%;
     background-color: #2E2E2E;
     border-radius: 10px;
     margin-right: 20px;
     padding: 10px;
 }
+
 
 .legenda_umi{
     display: flex;
@@ -211,13 +209,21 @@ html {
     width: 100%;
     color: #FFFFFF;
     list-style: none;
+    gap: 1rem;
+}
+
+.legenda_umi ul li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
 }
 
 .grafi_umi{
-    background-color: red;
+    background-color: #2E2E2E;
 }
 
-.kpi{
+.kpi_box{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -226,36 +232,35 @@ html {
     color: white;
 }
 
+.kpi{
+    padding: 1rem .5rem;
+}
+
 .k1{
-    padding: 4px;
     background-color: #253bfe;
     border: 2px solid #FFFFFF;
     border-radius: 10px;
 }
 
 .k2{
-    padding: 4px;
     background-color: #00fff0;
     border: 2px solid white;
     border-radius: 10px;
 }
 
 .k3{
-    padding: 4px;
     background-color: #09c25d;
     border: 2px solid white;
     border-radius: 10px;
 }
 
 .k4{
-    padding: 4px;
     background-color: #bdff00;
     border: 2px solid white;
     border-radius: 10px;
 }
 
 .k5{
-    padding: 4px;
     background-color: #ff2e00;
     border: 2px solid white; 
     border-radius: 10px;   

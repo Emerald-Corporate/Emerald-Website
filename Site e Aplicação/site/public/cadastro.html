@@ -10,6 +10,75 @@
     <link rel="shortcut icon" href="Imagens/favicon.png" type="image/x-icon">
     <script src="js/funcoes.js"></script>
     <link rel="stylesheet" href="CSS/style.css">
+
+    <script>
+
+        function limpa_formulário_cep() {
+            //Limpa valores do formulário de cep.
+            document.getElementById('in_rua').value = ("");
+            document.getElementById('in_bairro').value = ("");
+            document.getElementById('in_cidade').value = ("");
+            document.getElementById('in_uf').value = ("");
+        }
+
+        function meu_callback(conteudo) {
+            if (!("erro" in conteudo)) {
+                //Atualiza os campos com os valores.
+                document.getElementById('in_rua').value = (conteudo.logradouro);
+                document.getElementById('in_bairro').value = (conteudo.bairro);
+                document.getElementById('in_cidade').value = (conteudo.localidade);
+                document.getElementById('in_uf').value = (conteudo.uf);
+            } //end if.
+            else {
+                //CEP não Encontrado.
+                limpa_formulário_cep();
+                alert("CEP não encontrado.");
+            }
+        }
+
+        function pesquisacep(valor) {
+
+            //Nova variável "cep" somente com dígitos.
+            var cep = valor.replace(/\D/g, '');
+
+            //Verifica se campo cep possui valor informado.
+            if (cep != "") {
+
+                //Expressão regular para validar o CEP.
+                var validacep = /^[0-9]{8}$/;
+
+                //Valida o formato do CEP.
+                if (validacep.test(cep)) {
+
+                    //Preenche os campos com "..." enquanto consulta webservice.
+                    document.getElementById('in_rua').value = "...";
+                    document.getElementById('in_bairro').value = "...";
+                    document.getElementById('in_cidade').value = "...";
+                    document.getElementById('in_uf').value = "...";
+
+                    //Cria um elemento javascript.
+                    var script = document.createElement('script');
+
+                    //Sincroniza com o callback.
+                    script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
+
+                    //Insere script no documento e carrega o conteúdo.
+                    document.body.appendChild(script);
+
+                } //end if.
+                else {
+                    //cep é inválido.
+                    limpa_formulário_cep();
+                    alert("Formato de CEP inválido.");
+                }
+            } //end if.
+            else {
+                //cep sem valor, limpa formulário.
+                limpa_formulário_cep();
+            }
+        };
+
+    </script>
 </head>
 
 
@@ -75,7 +144,8 @@
 
                     <h1>Endereço</h1>
                     <div class="cl_input">
-                        <input class="cl_cep" type="text" placeholder="CEP" id="in_cep">
+                        <input class="cl_cep" type="text" placeholder="CEP" id="in_cep"
+                            onblur="pesquisacep(this.value);">
                         <select class="cl_estado" id="in_uf">
                             <option value="">-Selecione um estado-</option>
                             <option value="AC">AC</option>

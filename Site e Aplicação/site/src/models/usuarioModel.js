@@ -24,9 +24,9 @@ function cadastrar(nome, cnpj, email, senha, confirmacao, servidor, tier, tamanh
 
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
-    var instrucao = `
-    INSERT INTO enderecoDC (cep, estado, cidade, bairro, rua) VALUES ('${cep}', '${estado}', '${cidade}','${bairro}','${rua}');INSERT INTO empresa (nome, CNPJ, email, senha, confirmacao) VALUES ('${nome}', '${cnpj}', '${email}', '${senha}', '${confirmacao}');INSERT INTO usuario (qtServidores, tier, tamanho, fkEmpresa, fkEndereco) VALUES ('${servidor}', '${tier}', '${tamanho}', '${nome}','${cep}');
-    `;
+    var instrucao = `INSERT INTO enderecoDC (cep, uf, cidade, bairro, rua) VALUES ('${cep}', '${uf}', '${cidade}','${bairro}','${rua}');`;
+    var instrucao2 = `INSERT INTO empresa (nome, CNPJ, email, senha, confirmacao) VALUES ('${nome}', '${cnpj}', '${email}', '${senha}', '${confirmacao}');`;
+    var instrucao3 = `INSERT INTO usuario (qtServidores, tier, tamanho) VALUES ('${servidor}', '${tier}', '${tamanho}');`
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
