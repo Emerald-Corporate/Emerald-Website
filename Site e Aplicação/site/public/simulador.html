@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/style_simulador.css">
-    <link rel="stylesheet" href="CSS/Emerald_Style/footer.css">
     <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
     <title>Simulador Financeiro</title>
     <script src="js/funcoes.js"></script>
@@ -16,15 +15,15 @@
     <!-- Navbar-->
     <div class="header">
         <div class="logo">
-            <a href="#home"><img src="assets/emerald_logo.png" width="160"></a>
+            <a href="index.html"><img src="assets/emerald_logo.png" width="160"></a>
         </div>
 
         <div class="nav_home">
             <ul>
-                <li><a href="#home">Home<div class="bar"></div></a></li>
-                <li><a href="#serv">Serviços<div class="bar"></div></a></li>
-                <li><a href="#quemsomos">Quem Somos?<div class="bar"></div></a></li>
-                <li><a href="#contato">Contato<div class="bar"></div></a></li>
+                <li><a href="index.html">Home<div class="bar"></div></a></li>
+                <li><a href="index.html">Serviços<div class="bar"></div></a></li>
+                <li><a href="index.html">Quem Somos?<div class="bar"></div></a></li>
+                <li><a href="index.html">Contato<div class="bar"></div></a></li>
             </ul>
         </div>
 
@@ -38,60 +37,43 @@
     <div class="banner">
         <h1>Veja sua econômia aqui!</h1>
         <div class="container">
-            <img src="assets/simulador/financeiro.png" alt="" width="600px" height="600px">
+            <div class="esquerdasimulador">
+                <img src="assets/simulador/financeiro.png" alt="" class="imgsimulador">
+                <a class="fazercadastro" href="cadastro_emerald.html"> Gostou? Clique aqui!<div class="bar"></div></a>
+            </div>
             <div class="caixa-formulario">
                 <h1>Simulador</h1>
-                <div class="cl_input">
-                    <h2>Quantos Racks possui em seu DataCenter:</h2>
-                    <input id="in_qtdRack" placeholder="Digite aqui!">
-                    <h2>Quantos Computadores possui no seu DataCenter:</h2>
-                    <input id="comp" placeholder="Digite aqui!">
+                <div class="line">
+                    <div class="cl_input">
+                        <h2>Quantidade de racks:</h2>
+                        <input id="in_qtdRack" placeholder="Racks">
+                    </div>
+                    
+                    <div class="cl_input">
+                        <h2>Quantidade de computadores:</h2>
+                        <input id="comp" placeholder="Computadores">
+                    </div>
                 </div>
 
-                <div class="cl_input">
-                    <h2>Quantos Minutos o DataCenter ficou parado:</h2>
-                    <input id="downtime" placeholder="Downtime!">
-                    <h2>Selecione qual o tier do seu DataCenter:</h2>
-                    <select name="" id="combo">
-                        <option value="">- Selecione uma tier -</option>
-                        <option value="1">Tier 1</option>
-                        <option value="2">Tier 2</option>
-                        <option value="3">Tier 3</option>
-                        <option value="4">Tier 4</option>
-                    </select>
+                <div class="line">
+                    <div class="cl_input">
+                        <h2>Dowtime por minuto:</h2>
+                        <input id="downtime" placeholder="Downtime">
+                    </div>
+                    <div class="cl_input">
+                        <h2>Tier:</h2>
+                        <select name="" id="combo">
+                            <option value="">- Selecione uma tier -</option>
+                            <option value="1">Tier 1</option>
+                            <option value="2">Tier 2</option>
+                            <option value="3">Tier 3</option>
+                            <option value="4">Tier 4</option>
+                        </select>
+                    </div>
                 </div>
                 <button style="font-size: 82%;" onclick="calc_financa()">Calcular </button>
             </div>
         </div>
-    </div>
-
-    <!-- Footer -->
-    <div id="contato" class="fale_conosco">
-        <h1>Fale Conosco</h1>
-        <div class="social">
-            <a href="https://twitter.com/emerald_tech_/status/1584601329267183616?s=46&t=A-gxlykVYIj6O7MZdMqkWQ"
-                target="_blank">
-                <div class="icone">
-                    <img src="assets/twitter.png"><br>
-                </div>
-            </a>
-            <a href="mailto: emerald.tech@outlook.com" target="_blank">
-                <div class="icone">
-                    <img src="assets/mail.png"><br>
-                </div>
-            </a>
-            <a href="https://instagram.com/emerald_tech_?r=nametag" target="_blank">
-                <div class="icone">
-                    <img src="assets/instagram.png"><br>
-                </div>
-            </a>
-            <a href="https://github.com/PauloCezaretto/Emerald" target="_blank">
-                <div class="icone">
-                    <img src="assets/git hub.png"><br>
-                </div>
-            </a>
-        </div>
-        <p>Ficaremos felizes em falar com você!</p>
     </div>
 </body>
 

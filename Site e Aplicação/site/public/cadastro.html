@@ -6,8 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/cadastro.css">
-    <link rel="stylesheet" href="CSS/Emerald_Style/footer.css">
-    <link rel="shortcut icon" href="Imagens/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
     <title>Emerald</title>
     <script src="js/funcoes.js"></script>
 
@@ -102,7 +101,7 @@
             <li class="botao_cad"><a href="cadastro.html">Cadastro</a></li>
         </div>
     </div>
-    
+
     <!-- Tela de Cadastro -->
     <div class="cadastro">
         <div class="alerta_erro">
@@ -110,11 +109,14 @@
                 <span id="mensagem_erro"></span>
             </div>
         </div>
-        <h1>Cadastre-se</h1>
         <div class="box_form">
-            <img src="assets/cadastro/server.png" alt="" width="600px" height="600px">
+            <div class="esquerda">
+                <img src="assets/cadastro/server.png" alt="" class="imagemcadastro">
+                <a class="fazerlogin" href="login.html"> Já tem uma conta? Clique aqui!<div class="bar"></div></a>
+            </div>
+
             <div class="caixa_forms">
-                <div class="forms empresa">
+                <div class="forms">
                     <h1>Sua Empresa</h1>
                     <div class="cl_input">
                         <input class="cl_nome" type="text" placeholder="Nome" id="in_nome">
@@ -141,7 +143,9 @@
                         </select>
                         <input class="cl_tamanho" type="number" placeholder="Tamanho (m²)" id="in_tamanho">
                     </div>
+                </div>
 
+                <div class="forms">
                     <h1>Endereço do seu Data-Center</h1>
                     <div class="cl_input">
                         <input class="cl_cep" type="text" placeholder="CEP" id="in_cep"
@@ -176,52 +180,24 @@
                             <option value="SE">SE</option>
                             <option value="TO">TO</option>
                         </select>
+                        <input class="cl_cidade" type="text" placeholder="Cidade" id="in_cidade">
                     </div>
 
                     <div class="cl_input">
-                        <input class="cl_cidade" type="text" placeholder="Cidade" id="in_cidade">
                         <input class="cl_bairro" type="text" placeholder="Bairro" id="in_bairro">
                         <input class="cl_rua" type="text" placeholder="Rua" id="in_rua">
                     </div>
-
-                    <button class="btn" onclick="cadastrar()">Cadastrar</button>
-
-                    <div id="div_aguardar" class="loading-div">
-                        <img src="assets/loading.gif" id="loading-gif" width="100px">
-                    </div>
-
-                    <div id="div_erros_login"></div>
                 </div>
+
+                <button class="btn" onclick="cadastrar()">Cadastrar</button>
+
+                <div id="div_aguardar" class="loading-div">
+                    <img src="assets/loading.gif" id="loading-gif" width="100px">
+                </div>
+
+                <div id="div_erros_login"></div>
             </div>
         </div>
-    </div>
-
-    <!-- Footer -->
-    <div id="contato" class="fale_conosco">
-        <h1>Fale Conosco</h1>
-        <div class="social">
-            <a href="https://twitter.com/emerald_tech_/status/1584601329267183616?s=46&t=A-gxlykVYIj6O7MZdMqkWQ" target="_blank">
-                <div class="icone">
-                    <img src="assets/twitter.png"><br>
-                </div>
-            </a>
-            <a href="mailto: emerald.tech@outlook.com" target="_blank">
-                <div class="icone">
-                    <img src="assets/mail.png"><br>
-                </div>
-            </a>
-            <a href="https://instagram.com/emerald_tech_?r=nametag" target="_blank">
-                <div class="icone">
-                    <img src="assets/instagram.png"><br>
-                </div>
-            </a>
-            <a href="https://github.com/PauloCezaretto/Emerald" target="_blank">
-                <div class="icone">
-                    <img src="assets/git hub.png"><br>
-                </div>
-            </a>
-        </div>
-        <p>Ficaremos felizes em falar com você!</p>
     </div>
 </body>
 

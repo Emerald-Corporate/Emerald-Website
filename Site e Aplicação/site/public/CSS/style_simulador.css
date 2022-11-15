@@ -10,15 +10,16 @@
 html {
     scroll-behavior: smooth;
 }
-::-webkit-scrollbar{
+
+::-webkit-scrollbar {
     width: 10px;
 }
 
-::-webkit-scrollbar-track{
+::-webkit-scrollbar-track {
     background-color: #181818;
 }
 
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
     background-color: #00AC4D;
 }
 
@@ -47,14 +48,14 @@ a {
     gap: .5rem;
 }
 
-.bar{
+.bar {
     width: 0;
     height: 2px;
     background-color: #00AC4D;
     transition: .2s ease;
 }
 
-a:hover .bar{
+a:hover .bar {
     width: 60%;
 }
 
@@ -136,12 +137,13 @@ ul {
     background-color: #181818;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    width: 80%;
-    height: 500px;
+    width: 50%;
+    padding: 2rem 0;
     border-radius: 15px 15px 15px 15px;
     color: #FFFFFF;
+    gap: 2rem;
 }
 
 .caixa-formulario button {
@@ -156,11 +158,24 @@ ul {
     cursor: pointer;
 }
 
-.cl_input {
+.line{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
-input, select, button {
+.cl_input {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    align-items: center;
+}
+
+input,
+select,
+button {
+    width: 50%;
     background-color: #FFFFFF;
     border: none;
     padding: .3rem;
@@ -170,8 +185,9 @@ input, select, button {
     text-align: center;
 }
 
-h2{
-    font-size: medium;
+h2 {
+    font-size: 1rem;
+    font-weight: 400;
 }
 
 select {
@@ -204,4 +220,30 @@ button {
 button:hover {
     background-color: #00AC4D;
     cursor: pointer;
+}
+
+.esquerdasimulador {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.esquerdasimulador a:hover .bar{
+    width: 30%;
+}
+
+.fazercadastro {
+    border: 0;
+    color: #181818;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    font-size: 16pt;
+}
+
+.imgsimulador {
+    width: 500px;
 }
