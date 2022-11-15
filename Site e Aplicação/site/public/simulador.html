@@ -1,138 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/style_simulador.css">
-    <title>Simulador</title>
+    <link rel="stylesheet" href="CSS/Emerald_Style/footer.css">
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+    <title>Simulador Financeiro</title>
     <script src="js/funcoes.js"></script>
 </head>
+
 <body>
+    <!-- Navbar-->
     <div class="header">
-        <div class="container">
-            <h1>Emerald</h1>
-            <div class="navbar">
-                <ul>
-                    <li>Home</li>
-                    <li>Sobre Nós</li>
-                    <li>|</li>
-                    <li>Login</li>
-                    <li>Cadastro</li>
-                </ul>
-            </div>
+        <div class="logo">
+            <a href="#home"><img src="assets/emerald_logo.png" width="160"></a>
+        </div>
+
+        <div class="nav_home">
+            <ul>
+                <li><a href="#home">Home<div class="bar"></div></a></li>
+                <li><a href="#serv">Serviços<div class="bar"></div></a></li>
+                <li><a href="#quemsomos">Quem Somos?<div class="bar"></div></a></li>
+                <li><a href="#contato">Contato<div class="bar"></div></a></li>
+            </ul>
+        </div>
+
+        <div class="log_cad">
+            <li class="botao_log"><a href="login.html">Login</a></li>
+            <li class="botao_cad"><a href="cadastro.html">Cadastro</a></li>
         </div>
     </div>
-    <div class="banner" id="banner">
+
+    <!-- Simulador Financeiro -->
+    <div class="banner">
+        <h1>Veja sua econômia aqui!</h1>
         <div class="container">
+            <img src="assets/simulador/financeiro.png" alt="" width="600px" height="600px">
             <div class="caixa-formulario">
                 <h1>Simulador</h1>
-                <div class="teste">
-                    <div class="div">
-                <div class="campo">
-                    <label for="Racks">Quantos Racks possui em seu DataCenter:</label>
+                <div class="cl_input">
+                    <h2>Quantos Racks possui em seu DataCenter:</h2>
                     <input id="in_qtdRack" placeholder="Digite aqui!">
-                </div>
-                <div class="campo">
-                    <label for="computadores">Quantos Computadores possui no seu DataCenter:</label>
+                    <h2>Quantos Computadores possui no seu DataCenter:</h2>
                     <input id="comp" placeholder="Digite aqui!">
                 </div>
-            </div>
-        <div class="div2">
-                <div class="campo">
-                    <label for="downtime">Quantos Minutos o DataCenter ficou parado:</label>
+
+                <div class="cl_input">
+                    <h2>Quantos Minutos o DataCenter ficou parado:</h2>
                     <input id="downtime" placeholder="Downtime!">
-                </div>
-                <div class="campo">
-                    <label for="tier">Selecione qual o tier do seu DataCenter:</label>
+                    <h2>Selecione qual o tier do seu DataCenter:</h2>
                     <select name="" id="combo">
-                        <option value="" style="color: black;">Selecione</option>
-                        <option value="1" style="color: black;">Tier 1</option>
-                        <option value="2" style="color: black;">Tier 2</option>
-                        <option value="3" style="color: black;">Tier 3</option>
-                        <option value="4" style="color: black;">Tier 4</option>
+                        <option value="">- Selecione uma tier -</option>
+                        <option value="1">Tier 1</option>
+                        <option value="2">Tier 2</option>
+                        <option value="3">Tier 3</option>
+                        <option value="4">Tier 4</option>
                     </select>
                 </div>
-            </div>
-            </div>
                 <button style="font-size: 82%;" onclick="calc_financa()">Calcular </button>
-                
             </div>
         </div>
     </div>
-     <div class="footer">
-        <div class="container">
-            <p>Contatos - &copy 2022</p>
+
+    <!-- Footer -->
+    <div id="contato" class="fale_conosco">
+        <h1>Fale Conosco</h1>
+        <div class="social">
+            <a href="https://twitter.com/emerald_tech_/status/1584601329267183616?s=46&t=A-gxlykVYIj6O7MZdMqkWQ"
+                target="_blank">
+                <div class="icone">
+                    <img src="assets/twitter.png"><br>
+                </div>
+            </a>
+            <a href="mailto: emerald.tech@outlook.com" target="_blank">
+                <div class="icone">
+                    <img src="assets/mail.png"><br>
+                </div>
+            </a>
+            <a href="https://instagram.com/emerald_tech_?r=nametag" target="_blank">
+                <div class="icone">
+                    <img src="assets/instagram.png"><br>
+                </div>
+            </a>
+            <a href="https://github.com/PauloCezaretto/Emerald" target="_blank">
+                <div class="icone">
+                    <img src="assets/git hub.png"><br>
+                </div>
+            </a>
         </div>
+        <p>Ficaremos felizes em falar com você!</p>
     </div>
 </body>
+
 </html>
 <script>
-function calc_financa() {
-    // Qtd de arduino
-    var qtdRack = Number(in_qtdRack.value);
+    function calc_financa() {
+        // Qtd de arduino
+        var qtdRack = Number(in_qtdRack.value);
 
-    var computador = Number(comp.value)
+        var computador = Number(comp.value)
 
-    //6 sensores por arduino, definindo quantos arduinos tem
-    var qtdArduino = computador + (qtdRack * 3);
+        //6 sensores por arduino, definindo quantos arduinos tem
+        var qtdArduino = computador + (qtdRack * 3);
 
-    //150 reais por arduino (preço do produto)
-    var Arduino = (150 * qtdArduino);
+        //150 reais por arduino (preço do produto)
+        var Arduino = (150 * qtdArduino);
 
-    //Instalação = compra dos arduinos + 100 reais por instalação de arduino
-    var instalacao = Arduino + (qtdArduino * 100);
+        //Instalação = compra dos arduinos + 100 reais por instalação de arduino
+        var instalacao = Arduino + (qtdArduino * 100);
 
-    // Downtime por ano segundo a tabela em minutos
-    if (combo.value == "1") {
-        var tierPorcentagem = 0.01
-    } else if (combo.value == "2") {
-        var tierPorcentagem = 0.2
-    } else if (combo.value == "3") {
-        var tierPorcentagem = 0.4
-    } else if (combo.value == "4") {
-        var tierPorcentagem = 0.6
-    }
-
-
-    //Preço do projeto mensal
-    var precoProjeto = 20000 + (20000 * tierPorcentagem);
-
-    //Preço Projeto no primeiro mês é o preço da instalação + preco Projeto mensal
-    var precoProjeto1 = instalacao + precoProjeto;
-
-    // Custo de 30 minutos de downtime
-    var paralisacao = 30 * 1200 * 3.54;
-
-    // Custo do downtime por mês (1 por dia)
-    var paralisacaoMes = paralisacao * 29;
-
-    // Custo downtime por ano
-    var paralisacaoAno = paralisacaoMes * 365;
-
-    // Economia no primeiro Mês
-    var economiaMes1 = paralisacaoMes - precoProjeto1;
-
-    // Economia no proximos meses
-    var economiaMes = paralisacaoMes - precoProjeto;
-
-    // Economia por ano
-    var economiaAno = paralisacaoAno - ((precoProjeto * 320) + precoProjeto1);
+        // Downtime por ano segundo a tabela em minutos
+        if (combo.value == "1") {
+            var tierPorcentagem = 0.01
+        } else if (combo.value == "2") {
+            var tierPorcentagem = 0.2
+        } else if (combo.value == "3") {
+            var tierPorcentagem = 0.4
+        } else if (combo.value == "4") {
+            var tierPorcentagem = 0.6
+        }
 
 
+        //Preço do projeto mensal
+        var precoProjeto = 20000 + (20000 * tierPorcentagem);
 
-    // Frases do orçamento
-    if (qtdRack <= 0) {
-        alert("Por favor, insira um valor maior que zero !");
+        //Preço Projeto no primeiro mês é o preço da instalação + preco Projeto mensal
+        var precoProjeto1 = instalacao + precoProjeto;
 
-    } else if (qtdRack > 80000) {
+        // Custo de 30 minutos de downtime
+        var paralisacao = 30 * 1200 * 3.54;
+
+        // Custo do downtime por mês (1 por dia)
+        var paralisacaoMes = paralisacao * 29;
+
+        // Custo downtime por ano
+        var paralisacaoAno = paralisacaoMes * 365;
+
+        // Economia no primeiro Mês
+        var economiaMes1 = paralisacaoMes - precoProjeto1;
+
+        // Economia no proximos meses
+        var economiaMes = paralisacaoMes - precoProjeto;
+
+        // Economia por ano
+        var economiaAno = paralisacaoAno - ((precoProjeto * 320) + precoProjeto1);
+
+
+
+        // Frases do orçamento
+        if (qtdRack <= 0) {
+            alert("Por favor, insira um valor maior que zero !");
+
+        } else if (qtdRack > 80000) {
             alert("Por favor, limite a quantidade de Racks até 80000")
         } else if (computador <= 0) {
-                alert("Insira uma quanditade de computadores!")
-            } else if (combo.value == "3" || combo.value == "4")  {
+            alert("Insira uma quanditade de computadores!")
+        } else if (combo.value == "3" || combo.value == "4") {
 
-                banner.innerHTML = 
-                    `
+            banner.innerHTML =
+                `
                     <div class="caixa-formulario">
                         <div class="resul">
                             <div>
@@ -149,9 +178,9 @@ function calc_financa() {
                 Primeiro mês: <b>R$${economiaMes1.toFixed(2)}</b> <br>
                 Próximos meses: <b>R$${economiaMes.toFixed(2)}</b> <br>
                 Em um ano: <b>R$${economiaAno.toFixed(2)}</b>! <br> <br> </div></div></div>`
-            } else if (combo.value == "1" || combo.value == "2") {
-                
-                banner.innerHTML = `
+        } else if (combo.value == "1" || combo.value == "2") {
+
+            banner.innerHTML = `
                 <div class="caixa-formulario">
                     <div class="resul">
                         <div>
@@ -174,6 +203,6 @@ function calc_financa() {
                 Próximos meses: <strong>R$${economiaMes.toFixed(2)}</strong> <br>
                 Em um ano: <strong>R$${economiaAno.toFixed(2)}</strong>! <br> <br> </div></div>`
 
-            }
-}
+        }
+    }
 </script>

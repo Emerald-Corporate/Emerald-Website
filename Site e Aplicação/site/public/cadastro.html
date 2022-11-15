@@ -5,14 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emerald</title>
-    <link rel="stylesheet" href="CSS/style_cadastro_emerald.css">
+    <link rel="stylesheet" href="CSS/cadastro.css">
+    <link rel="stylesheet" href="CSS/Emerald_Style/footer.css">
     <link rel="shortcut icon" href="Imagens/favicon.png" type="image/x-icon">
+    <title>Emerald</title>
     <script src="js/funcoes.js"></script>
-    <link rel="stylesheet" href="CSS/style.css">
 
     <script>
-
         function limpa_formulário_cep() {
             //Limpa valores do formulário de cep.
             document.getElementById('in_rua').value = ("");
@@ -83,17 +82,18 @@
 
 
 <body>
+    <!-- Navbar-->
     <div class="header">
         <div class="logo">
-            <a href="index.html"><img src="Imagens/emerald_logo.png" width="160"></a>
+            <a href="index.html"><img src="assets/emerald_logo.png" width="160"></a>
         </div>
 
         <div class="nav_home">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="index.html">Serviços</a></li>
-                <li><a href="index.html">Quem Somos?</a></li>
-                <li><a href="index.html">Contato</a></li>
+                <li><a href="index.html">Home<div class="bar"></div></a></li>
+                <li><a href="index.html">Serviços<div class="bar"></div></a></li>
+                <li><a href="index.html">Quem Somos?<div class="bar"></div></a></li>
+                <li><a href="index.html">Contato<div class="bar"></div></a></li>
             </ul>
         </div>
 
@@ -102,6 +102,8 @@
             <li class="botao_cad"><a href="cadastro.html">Cadastro</a></li>
         </div>
     </div>
+    
+    <!-- Tela de Cadastro -->
     <div class="cadastro">
         <div class="alerta_erro">
             <div class="card_erro" id="cardErro">
@@ -110,12 +112,10 @@
         </div>
         <h1>Cadastre-se</h1>
         <div class="box_form">
-            <div class="imgForm">
-            </div>
-
+            <img src="assets/cadastro/server.png" alt="" width="600px" height="600px">
             <div class="caixa_forms">
                 <div class="forms empresa">
-                    <h1>Empresa</h1>
+                    <h1>Sua Empresa</h1>
                     <div class="cl_input">
                         <input class="cl_nome" type="text" placeholder="Nome" id="in_nome">
                         <input class="cl_cnpj" type="text" placeholder="CNPJ" id="in_cnpj">
@@ -129,7 +129,7 @@
                 </div>
 
                 <div class="forms">
-                    <h1>Data-Center</h1>
+                    <h1>Seu Data-Center</h1>
                     <div class="cl_input">
                         <input class="cl_server" type="number" placeholder="Servidores" id="in_server">
                         <select id="sel_center">
@@ -142,7 +142,7 @@
                         <input class="cl_tamanho" type="number" placeholder="Tamanho (m²)" id="in_tamanho">
                     </div>
 
-                    <h1>Endereço</h1>
+                    <h1>Endereço do seu Data-Center</h1>
                     <div class="cl_input">
                         <input class="cl_cep" type="text" placeholder="CEP" id="in_cep"
                             onblur="pesquisacep(this.value);">
@@ -187,13 +187,41 @@
                     <button class="btn" onclick="cadastrar()">Cadastrar</button>
 
                     <div id="div_aguardar" class="loading-div">
-                        <img src="Imagens/loading.gif" id="loading-gif">
+                        <img src="assets/loading.gif" id="loading-gif" width="100px">
                     </div>
 
                     <div id="div_erros_login"></div>
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="contato" class="fale_conosco">
+        <h1>Fale Conosco</h1>
+        <div class="social">
+            <a href="https://twitter.com/emerald_tech_/status/1584601329267183616?s=46&t=A-gxlykVYIj6O7MZdMqkWQ" target="_blank">
+                <div class="icone">
+                    <img src="assets/twitter.png"><br>
+                </div>
+            </a>
+            <a href="mailto: emerald.tech@outlook.com" target="_blank">
+                <div class="icone">
+                    <img src="assets/mail.png"><br>
+                </div>
+            </a>
+            <a href="https://instagram.com/emerald_tech_?r=nametag" target="_blank">
+                <div class="icone">
+                    <img src="assets/instagram.png"><br>
+                </div>
+            </a>
+            <a href="https://github.com/PauloCezaretto/Emerald" target="_blank">
+                <div class="icone">
+                    <img src="assets/git hub.png"><br>
+                </div>
+            </a>
+        </div>
+        <p>Ficaremos felizes em falar com você!</p>
     </div>
 </body>
 

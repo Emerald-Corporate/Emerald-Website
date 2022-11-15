@@ -5,26 +5,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="CSS/style_login_emerald.css" />
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/login.css" />
+    <link rel="stylesheet" href="CSS/Emerald_Style/footer.css">
     <link rel="shortcut icon" href="Imagens/favicon.png" type="image/x-icon">
+    <title>Login</title>
     <script src="js/funcoes.js"></script>
 </head>
 
 
 <body>
+    <!-- Navbar-->
     <div class="header">
         <div class="logo">
-            <a href="index.html"><img src="Imagens/emerald_logo.png" width="160"></a>
+            <a href="index.html"><img src="assets/emerald_logo.png" width="160"></a>
         </div>
 
         <div class="nav_home">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="index.html">Serviços</a></li>
-                <li><a href="index.html">Quem Somos?</a></li>
-                <li><a href="index.html">Contato</a></li>
+                <li><a href="index.html">Home<div class="bar"></div></a></li>
+                <li><a href="index.html">Serviços<div class="bar"></div></a></li>
+                <li><a href="index.html">Quem Somos?<div class="bar"></div></a></li>
+                <li><a href="index.html">Contato<div class="bar"></div></a></li>
             </ul>
         </div>
 
@@ -33,6 +34,8 @@
             <li class="botao_cad"><a href="cadastro.html">Cadastro</a></li>
         </div>
     </div>
+
+    <!-- Tela de Login -->
     <div class="telaLogin">
         <div class="alerta_erro">
             <div class="card_erro" id="cardErro">
@@ -40,8 +43,8 @@
             </div>
         </div>
         <div class="esquerda-login">
-            <img src="Imagens/emerald_logo.png" alt="" class="imagemlogo">
-            <a class="botaoVoltarParaATeladeCadastro" href="cadastro_emerald.html"> Não tem uma conta ? Clique aqui!</a>
+            <img src="assets/login/login.png" alt="" class="imagemlogin">
+            <a class="fazercadastro" href="cadastro_emerald.html"> Não tem uma conta ? Clique aqui!<div class="bar"></div></a>
         </div>
 
         <div class="textologin">
@@ -52,17 +55,45 @@
             </div>
 
             <div class="div_botaologin">
-                <button class="botaologin" onclick="entrar">Entrar</button>
+                <button class="botaologin" onclick="entrar()">Entrar</button>
             </div>
 
             <div id="div_aguardar" class="loading-div">
-                <img src="./assets/circle-loading.gif" id="loading-gif">
+                <img src="assets/loading.gif" id="loading-gif">
             </div>
 
             <div id="div_erros_login">
 
             </div>
         </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="contato" class="fale_conosco">
+        <h1>Fale Conosco</h1>
+        <div class="social">
+            <a href="https://twitter.com/emerald_tech_/status/1584601329267183616?s=46&t=A-gxlykVYIj6O7MZdMqkWQ" target="_blank">
+                <div class="icone">
+                    <img src="assets/twitter.png"><br>
+                </div>
+            </a>
+            <a href="mailto: emerald.tech@outlook.com" target="_blank">
+                <div class="icone">
+                    <img src="assets/mail.png"><br>
+                </div>
+            </a>
+            <a href="https://instagram.com/emerald_tech_?r=nametag" target="_blank">
+                <div class="icone">
+                    <img src="assets/instagram.png"><br>
+                </div>
+            </a>
+            <a href="https://github.com/PauloCezaretto/Emerald" target="_blank">
+                <div class="icone">
+                    <img src="assets/git hub.png"><br>
+                </div>
+            </a>
+        </div>
+        <p>Ficaremos felizes em falar com você!</p>
     </div>
 </body>
 

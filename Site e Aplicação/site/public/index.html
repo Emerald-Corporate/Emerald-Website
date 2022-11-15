@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/Emerald_Style_Institucional/style_emerald_navbar.css">
-    <link rel="stylesheet" href="CSS/Emerald_Style_Institucional/style_emerald_home.css">
-    <link rel="stylesheet" href="CSS/Emerald_Style_Institucional/style_emerald_servico.css">
-    <link rel="stylesheet" href="CSS/Emerald_Style_Institucional/style_emerald_quemsomos.css">
-    <link rel="stylesheet" href="CSS/Emerald_Style_Institucional/style_emerald_contato.css">
-    <link rel="shortcut icon" href="Imagens/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="CSS/Emerald_Style/navbar.css">
+    <link rel="stylesheet" href="CSS/Emerald_Style/home.css">
+    <link rel="stylesheet" href="CSS/Emerald_Style/servico.css">
+    <link rel="stylesheet" href="CSS/Emerald_Style/quemsomos.css">
+    <link rel="stylesheet" href="CSS/Emerald_Style/footer.css">
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
     <title>Emerald</title>
     <script src="js/funcoes.js"></script>
 </head>
@@ -20,15 +20,15 @@
     <!-- Navbar-->
     <div class="header">
         <div class="logo">
-            <a href="#home"><img src="Imagens/emerald_logo.png" width="160"></a>
+            <a href="#home"><img src="assets/emerald_logo.png" width="160"></a>
         </div>
 
         <div class="nav_home">
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#serv">Serviços</a></li>
-                <li><a href="#quemsomos">Quem Somos?</a></li>
-                <li><a href="#contato">Contato</a></li>
+                <li><a href="#home">Home<div class="bar"></div></a></li>
+                <li><a href="#serv">Serviços<div class="bar"></div></a></li>
+                <li><a href="#quemsomos">Quem Somos?<div class="bar"></div></a></li>
+                <li><a href="#contato">Contato<div class="bar"></div></a></li>
             </ul>
         </div>
 
@@ -47,7 +47,7 @@
             </div>
 
             <div class="img_banner">
-                <img src="Imagens/vt_poder.png" alt="">
+                <img src="assets/index/visionario.png" alt="">
             </div>
         </div>
     </div>
@@ -56,13 +56,13 @@
     <div id="serv" class="servico">
         <div class="container">
             <div class="img_servico">
-                <img src="Imagens/vt_nerd.png" alt="">
+                <img src="assets/index/data.png" alt="">
             </div>
 
             <div class="info">
                 <h1>Light Center</h1>
-                <p>Experimente nossos produtos</p>
-                <button class="botao_serv"><a href="simulador_financeiro.html">Que tal um orçamento?</a></button>
+                <p>Você não compra, você investe!</p>
+                <button class="botao_serv"><a href="simulador.html">Que tal um orçamento?</a></button>
             </div>
         </div>
     </div>
@@ -82,67 +82,67 @@
             <h1 class="NE">Nossa equipe</h1>
             <div class="parte">
                 <div class="membro">
-                    <img src="Imagens/gabriel.png" alt="">
+                    <img src="assets/index/gabriel.png" alt="Imagem de membro da equipe">
                     <h1>Gabriel Celestino</h1>
-                    <span>Back-End</span>
+                    <span>---</span>
                 </div>
                 <div class="membro">
-                    <img src="Imagens/giovanna.png" alt="">
+                    <img src="assets/index/giovanna.png" alt="Imagem de membro da equipe">
                     <h1>Giovanna Gonçalves</h1>
-                    <span>Front-End</span>
+                    <span>Documentação</span>
                 </div>
                 <div class="membro">
-                    <img src="Imagens/joao.png" alt="">
+                    <img src="assets/index/joao.png" alt="Imagem de membro da equipe">
                     <h1>João Vitor</h1>
-                    <span>Front-End</span>
+                    <span>Front-End / Back-End</span>
                 </div>
             </div>
             <div class="parte">
                 <div class="membro">
-                    <img src="Imagens/luis.png" alt="">
+                    <img src="assets/index/luis.png" alt="Imagem de membro da equipe">
                     <h1>Luís Vitor</h1>
-                    <span>Front-End</span>
+                    <span>Documentação</span>
                 </div>
                 <div class="membro">
-                    <img src="Imagens/paulo.png" alt="">
+                    <img src="assets/index/paulo.png" alt="Imagem de membro da equipe">
                     <h1>Paulo Alvares</h1>
-                    <span>Documentação / Front-End</span>
+                    <span>Front-End / Back-End</span>
                 </div>
                 <div class="membro">
-                    <img src="Imagens/vitor.png" alt="">
+                    <img src="assets/index/vitor.png" alt="Imagem de membro da equipe">
                     <h1>Vitor Varela</h1>
-                    <span>Back-End</span>
+                    <span>Banco de Dados</span>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Contato -->
+    <!-- Footer -->
     <div id="contato" class="fale_conosco">
         <h1>Fale Conosco</h1>
         <div class="social">
             <a href="https://twitter.com/emerald_tech_/status/1584601329267183616?s=46&t=A-gxlykVYIj6O7MZdMqkWQ" target="_blank">
                 <div class="icone">
-                    <img src="Imagens/twitter.png"><br>
+                    <img src="assets/twitter.png"><br>
                 </div>
             </a>
             <a href="mailto: emerald.tech@outlook.com" target="_blank">
                 <div class="icone">
-                    <img src="Imagens/mail.png"><br>
+                    <img src="assets/mail.png"><br>
                 </div>
             </a>
             <a href="https://instagram.com/emerald_tech_?r=nametag" target="_blank">
                 <div class="icone">
-                    <img src="Imagens/instagram.png"><br>
+                    <img src="assets/instagram.png"><br>
                 </div>
             </a>
             <a href="https://github.com/PauloCezaretto/Emerald" target="_blank">
                 <div class="icone">
-                    <img src="Imagens/git hub.png"><br>
+                    <img src="assets/git hub.png"><br>
                 </div>
             </a>
         </div>
-        <p>Ficaremos felizes em falar com você</p>
+        <p>Ficaremos felizes em falar com você!</p>
     </div>
 </body>
 </html>
