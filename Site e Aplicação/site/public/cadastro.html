@@ -82,6 +82,7 @@
 
 <body>
     <!-- Navbar-->
+
     <div class="header">
         <div class="logo">
             <a href="index.html"><img src="assets/emerald_logo.png" width="160"></a>
@@ -120,7 +121,7 @@
                     <h1>Sua Empresa</h1>
                     <div class="cl_input">
                         <input class="cl_nome" type="text" placeholder="Nome" id="in_nome">
-                        <input class="cl_cnpj" type="text" placeholder="CNPJ" id="in_cnpj">
+                        <input class="cl_cnpj" maxlength="14" type="text" placeholder="CNPJ" id="in_cnpj">
                         <input class="cl_email" type="mail" placeholder="seuemail@email.com" id="in_email">
                     </div>
 
@@ -204,7 +205,128 @@
 </html>
 
 <script>
+
     function cadastrar() {
+        aguardar();
+
+        // empresa
+        var empresa = {
+            nomeServer: in_nome.value,
+            cnpjServer: in_cnpj.value,
+            emailServer: in_email.value,
+            senhaServer: in_senha.value,
+        }
+
+        // end
+        var endereco = {
+            cepServer: in_cep.value,
+            ufServer: in_uf.value,
+            bairroServer: in_bairro.value,
+            cidadeServer: in_cidade.value,
+            ruaServer: in_rua.value,
+        }
+
+        // data center
+        var dataCenter = {
+            tierServer: sel_center.value,
+            tamanhoServer: in_tamanho.value,
+            servidorServer: in_server.value,
+            fkEmpresa: undefined,
+            fkEndereco: undefined,
+        }
+
+        console.log(empresa)
+        console.log(endereco)
+        console.log(dataCenter)
+
+        if (!empresa.nomeServer || !empresa.cnpjServer || !empresa.emailServer || !empresa.senhaServer || !dataCenter.servidorServer || !dataCenter.tierServer || !dataCenter.tamanhoServer || !endereco.cepServer || !endereco.ufServer || !endereco.cidadeServer || !endereco.bairroServer || !endereco.ruaServer) {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = 'Campos em branco, preencha corretamente para continuar';
+
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            console.log("ELSE: ", empresa.nome);
+
+            setInterval(sumirMensagem, 5000)
+
+            var idEmpresa;
+            var idEndereco;
+
+            fetch("/usuarios/cadastrar-emp", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(empresa)
+            }).then(function (resposta) {
+
+                console.log("RESPOSTA EMP: ", resposta);
+
+                if (resposta.ok) {
+                    resposta.json()
+                        .then(function (respostaJson) {
+                            console.log("respostaJson", respostaJson);
+                            idEmpresa = respostaJson.insertId;
+ 
+                            fetch("/usuarios/cadastrar-end", {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json"
+                                },
+                                body: JSON.stringify(endereco)
+                            }).then(function (resposta) {
+                                console.log("RESPOSTA END: ", resposta)
+
+                                if (resposta.ok) {
+
+                                    resposta.json()
+                                        .then(function (respostaJson) {
+                                            console.log("respostaJson", respostaJson);
+                                            idEndereco = respostaJson.insertId;
+
+                                            dataCenter.fkEmpresa = idEmpresa,
+                                            dataCenter.fkEndereco = idEndereco,
+
+                                            fetch("/usuarios/cadastrar-server", {
+                                                method: "POST",
+                                                headers: {
+                                                    "Content-Type": "application/json"
+                                                },
+                                                body: JSON.stringify(dataCenter)
+                                            }).then(function (resposta) {
+                                                console.log("RESPOSTA END: ", resposta)
+                                            })
+
+                                        })
+                                        .catch()
+
+                                    console.log("JSON: ",);
+                                }
+                            })
+                        })
+                        .catch()
+
+                    console.log("JSON: ",);
+
+                } else {
+                    cardErro.style.display = "block";
+                    mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login..."
+                    throw ("Houve um erro ao tentar realizar o cadastro!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                finalizarAguardar();
+            });
+
+
+        }
+
+
+    }
+
+    function cadastrarOld() {
         aguardar();
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
@@ -223,7 +345,7 @@
 
         if (nomeVar == "" || cnpjVar == "" || emailVar == "" || senhaVar == "" || servidorVar == "" || tierVar == "" || tamanhoVar == "" || cepVar == "" || ufVar == "" || cidadeVar == "" || bairroVar == "" || ruaVar == "") {
             cardErro.style.display = "block"
-            mensagem_erro.innerHTML ='Campos em branco, preencha corretamente para continuar';
+            mensagem_erro.innerHTML = 'Campos em branco, preencha corretamente para continuar';
 
             finalizarAguardar();
             return false;
@@ -238,22 +360,24 @@
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
-                nomeServer: nomeVar,
-                cnpjServer: cnpjVar,
-                emailServer: emailVar,
-                senhaServer: senhaVar,
-                servidorServer: servidorVar,
-                tierServer: tierVar,
-                tamanhoServer: tamanhoVar,
-                cepServer: cepVar,
-                ufServer: ufVar,
-                cidadeServer: cidadeVar,
-                bairroServer: bairroVar,
-                ruaServer: ruaVar,
-            })
+            body: JSON.stringify(
+                {
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    nomeServer: nomeVar,
+                    cnpjServer: cnpjVar,
+                    emailServer: emailVar,
+                    senhaServer: senhaVar,
+                    servidorServer: servidorVar,
+                    tierServer: tierVar,
+                    tamanhoServer: tamanhoVar,
+                    cepServer: cepVar,
+                    ufServer: ufVar,
+                    cidadeServer: cidadeVar,
+                    bairroServer: bairroVar,
+                    ruaServer: ruaVar,
+                }
+            )
         }).then(function (resposta) {
 
             console.log("resposta: ", resposta);
@@ -261,7 +385,7 @@
             if (resposta.ok) {
                 cardErro.style.display = "block";
 
-                alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...")
+                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login..."
 
                 setTimeout(() => {
                     window.location = "login.html";

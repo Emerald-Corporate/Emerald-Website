@@ -10,15 +10,16 @@
 html {
     scroll-behavior: smooth;
 }
-::-webkit-scrollbar{
+
+::-webkit-scrollbar {
     width: 10px;
 }
 
-::-webkit-scrollbar-track{
+::-webkit-scrollbar-track {
     background-color: #181818;
 }
 
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
     background-color: #00AC4D;
 }
 
@@ -47,14 +48,14 @@ a {
     gap: .5rem;
 }
 
-.bar{
+.bar {
     width: 0;
     height: 2px;
     background-color: #00AC4D;
     transition: .2s ease;
 }
 
-a:hover .bar{
+a:hover .bar {
     width: 60%;
 }
 
@@ -120,7 +121,7 @@ ul {
 }
 
 .textologin ::placeholder {
-    color:#181818;
+    color: #181818;
 }
 
 .telaLogin {
@@ -164,7 +165,7 @@ ul {
     justify-content: center;
 }
 
-.telaLogin h1{
+.telaLogin h1 {
     padding-top: 4rem;
 }
 
@@ -232,10 +233,31 @@ ul {
     width: 50px;
     margin: auto;
     display: none;
-  }
-  
-  .loading-div img {
+}
+
+.loading-div img {
     height: 50px;
     width: 50px;
-  }
-  
+}
+
+.alerta_erro {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.card_erro {
+    display: none;
+    background-color: #fff;
+    color: black;
+    width: 230px;
+    position: fixed;
+    border-radius: 4px;
+    border: #00AC4D 3px solid;
+    padding: 10px;
+    margin-right: 10%;
+}
+
+.card_erro #mensagem_erro {
+    font-weight: 500;
+    font-size: 20px;
+}

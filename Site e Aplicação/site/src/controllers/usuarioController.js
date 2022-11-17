@@ -67,7 +67,7 @@ function cadastrarEnd(req, res) {
     var cidade = req.body.cidadeServer;
     var bairro = req.body.bairroServer;
     var rua = req.body.ruaServer;
-
+    
     // Faça as validações dos valores
     if (cep == undefined) {
         res.status(400).send("Seu cep está undefined!");
@@ -142,6 +142,8 @@ function cadastrardata(req, res) {
     var servidor = req.body.servidorServer;
     var tier = req.body.tierServer;
     var tamanho = req.body.tamanhoServer;
+    var fkEmpresa = req.body.fkEmpresa;
+    var fkEndereco = req.body.fkEndereco;
 
     // Faça as validações dos valores
     if (servidor == undefined) {
@@ -150,10 +152,14 @@ function cadastrardata(req, res) {
         res.status(400).send("Sua tier está undefined!");
     } else if (tamanho == undefined) {
         res.status(400).send("O tamanho de seu data center está undefined!");
+    } else if (fkEmpresa == undefined) {
+        res.status(400).send("A fkEmpresa está undefined!");
+    } else if (fkEndereco == undefined) {
+        res.status(400).send("Sua fkEndereco está undefined!");
     } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrardata(servidor, tier, tamanho)
+        usuarioModel.cadastrardata(servidor, tier, tamanho, fkEmpresa, fkEndereco)
             .then(
                 function (resultado) {
                     res.json(resultado);
