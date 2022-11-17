@@ -127,7 +127,6 @@ ul {
     display: flex;
     height: 100%;
     width: 100%;
-    padding-top: 2.5rem;
 }
 
 .esquerda-login {
@@ -142,6 +141,7 @@ ul {
 
 .imagemlogin {
     width: 30vw;
+    padding-top: 5rem;
 }
 
 .fraselogin {
@@ -162,6 +162,10 @@ ul {
     height: 100vh;
     flex-direction: column;
     justify-content: center;
+}
+
+.telaLogin h1{
+    padding-top: 4rem;
 }
 
 .botaologin {

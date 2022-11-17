@@ -130,7 +130,8 @@ ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 600px;
+    height: 500px;
+    padding-top: 3rem;
 }
 
 .caixa-formulario {
@@ -139,23 +140,28 @@ ul {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    width: 50%;
-    padding: 2rem 0;
+    width: 45%;
+    gap: 3rem;
     border-radius: 15px 15px 15px 15px;
     color: #FFFFFF;
-    gap: 2rem;
+}
+
+.caixa-formulario h1{
+    padding: 2rem 0 0 0;
 }
 
 .caixa-formulario button {
-    margin-top: 20px;
-    width: 120px;
     color: black;
     background-color: #28ff88;
-    padding: 10px 15px;
     font-weight: bold;
     border: none;
-    border-radius: 5px;
+    border-radius: 15px;
     cursor: pointer;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
 }
 
 .line{
@@ -168,7 +174,7 @@ ul {
 .cl_input {
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 50%;
     align-items: center;
 }
 
@@ -225,17 +231,17 @@ button:hover {
 .esquerdasimulador {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 1rem;
 }
 
 .esquerdasimulador a:hover .bar{
-    width: 30%;
+    width: 60%;
 }
 
 .fazercadastro {
-    border: 0;
     color: #181818;
-    font-size: 13px;
     font-weight: bold;
     cursor: pointer;
     display: flex;
@@ -246,4 +252,28 @@ button:hover {
 
 .imgsimulador {
     width: 500px;
+}
+
+.envelope{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10rem;
+}
+
+.result{
+    background-color: #181818;
+    color: #FFFFFF;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    padding: 1rem 0 1rem;
+}
+
+strong{
+    color: #00AC4D;
 }

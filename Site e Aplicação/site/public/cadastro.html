@@ -212,7 +212,6 @@
         var cnpjVar = in_cnpj.value;
         var emailVar = in_email.value;
         var senhaVar = in_senha.value;
-        var confirmacaoVar = in_confirmacao.value;
         var servidorVar = in_server.value;
         var tierVar = sel_center.value;
         var tamanhoVar = in_tamanho.value;
@@ -222,9 +221,9 @@
         var bairroVar = in_bairro.value;
         var ruaVar = in_rua.value;
 
-        if (nomeVar == "" || cnpjVar == "" || emailVar == "" || senhaVar == "" || confirmacaoVar == "" || servidorVar == "" || tierVar == "" || tamanhoVar == "" || cepVar == "" || ufVar == "" || cidadeVar == "" || bairroVar == "" || ruaVar == "") {
+        if (nomeVar == "" || cnpjVar == "" || emailVar == "" || senhaVar == "" || servidorVar == "" || tierVar == "" || tamanhoVar == "" || cepVar == "" || ufVar == "" || cidadeVar == "" || bairroVar == "" || ruaVar == "") {
             cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            mensagem_erro.innerHTML ='Campos em branco, preencha corretamente para continuar';
 
             finalizarAguardar();
             return false;
@@ -246,7 +245,6 @@
                 cnpjServer: cnpjVar,
                 emailServer: emailVar,
                 senhaServer: senhaVar,
-                confirmacaoServer: confirmacaoVar,
                 servidorServer: servidorVar,
                 tierServer: tierVar,
                 tamanhoServer: tamanhoVar,
@@ -263,7 +261,7 @@
             if (resposta.ok) {
                 cardErro.style.display = "block";
 
-                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+                alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...")
 
                 setTimeout(() => {
                     window.location = "login.html";

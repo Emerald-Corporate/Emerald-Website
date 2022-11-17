@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/style_simulador.css">
+    <link rel="stylesheet" href="CSS/simulador.css">
     <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
     <title>Simulador Financeiro</title>
     <script src="js/funcoes.js"></script>
@@ -39,30 +39,30 @@
         <div class="container">
             <div class="esquerdasimulador">
                 <img src="assets/simulador/financeiro.png" alt="" class="imgsimulador">
-                <a class="fazercadastro" href="cadastro_emerald.html"> Gostou? Clique aqui!<div class="bar"></div></a>
+                <a class="fazercadastro" href="cadastro.html"> Gostou? Clique aqui!<div class="bar"></div></a>
             </div>
             <div class="caixa-formulario">
                 <h1>Simulador</h1>
                 <div class="line">
                     <div class="cl_input">
-                        <h2>Quantidade de racks:</h2>
-                        <input id="in_qtdRack" placeholder="Racks">
+                        <h2>Racks:</h2>
+                        <input id="in_rack" type="number" placeholder="Quantidade de racks">
                     </div>
-                    
+
                     <div class="cl_input">
-                        <h2>Quantidade de computadores:</h2>
-                        <input id="comp" placeholder="Computadores">
+                        <h2>Computadores:</h2>
+                        <input id="in_computador" type="number" placeholder="Por racks">
                     </div>
                 </div>
 
                 <div class="line">
                     <div class="cl_input">
-                        <h2>Dowtime por minuto:</h2>
-                        <input id="downtime" placeholder="Downtime">
+                        <h2>Dowtime:</h2>
+                        <input id="in_downtime" type="number" placeholder="Por minuto">
                     </div>
                     <div class="cl_input">
                         <h2>Tier:</h2>
-                        <select name="" id="combo">
+                        <select id="in_tier">
                             <option value="">- Selecione uma tier -</option>
                             <option value="1">Tier 1</option>
                             <option value="2">Tier 2</option>
@@ -71,120 +71,122 @@
                         </select>
                     </div>
                 </div>
-                <button style="font-size: 82%;" onclick="calc_financa()">Calcular </button>
+                <button onclick="calcular()"><a href="#resultado">Calcular</a></button>
             </div>
         </div>
+    </div>
+
+    <div class="envelope">
+        <div id="resultado" class="result">Seu orçamento aparece aqui</div>
     </div>
 </body>
 
 </html>
+
 <script>
-    function calc_financa() {
-        // Qtd de arduino
-        var qtdRack = Number(in_qtdRack.value);
+    function calcular() {
+        //Criando variáveis 
+        var rack = Number(in_rack.value);
+        var computador = Number(in_computador.value);
+        var tier = in_tier.value;
+        var qtsensor = rack * 2;
+        var qtarduino = Math.trunc(qtsensor / 6);
 
-        var computador = Number(comp.value)
+        //Valores cobrados
+        var valsensor = qtsensor * 15;
+        var valarduino = qtarduino * 150;
+        var instalacao = 1200;
+        var valprojeto = 5600;
 
-        //6 sensores por arduino, definindo quantos arduinos tem
-        var qtdArduino = computador + (qtdRack * 3);
+        //Dowtimes
+        var downtime = 5600;
+        var downtimedia = downtime * 1440;
+        var downtimeano = (downtimedia * 365) / 12;
 
-        //150 reais por arduino (preço do produto)
-        var Arduino = (150 * qtdArduino);
+        //Econômia
+        var economia = downtime - (instalacao + valarduino + valsensor + valprojeto);
+        var economiadia = downtimedia - (instalacao + valarduino + valsensor + valprojeto);
+        var economiaano = downtimeano - (instalacao + valarduino + valsensor + valprojeto);
 
-        //Instalação = compra dos arduinos + 100 reais por instalação de arduino
-        var instalacao = Arduino + (qtdArduino * 100);
+        //Validações
+        if (rack == '' && computador == '' && downtime == '' && tier == '') {
+            alert("Todos os campos em branco, preencha para começar sua jornada conosco!")
+        } else if (rack == '' || computador == '' || downtime == '' || tier == '') {
+            if (rack <= 0) {
+                alert("Quantidade de racks inválida");
+            }
 
-        // Downtime por ano segundo a tabela em minutos
-        if (combo.value == "1") {
-            var tierPorcentagem = 0.01
-        } else if (combo.value == "2") {
-            var tierPorcentagem = 0.2
-        } else if (combo.value == "3") {
-            var tierPorcentagem = 0.4
-        } else if (combo.value == "4") {
-            var tierPorcentagem = 0.6
-        }
+            if (computador <= 0) {
+                alert("Quantidade de computadores inválida!")
+            }
 
+            if (downtime == '') {
+                alert("Para melhorar sua experiência, informe seu dowtime por minutos")
+            }
 
-        //Preço do projeto mensal
-        var precoProjeto = 20000 + (20000 * tierPorcentagem);
-
-        //Preço Projeto no primeiro mês é o preço da instalação + preco Projeto mensal
-        var precoProjeto1 = instalacao + precoProjeto;
-
-        // Custo de 30 minutos de downtime
-        var paralisacao = 30 * 1200 * 3.54;
-
-        // Custo do downtime por mês (1 por dia)
-        var paralisacaoMes = paralisacao * 29;
-
-        // Custo downtime por ano
-        var paralisacaoAno = paralisacaoMes * 365;
-
-        // Economia no primeiro Mês
-        var economiaMes1 = paralisacaoMes - precoProjeto1;
-
-        // Economia no proximos meses
-        var economiaMes = paralisacaoMes - precoProjeto;
-
-        // Economia por ano
-        var economiaAno = paralisacaoAno - ((precoProjeto * 320) + precoProjeto1);
-
-
-
-        // Frases do orçamento
-        if (qtdRack <= 0) {
-            alert("Por favor, insira um valor maior que zero !");
-
-        } else if (qtdRack > 80000) {
-            alert("Por favor, limite a quantidade de Racks até 80000")
-        } else if (computador <= 0) {
-            alert("Insira uma quanditade de computadores!")
-        } else if (combo.value == "3" || combo.value == "4") {
-
-            banner.innerHTML =
-                `
-                    <div class="caixa-formulario">
-                        <div class="resul">
-                            <div>
-                O quanto você perde: <br>
-                A cada 30 minutos de paralisação: <b>R$${paralisacao.toFixed(2)}</b>. <br> 
-                Em um mes (uma paralisação por semana): <b>R$${paralisacaoMes.toFixed(2)}</b> <br>
-                Em um ano: <b>R$${paralisacaoAno.toFixed(2)}</b>!. <br><br>
+            if (tier == '') {
+                alert("Tier inválida")
+            }
+        } else {
+            if (tier == 1) {
+                valprojeto = valprojeto + 0
+                resultado.innerHTML = `<h1>O quanto você perde:</h1><br>
+                A cada 1 minuto de dowtime: <strong>R$${downtime.toFixed(2)}</strong><br> 
+                A cada dia de dowtime: <strong>R$${downtimedia.toFixed(2)}</strong><br>
+                A cada ano (Paralisações frequêntes e imprevisíveis): <strong>R$${downtimeano.toFixed(2)}</strong><br><br>
                 
-                Quanto custa nosso projeto: <br>
-                Primeiro mês (mensal + instalação): <b>R$${precoProjeto1.toFixed(2)}</b> <br>
-                Próximos meses: <b>R$${precoProjeto.toFixed(2)}</b>!<br><br></div>
-                <div>
-                O quanto você vai previnir:<br>
-                Primeiro mês: <b>R$${economiaMes1.toFixed(2)}</b> <br>
-                Próximos meses: <b>R$${economiaMes.toFixed(2)}</b> <br>
-                Em um ano: <b>R$${economiaAno.toFixed(2)}</b>! <br> <br> </div></div></div>`
-        } else if (combo.value == "1" || combo.value == "2") {
-
-            banner.innerHTML = `
-                <div class="caixa-formulario">
-                    <div class="resul">
-                        <div>
-                Custo de Instalação: <br>
-               <b>R$150,00</b> por unidade de arduino + <b>R$100</b> da instalação individual = <br>
-               <b>R$${instalacao.toFixed(2)}</b> para instalação.<br><br>
-            
-            
-                O quanto você perde: <br>
-                A cada 30 minutos de paralisação: <b>R$${paralisacao.toFixed(2)}</b>. <br> 
-                Em um mes (uma paralisação por semana): <b>R$${paralisacaoMes.toFixed(2)}</b> <br>
-                Em um ano: <b>R$${paralisacaoAno.toFixed(2)}</b>!. <br><br></div>
-                <div>
-                Quanto custa nosso projeto: <br>
-                Primeiro mês (mensal + instalação): <b>R$${precoProjeto1.toFixed(2)}</b> <br>
-                Próximos meses: <b>R$${precoProjeto.toFixed(2)}</b>!<br><br>
-            
-                O quanto você vai previnir:<br>
-                Primeiro mês: <strong>R$${economiaMes1.toFixed(2)}</strong> <br>
-                Próximos meses: <strong>R$${economiaMes.toFixed(2)}</strong> <br>
-                Em um ano: <strong>R$${economiaAno.toFixed(2)}</strong>! <br> <br> </div></div>`
-
+                <h1>Quanto custa nosso projeto:</h1><br>
+                Primeiro mês (Mensal + Instalação): <strong>R$${valprojeto + instalacao}</strong><br>
+                Aluguel Mensal: <strong>R$${valarduino + valprojeto + valsensor}</strong><br><br>
+                
+                <h1>O quanto você vai previnir:</h1><br>
+                Econômia por dowtime: <strong>R$${economia.toFixed(2)}</strong><br>
+                Econômia por dia: <strong>R$${economiadia.toFixed(2)}</strong><br>
+                Econômia por ano: <strong>R$${economiaano.toFixed(2)}</strong>`
+            } else if (tier == 2) {
+                valprojeto = valprojeto + (valprojeto * 0.10)
+                resultado.innerHTML = `<h1>O quanto você perde:</h1><br>
+                A cada 1 minuto de dowtime: <strong>R$${downtime.toFixed(2)}</strong><br> 
+                A cada dia de dowtime: <strong>R$${downtimedia.toFixed(2)}</strong><br>
+                A cada ano (Paralisações frequêntes e imprevisíveis): <strong>R$${downtimeano.toFixed(2)}</strong><br><br>
+                
+                <h1>Quanto custa nosso projeto:</h1><br>
+                Primeiro mês (Mensal + Instalação): <strong>R$${valprojeto + instalacao}</strong><br>
+                Aluguel Mensal: <strong>R$${valarduino + valprojeto + valsensor}</strong><br><br>
+                
+                <h1>O quanto você vai previnir:</h1><br>
+                Econômia por dowtime: <strong>R$${economia.toFixed(2)}</strong><br>
+                Econômia por dia: <strong>R$${economiadia.toFixed(2)}</strong><br>
+                Econômia por ano: <strong>R$${economiaano.toFixed(2)}</strong>`
+            } else if (tier == 3) {
+                valprojeto = valprojeto + (valprojeto * 0.15)
+                resultado.innerHTML = `<h1>O quanto você perde:</h1><br>
+                A cada 1 minuto de dowtime: <strong>R$${downtime.toFixed(2)}</strong><br> 
+                A cada dia de dowtime: <strong>R$${downtimedia.toFixed(2)}</strong><br>
+                A cada ano (Paralisações frequêntes e imprevisíveis): <strong>R$${downtimeano.toFixed(2)}</strong><br><br>
+                
+                <h1>Quanto custa nosso projeto:</h1><br>
+                Aluguel Mensal: <strong>R$${valarduino + valprojeto}</strong><br><br>
+                
+                <h1>O quanto você vai previnir:</h1><br>
+                Econômia por dowtime: <strong>R$${economia.toFixed(2)}</strong><br>
+                Econômia por dia: <strong>R$${economiadia.toFixed(2)}</strong><br>
+                Econômia por ano: <strong>R$${economiaano.toFixed(2)}</strong>`
+            } else {
+                valprojeto = valprojeto + (valprojeto * 0.20)
+                resultado.innerHTML = `<h1>O quanto você perde:</h1><br>
+                A cada 1 minuto de dowtime: <strong>R$${downtime.toFixed(2)}</strong><br> 
+                A cada dia de dowtime: <strong>R$${downtimedia.toFixed(2)}</strong><br>
+                A cada ano (Paralisações frequêntes e imprevisíveis): <strong>R$${downtimeano.toFixed(2)}</strong><br><br>
+                
+                <h1>Quanto custa nosso projeto:</h1><br>
+                Aluguel Mensal: <strong>R$${valarduino + valprojeto}</strong><br><br>
+                
+                <h1>O quanto você vai previnir:</h1><br>
+                Econômia por dowtime: <strong>R$${economia.toFixed(2)}</strong><br>
+                Econômia por dia: <strong>R$${economiadia.toFixed(2)}</strong><br>
+                Econômia por ano: <strong>R$${economiaano.toFixed(2)}</strong>`
+            }
         }
     }
 </script>

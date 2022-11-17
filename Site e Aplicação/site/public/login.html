@@ -81,7 +81,7 @@
 
         if (emailVar == "" || senhaVar == "") {
             cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            alert('Campos em branco, preencha corretamente para entrar');
             finalizarAguardar();
             return false;
         }
