@@ -269,7 +269,7 @@
                         .then(function (respostaJson) {
                             console.log("respostaJson", respostaJson);
                             idEmpresa = respostaJson.insertId;
- 
+
                             fetch("/usuarios/cadastrar-end", {
                                 method: "POST",
                                 headers: {
@@ -287,17 +287,17 @@
                                             idEndereco = respostaJson.insertId;
 
                                             dataCenter.fkEmpresa = idEmpresa,
-                                            dataCenter.fkEndereco = idEndereco,
+                                                dataCenter.fkEndereco = idEndereco,
 
-                                            fetch("/usuarios/cadastrar-server", {
-                                                method: "POST",
-                                                headers: {
-                                                    "Content-Type": "application/json"
-                                                },
-                                                body: JSON.stringify(dataCenter)
-                                            }).then(function (resposta) {
-                                                console.log("RESPOSTA END: ", resposta)
-                                            })
+                                                fetch("/usuarios/cadastrar-server", {
+                                                    method: "POST",
+                                                    headers: {
+                                                        "Content-Type": "application/json"
+                                                    },
+                                                    body: JSON.stringify(dataCenter)
+                                                }).then(function (resposta) {
+                                                    console.log("RESPOSTA END: ", resposta)
+                                                })
 
                                         })
                                         .catch()
@@ -310,102 +310,101 @@
 
                     console.log("JSON: ",);
 
+                    cardErro.style.display = "block"
+                    mensagem_erro.innerHTML = 'Cadastro realizado com sucesso, direcionando para a tela de login...';
+                    setTimeout(() => {
+                        window.location = "login.html";
+                    }, "3000")
+
                 } else {
-                    cardErro.style.display = "block";
-                    mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login..."
                     throw ("Houve um erro ao tentar realizar o cadastro!");
                 }
             }).catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
                 finalizarAguardar();
             });
-
-
         }
-
-
     }
 
-    function cadastrarOld() {
-        aguardar();
-        //Recupere o valor da nova input pelo nome do id
-        // Agora vá para o método fetch logo abaixo
-        var nomeVar = in_nome.value;
-        var cnpjVar = in_cnpj.value;
-        var emailVar = in_email.value;
-        var senhaVar = in_senha.value;
-        var servidorVar = in_server.value;
-        var tierVar = sel_center.value;
-        var tamanhoVar = in_tamanho.value;
-        var cepVar = in_cep.value;
-        var ufVar = in_uf.value;
-        var cidadeVar = in_cidade.value;
-        var bairroVar = in_bairro.value;
-        var ruaVar = in_rua.value;
+    // function cadastrarOld() {
+    //     aguardar();
+    //     //Recupere o valor da nova input pelo nome do id
+    //     // Agora vá para o método fetch logo abaixo
+    //     var nomeVar = in_nome.value;
+    //     var cnpjVar = in_cnpj.value;
+    //     var emailVar = in_email.value;
+    //     var senhaVar = in_senha.value;
+    //     var servidorVar = in_server.value;
+    //     var tierVar = sel_center.value;
+    //     var tamanhoVar = in_tamanho.value;
+    //     var cepVar = in_cep.value;
+    //     var ufVar = in_uf.value;
+    //     var cidadeVar = in_cidade.value;
+    //     var bairroVar = in_bairro.value;
+    //     var ruaVar = in_rua.value;
 
-        if (nomeVar == "" || cnpjVar == "" || emailVar == "" || senhaVar == "" || servidorVar == "" || tierVar == "" || tamanhoVar == "" || cepVar == "" || ufVar == "" || cidadeVar == "" || bairroVar == "" || ruaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = 'Campos em branco, preencha corretamente para continuar';
+    //     if (nomeVar == "" || cnpjVar == "" || emailVar == "" || senhaVar == "" || servidorVar == "" || tierVar == "" || tamanhoVar == "" || cepVar == "" || ufVar == "" || cidadeVar == "" || bairroVar == "" || ruaVar == "") {
+    //         cardErro.style.display = "block"
+    //         mensagem_erro.innerHTML = 'Campos em branco, preencha corretamente para continuar';
 
-            finalizarAguardar();
-            return false;
-        }
-        else {
-            setInterval(sumirMensagem, 5000)
-        }
+    //         finalizarAguardar();
+    //         return false;
+    //     }
+    //     else {
+    //         setInterval(sumirMensagem, 5000)
+    //     }
 
-        // Enviando o valor da nova input
-        fetch("/usuarios/cadastrar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(
-                {
-                    // crie um atributo que recebe o valor recuperado aqui
-                    // Agora vá para o arquivo routes/usuario.js
-                    nomeServer: nomeVar,
-                    cnpjServer: cnpjVar,
-                    emailServer: emailVar,
-                    senhaServer: senhaVar,
-                    servidorServer: servidorVar,
-                    tierServer: tierVar,
-                    tamanhoServer: tamanhoVar,
-                    cepServer: cepVar,
-                    ufServer: ufVar,
-                    cidadeServer: cidadeVar,
-                    bairroServer: bairroVar,
-                    ruaServer: ruaVar,
-                }
-            )
-        }).then(function (resposta) {
+    //     // Enviando o valor da nova input
+    //     fetch("/usuarios/cadastrar", {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         },
+    //         body: JSON.stringify(
+    //             {
+    //                 // crie um atributo que recebe o valor recuperado aqui
+    //                 // Agora vá para o arquivo routes/usuario.js
+    //                 nomeServer: nomeVar,
+    //                 cnpjServer: cnpjVar,
+    //                 emailServer: emailVar,
+    //                 senhaServer: senhaVar,
+    //                 servidorServer: servidorVar,
+    //                 tierServer: tierVar,
+    //                 tamanhoServer: tamanhoVar,
+    //                 cepServer: cepVar,
+    //                 ufServer: ufVar,
+    //                 cidadeServer: cidadeVar,
+    //                 bairroServer: bairroVar,
+    //                 ruaServer: ruaVar,
+    //             }
+    //         )
+    //     }).then(function (resposta) {
 
-            console.log("resposta: ", resposta);
+    //         console.log("resposta: ", resposta);
 
-            if (resposta.ok) {
-                cardErro.style.display = "block";
+    //         if (resposta.ok) {
+    //             cardErro.style.display = "block";
 
-                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login..."
+    //             mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login..."
 
-                setTimeout(() => {
-                    window.location = "login.html";
-                }, "2000")
+    //             setTimeout(() => {
+    //                 window.location = "login.html";
+    //             }, "2000")
 
-                limparFormulario();
-                finalizarAguardar();
-            } else {
-                throw ("Houve um erro ao tentar realizar o cadastro!");
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-            finalizarAguardar();
-        });
+    //             limparFormulario();
+    //             finalizarAguardar();
+    //         } else {
+    //             throw ("Houve um erro ao tentar realizar o cadastro!");
+    //         }
+    //     }).catch(function (resposta) {
+    //         console.log(`#ERRO: ${resposta}`);
+    //         finalizarAguardar();
+    //     });
 
-        return false;
-    }
+    //     return false;
+    // }
 
-    function sumirMensagem() {
-        cardErro.style.display = "none"
-    }
-
+    // function sumirMensagem() {
+    //     cardErro.style.display = "none"
+    // }
 </script>
