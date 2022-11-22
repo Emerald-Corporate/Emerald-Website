@@ -1,560 +1,207 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style_lightcenter.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Links para o CSS -->
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/responsividade.css">
+
+    <!-- Icones -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">k
+
     <title>Light Center</title>
-    <script src="https://kit.fontawesome.com/9f7414eb10.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./dashboards.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-    <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
-    <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
-    <style>
-        canvas {
-            -moz-user-select: none;
-            -webkit-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-    </style>
-    <!-- <link rel="stylesheet" href="../CSS/style.css"> -->
 </head>
 
-<body onload="atualizarFeed()">
-    <!--Navbar-->
-    <div class="navbar">
-        <div class="navegacao">
-            <img src="Group 38.png" alt="">
-            <ul>
-                <li class="pai">Painéis</li>
-                <li class="perfil" style="border-top:1px solid black ;">Perfil</li>
-            </ul>
-        </div>
-
-        <div class="hello">
-            <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
-        </div>
-
-        <div class="botoes">
-            <ul>
-                <li class="config"><span class="material-symbols-outlined">
-                        settings
-                    </span></li>
-                <li class="sai"><span class="material-symbols-outlined">
-                        logout
-                    </span></li>
-            </ul>
-        </div>
-    </div>
-
-    <!--Painel-->
-    <div class="painel">
-        <h1>Painéis</h1>
-        <div class="container">
-            <div class="content">
-                <div class="indi_temp">
-                    <div class="legenda_temp">
-                        <div class="btn-nav-white">
-                            <a href="cards.html">
-                                <h3>Indíce de Temperatura:</h3>
-                            </a>
-                        </div>
-                        <ul>
-                            <li>
-                                <div class="bola b1"></div>Miníma:<br>Abaixo de 19ºC
-                            </li>
-                            <li>
-                                <div class="bola b2"></div>Alerta miníma:<br> Entre 19ºC e 24ºC
-                            </li>
-                            <li>
-                                <div class="bola b3"></div>Ideal: <br> 25ºC
-                            </li>
-                            <li>
-                                <div class="bola b4"></div>Alerta maxíma: <br> 26ºC
-                            </li>
-                            <li>
-                                <div class="bola b5"></div>Maxíma: <br> Acima de 26ºC
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="kpi_box">
-                        <div class="kpi k1">
-                            <h2>Hack 1-G1</h2>
-                        </div>
-
-                        <div class="kpi k2">
-                            <h2>Hack 1-G2</h2>
-                        </div>
-
-                        <div class="kpi k3">
-                            <h2>Hack 1-G3</h2>
-                        </div>
-
-                        <div class="kpi k4">
-                            <h2>Hack 1-G4</h2>
-                        </div>
-
-                        <div class="kpi k5">
-                            <h2>Hack 1-G5</h2>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="grafi_temp">
-                    <div>
-                        <canvas id="grafico_temp"></canvas>
-                    </div>
-                </div>
+<body>
+    <!-- Sidebar -->
+    <nav>
+        <div class="logo-name">
+            <div class="logo-image">
+                <img src="assets/logo.png" alt="">
             </div>
 
-            <div class="content">
-                <div class="indi_umi">
-                    <div class="legenda_umi">
-                        <div class="btn-nav-white">
-                            <a href="./mural.html">
-                                <h3>Indíce de Umidade:</h3>
-                            </a>
-                        </div>
-                        <ul>
-                            <li>
-                                <div class="bola b1"></div>Miníma: <br> Abaixo de 40%
-                            </li>
-                            <li>
-                                <div class="bola b2"></div>Alerta miníma: <br> Entre 40% e 49%
-                            </li>
-                            <li>
-                                <div class="bola b3"></div>Ideal: <br> 50%
-                            </li>
-                            <li>
-                                <div class="bola b4"></div>Alerta maxíma: <br> Entre 51% e 60%
-                            </li>
-                            <li>
-                                <div class="bola b5"></div>Maxíma: <br> Acima de 60%
-                            </li>
-                        </ul>
+            <span class="logo_name">Ligh Center</span>
+        </div>
+
+        <div class="menu-items">
+            <ul class="nav-links">
+                <li><a href="#">
+                        <i class="uil uil-dashboard"></i>
+                        <span class="link-name">Dahsboard</span>
+                    </a></li>
+                <li><a href="#">
+                        <i class="uil uil-files-landscapes"></i>
+                        <span class="link-name">Mural</span>
+                    </a></li>
+                <li><a href="#">
+                        <i class="uil uil-chart"></i>
+                        <span class="link-name">Analytics</span>
+                    </a></li>
+                <li><a href="#">
+                        <i class="uil uil-user-circle"></i>
+                        <span class="link-name">Perfil</span>
+                    </a></li>
+            </ul>
+
+            <ul class="logout-mode">
+                <li><a href="../login.html">
+                        <i class="uil uil-signout"></i>
+                        <span class="link-name">Sair</span>
+                    </a></li>
+
+                <li class="mode">
+                    <a href="#">
+                        <i class="uil uil-moon"></i>
+                        <span class="link-name">Tema</span>
+                    </a>
+
+                    <div class="mode-toggle">
+                        <span class="switch"></span>
                     </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
-                    <div class="kpi_box">
-                        <div class="kpi k1">
-                            <h2>Hack 1-G1</h2>
-                        </div>
+    <!-- Dashboard -->
+    <section class="dashboard">
+        <div class="top">
+            <i class="uil uil-bars sidebar-toggle"></i>
+            <div class="perfil">
+                <div class="hello">
+                    <h3>Bem vindo(a)!,<span id="b_usuario">usuário</span>!</h3>
+                </div>
+                <img src="assets/dinorock.jpg" alt="Imagem de Perfil">
+            </div>
+        </div>
 
-                        <div class="kpi k2">
-                            <h2>Hack 1-G2</h2>
-                        </div>
-
-                        <div class="kpi k3">
-                            <h2>Hack 1-G3</h2>
-                        </div>
-
-                        <div class="kpi k4">
-                            <h2>Hack 1-G4</h2>
-                        </div>
-
-                        <div class="kpi k5">
-                            <h2>Hack 1-G5</h2>
-                        </div>
-                    </div>
+        <div class="dash-content">
+            <div class="overview">
+                <div class="title">
+                    <i class="uil uil-temperature-three-quarter"></i>
+                    <span class="text">Temperatura</span>
                 </div>
 
-                <div class="grafi_umi">
-                    <div>
-                        <canvas id="grafico_umi"></canvas>
+                <div class="legenda">
+                    <h1>Indíce de Temperatura:</h1>
+                    <ul>
+                        <li>
+                            <div class="bola b1"></div>Miníma:<br>Abaixo de 19ºC
+                        </li>
+                        <li>
+                            <div class="bola b2"></div>Alerta miníma:<br> Entre 19ºC e 24ºC
+                        </li>
+                        <li>
+                            <div class="bola b3"></div>Ideal: <br> 25ºC
+                        </li>
+                        <li>
+                            <div class="bola b4"></div>Alerta maxíma: <br> 26ºC
+                        </li>
+                        <li>
+                            <div class="bola b5"></div>Maxíma: <br> Acima de 26ºC
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="boxes">
+                    <div class="box box1">
+                        <span class="text">Mínima</span>
+                        <span class="number">17ºC</span>
+                    </div>
+                    <div class="box box2">
+                        <span class="text">Alerta Mínima</span>
+                        <span class="number">22ºC</span>
+                    </div>
+                    <div class="box box3">
+                        <span class="text">Ideal</span>
+                        <span class="number">25ºC</span>
+                    </div>
+                    <div class="box box4">
+                        <span class="text">Alerta Maxíma</span>
+                        <span class="number">26ºC</span>
+                    </div>
+                    <div class="box box5">
+                        <span class="text">Maxíma</span>
+                        <span class="number">28ºC</span>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div>
-        <h1>Sensor DHT 11 - Umidade</h1>
-        <section style="width:100%">
-            <canvas id="dht11Umidade"></canvas>
-        </section>
-        <h1>Sensor DHT 11 - Temperatura</h1>
-        <section style="width: 100%;">
-            <canvas id="dht11Temperatura"></canvas>
-        </section>
-    </div>
+        <div class="dash-content">
+            <div class="overview">
+                <div class="title">
+                    <i class="uil uil-windy"></i>
+                    <span class="text">Umidade</span>
+                </div>
 
-    <!--<div class="dash">
-        <div class="btns-dash">
-             O gráfico é chamado de acordo com o id (fk_aquario) do banco  
-            <button class="btn-chart btn-pink" onclick="obterDadosGrafico(1)">Aquario 1</button>
-            <button class="btn-chart btn-white" onclick="obterDadosGrafico(2)">Aquario 2</button>
-            <button class="btn-chart btn-white" onclick="obterDadosGrafico(3)">Aquario 3</button>
-            <button class="btn-chart btn-white" onclick="obterDadosGrafico(4)">Aquario 4</button>
+                <div class="legenda">
+                    <h1>Indíce de Umidade:</h1>
+                    <ul>
+                        <li>
+                            <div class="bola b1"></div>Miníma:<br>Abaixo de 40%
+                        </li>
+                        <li>
+                            <div class="bola b2"></div>Alerta miníma:<br> Entre 40% e 49%
+                        </li>
+                        <li>
+                            <div class="bola b3"></div>Ideal: <br> 50%
+                        </li>
+                        <li>
+                            <div class="bola b4"></div>Alerta maxíma: <br> Entre 51% e 59%
+                        </li>
+                        <li>
+                            <div class="bola b5"></div>Maxíma: <br> Acima de 60%
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="boxes">
+                    <div class="box box1">
+                        <span class="text">Mínima</span>
+                        <span class="number">39%</span>
+                    </div>
+                    <div class="box box2">
+                        <span class="text">Alerta Mínima</span>
+                        <span class="number">45%</span>
+                    </div>
+                    <div class="box box3">
+                        <span class="text">Ideal</span>
+                        <span class="number">50%</span>
+                    </div>
+                    <div class="box box4">
+                        <span class="text">Alerta Maxíma</span>
+                        <span class="number">55%</span>
+                    </div>
+                    <div class="box box5">
+                        <span class="text">Maxíma</span>
+                        <span class="number">61%</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-            <h3 class="tituloGraficos">
-                <span id="tituloAquario">123</span>
-            </h3>
-        </div>
-        <div class="graph">
-            <canvas id="myChart"></canvas>
-        </div>
-        <div class="avisoCaptura">
-            <p id="avisoCaptura" style="color: white"></p>
-        </div>
-    </div>
-    </div>-->
+
+        <!-- <div>
+            <h1>Sensor DHT 11 - Umidade</h1>
+            <section style="width:90%">
+                <canvas id="dht11Umidade"></canvas>
+            </section>
+            <h1>Sensor DHT 11 - Temperatura</h1>
+            <section style="width: 90%;">
+                <canvas id="dht11Temperatura"></canvas>
+            </section>
+        </div> -->
+    </section>
+
+    <script src="js/script.js"></script>
 </body>
 
 </html>
-
-
-<script>
-    const alerta_temp = {
-        datasets: [{
-            data: [20, 20, 20, 20, 20],
-            backgroundColor: [
-                'rgb(37, 59, 254)',
-                'rgb(0, 255, 240)',
-                'rgb(9, 194, 93)',
-                'rgb(189, 255, 0)',
-                'rgb(255, 46, 0)',
-            ],
-            hoverOffset: 4
-        }]
-    };
-</script>
-
-<script>
-    const config_temp = {
-        type: 'pie',
-        data: alerta_temp,
-    };
-</script>
-
-<script>
-    const grafico_temp = new Chart(
-        document.getElementById('grafico_temp'),
-        config_temp
-    );
-</script>
-
-<script>
-    const alerta_umi = {
-        datasets: [{
-            data: [20, 20, 20, 20, 20],
-            backgroundColor: [
-                'rgb(37, 59, 254)',
-                'rgb(0, 255, 240)',
-                'rgb(9, 194, 93)',
-                'rgb(189, 255, 0)',
-                'rgb(255, 46, 0)',
-            ],
-            hoverOffset: 4
-        }]
-    };
-</script>
-
-<script>
-    const config_umi = {
-        type: 'pie',
-        data: alerta_temp,
-    };
-</script>
-
-<script>
-    const grafico_umi = new Chart(
-        document.getElementById('grafico_umi'),
-        config_umi
-    );
-</script>
-
-<script>
-    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
-    
-    let proximaAtualizacao;
-        
-    window.onload = obterDadosGrafico(1);
-
-    verificar_autenticacao();
-
-    function alterarTitulo(idAquario) {
-        var tituloAquario = document.getElementById("tituloAquario")
-        tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>Aquário " + idAquario + "</span>"
-    }
-
-    // O gráfico é construído com três funções:
-    // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
-    // 2. plotarGrafico -> Monta o gráfico com os dados trazidos e exibe em tela
-    // 3. atualizarGrafico -> Atualiza o gráfico, trazendo novamente dados do Banco
-
-    // Esta função *obterDadosGrafico* busca os últimos dados inseridos em tabela de medidas.
-    // para, quando carregar o gráfico da primeira vez, já trazer com vários dados.
-    // A função *obterDadosGrafico* também invoca a função *plotarGrafico*
-
-    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-    //     Para ajustar o "select", ajuste o comando sql em src/models
-    function obterDadosGrafico(idAquario) {
-        alterarTitulo(idAquario)
-
-        if (proximaAtualizacao != undefined) {
-            clearTimeout(proximaAtualizacao);
-        }
-
-        fetch(`/medidas/ultimas/${idAquario}`, { cache: 'no-store' }).then(function (response) {
-            if (response.ok) {
-                response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    resposta.reverse();
-
-                    plotarGrafico(resposta, idAquario);
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-            }
-        })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-            });
-    }
-
-    // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
-    // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
-    // A função *plotarGrafico* também invoca a função *atualizarGrafico*
-    function plotarGrafico(resposta, idAquario) {
-        console.log('iniciando plotagem do gráfico...');
-
-        // Criando estrutura para plotar gráfico - labels
-        let labels = [];
-        
-        // Criando estrutura para plotar gráfico - dados
-        let dados = {
-            labels: labels,
-            datasets: [{
-                label: 'Umidade',
-                data: [],
-                fill: false,
-                borderColor: 'rgb(75, 192, 192)',
-                tension: 0.1
-            },
-            {
-                label: 'Temperatura',
-                data: [],
-                fill: false,
-                borderColor: 'rgb(199, 52, 52)',
-                tension: 0.1
-            }]
-        };
-        
-        console.log('----------------------------------------------')
-        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
-        console.log(resposta)
-        
-        // Inserindo valores recebidos em estrutura para plotar o gráfico
-        for (i = 0; i < resposta.length; i++) {
-            var registro = resposta[i];
-            labels.push(registro.momento_grafico);
-            dados.datasets[0].data.push(registro.umidade);
-            dados.datasets[1].data.push(registro.temperatura);
-        }
-        
-        console.log('----------------------------------------------')
-        console.log('O gráfico será plotado com os respectivos valores:')
-        console.log('Labels:')
-        console.log(labels)
-        console.log('Dados:')
-        console.log(dados.datasets)
-        console.log('----------------------------------------------')
-        
-        // Criando estrutura para plotar gráfico - config
-        const config = {
-            type: 'line',
-            data: dados,
-        };
-
-        // Adicionando gráfico criado em div na tela
-        let myChart = new Chart(
-            document.getElementById('myChart'),
-            config
-        );
-
-        setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
-    }
-
-
-    // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
-    // buscando a última medida inserida em tabela contendo as capturas, 
-
-    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-    //     Para ajustar o "select", ajuste o comando sql em src/models
-    function atualizarGrafico(idAquario, dados, myChart) {
-
-        fetch(`/medidas/tempo-real/${idAquario}`, { cache: 'no-store' }).then(function (response) {
-            if (response.ok) {
-                response.json().then(function (novoRegistro) {
-
-                    console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-                    console.log(`Dados atuais do gráfico:`);
-                    console.log(dados);
-
-                    document.getElementById("avisoCaptura").innerHTML = ""
-
-                    if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
-                        console.log("---------------------------------------------------------------")
-                        console.log("Como não há dados novos para captura, o gráfico não atualizará.")
-                        document.getElementById("avisoCaptura").innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
-                        console.log("Horário do novo dado capturado:")
-                        console.log(novoRegistro[0].momento_grafico)
-                        console.log("Horário do último dado capturado:")
-                        console.log(dados.labels[dados.labels.length - 1])
-                        console.log("---------------------------------------------------------------")
-                    } else {
-                        // tirando e colocando valores no gráfico
-                        dados.labels.shift(); // apagar o primeiro
-                        dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
-
-                        dados.datasets[0].data.shift();  // apagar o primeiro de umidade
-                        dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
-
-                        dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
-                        dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
-
-                        myChart.update();
-                    }
-
-                    // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-                // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
-            }
-        })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-            });
-
-    }
-</script>
-
-<script>
-    /* -- dht11Umidade -- */
-    var contextoDht11Umidade = document.getElementById('dht11Umidade').getContext('2d');
-    contextoDht11Umidade.canvas.width = 1000;
-    contextoDht11Umidade.canvas.height = 300;
-    var dht11Umidade = new Chart(
-        contextoDht11Umidade,
-        {
-            type: 'line',
-            data: {
-                datasets: [{
-                    label: 'Umidade',
-                    type: 'line',
-                    borderColor: ['#45b3e7'],
-                    backgroundColor: ['#89cff0']
-                }]
-            },
-            options: {
-                scales: {
-                    xAxes: [{
-                        distribution: 'series',
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }],
-                    yAxes: [{
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Umidade'
-                        },
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                },
-                animation: {
-                    duration: 0
-                }
-            }
-        }
-    );
-    /* -- dht11Temperatura -- */
-    var contextoDht11Temperatura = document.getElementById('dht11Temperatura').getContext('2d');
-    contextoDht11Temperatura.canvas.width = 1000;
-    contextoDht11Temperatura.canvas.height = 300;
-    var dht11Temperatura = new Chart(
-        contextoDht11Temperatura,
-        {
-            type: 'line',
-            data: {
-                datasets: [{
-                    label: "Temperatura",
-                    type: 'line',
-                    borderColor: ['#ff3232'],
-                    backgroundColor: ['#ff7f7f']
-                }]
-            },
-            options: {
-                scales: {
-                    xAxes: [{
-                        distribution: 'series',
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }],
-                    yAxes: [{
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Luminosidade'
-                        },
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                },
-                animation: {
-                    duration: 0
-                }
-            }
-        }
-    );
-
-    var paginacao = {};
-    var tempo = {};
-    function obterDados(grafico, endpoint) {
-        var http = new XMLHttpRequest();
-        http.open('GET', 'http://localhost:3300/sensores/' + endpoint, false);
-        http.send(null);
-        var valores = JSON.parse(http.responseText);
-        if (paginacao[endpoint] == null) {
-            paginacao[endpoint] = 0;
-        }
-        if (tempo[endpoint] == null) {
-            tempo[endpoint] = 0;
-        }
-        // Exibir à partir do último elemento exibido anteriormente
-        var ultimaPaginacao = paginacao[endpoint];
-        paginacao[endpoint] = valores.length;
-        var valores = valores.slice(ultimaPaginacao);
-        valores.forEach((valor) => {
-            //Máximo de 60 itens exibidos no gráfico
-            if (grafico.data.labels.length == 10 && grafico.data.datasets[0].data.length == 10) {
-                grafico.data.labels.shift();
-                grafico.data.datasets[0].data.shift();
-            }
-
-            grafico.data.labels.push(tempo[endpoint]++);
-            grafico.data.datasets[0].data.push(parseFloat(valor));
-            grafico.update();
-        })
-    }
-
-    setInterval(() => {
-        obterDados(dht11Umidade, 'dht11/umidade');
-        obterDados(dht11Temperatura, 'dht11/temperatura');
-        obterDados(luminosidade, 'luminosidade');
-        obterDados(lm35Temperatura, 'lm35/temperatura');
-        obterDados(chave, 'chave');
-    }, 1000);
-
-</script>
