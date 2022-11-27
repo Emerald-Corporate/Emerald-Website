@@ -24,15 +24,15 @@ router.post("/cadastrar-server", function (req, res) {
     usuarioController.cadastrardata(req,res);
 })
 
+router.post("/autenticar", function (req, res) {
+    usuarioController.entrar(req, res);
+});
+
 // router.post("/cadastrar", function (req, res) {
 //     usuarioController.cadastrarEnd(req,res);
 //     usuarioController.cadastrarEmp(req,res);
 //     usuarioController.cadastrardata(req,res);
 // })
 
-
-router.post("/autenticar", function (req, res) {
-    usuarioController.entrar(req, res);
-});
 
 module.exports = router;

@@ -95,7 +95,7 @@ nav.close~.dashboard .top {
     flex-direction: column;
     align-items: center;
     border-radius: 12px;
-    border: 2px solid var(--alt-border);
+    box-shadow: 0 0 10px black;
     width: calc(100% / 5 - 15px);
     padding: 15px 20px;
     background-color: var(--box1-color);

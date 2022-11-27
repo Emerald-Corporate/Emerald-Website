@@ -82,7 +82,6 @@
 
 <body>
     <!-- Navbar-->
-
     <div class="header">
         <div class="logo">
             <a href="index.html"><img src="assets/emerald_logo.png" width="160"></a>
@@ -149,7 +148,7 @@
                 <div class="forms">
                     <h1>Endereço do seu Data-Center</h1>
                     <div class="cl_input">
-                        <input class="cl_cep" type="text" placeholder="CEP" id="in_cep"
+                        <input class="cl_cep" maxlength="8" type="text" placeholder="CEP" id="in_cep"
                             onblur="pesquisacep(this.value);">
                         <select class="cl_estado" id="in_uf">
                             <option value="">-Selecione um estado-</option>
@@ -248,8 +247,6 @@
         }
         else {
             console.log("ELSE: ", empresa.nome);
-
-            setInterval(sumirMensagem, 5000)
 
             var idEmpresa;
             var idEndereco;
