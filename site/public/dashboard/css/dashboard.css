@@ -99,7 +99,11 @@ nav.close~.dashboard .top {
     width: calc(100% / 5 - 15px);
     padding: 15px 20px;
     background-color: var(--box1-color);
-    transition: var(--tran-05);
+    transition: .3s ease;
+}
+
+.dash-content .boxes .box:hover{
+    box-shadow: 0 0 1px black;
 }
 
 .boxes .box i {
