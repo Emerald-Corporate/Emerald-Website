@@ -206,3 +206,19 @@ nav.close~.dashboard .top {
     padding: 15px;
 }
 
+.analytics2{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 30%;
+    background-color: #161616;
+    border-radius: 10px;
+    padding: 10px;
+  }
+
+.overview{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+

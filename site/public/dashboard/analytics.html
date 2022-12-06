@@ -91,13 +91,23 @@
                 <div class="analytics">
                     <canvas id="myChart1" class="chart"></canvas>
                 </div>
+                <div class="analytics2">
+                    <div class="doughnut">
+                        <canvas id="myChart3" class="chart"></canvas>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="dash-content">
             <div class="overview">
                 <div class="analytics">
-                    <canvas id="myChart2" class="chart2"></canvas>
+                    <canvas id="myChart2" class="chart"></canvas>
+                </div>
+                <div class="analytics2">
+                    <div class="doughnut">
+                        <canvas id="myChart4" class="chart"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
@@ -113,7 +123,7 @@
 
 <script>
     const ctx = document.getElementById('myChart1');
-    
+
     new Chart(ctx, {
         type: 'line',
         data: {
@@ -132,67 +142,81 @@
             }
         }
     });
-
-    Chart.defaults.font.size = 18;
-    let chart = new Chart(ctx, {
-        type: 'line',
-        data: data,
-        options: {
-            plugins: {
-                legend: {
-                    labels: {
-                        font: {
-                            family: 'Poppins',
-                            size: 16,
-                        }
-                    }
-                }
-            }
-        }
-    });
-    Chart.defaults.borderColor = '#ffffff';
-    
 </script>
 
 <script>
     const ctx2 = document.getElementById('myChart2');
 
-new Chart(ctx2, {
-    type: 'line',
-    data: {
-        labels: ['-300', '-240s', '-180s', '-120s', '-60s', '0s'],
-        datasets: [{
-            label: '# Temperatura',
-            data: [12, 19, 3, 5, 2, 3],
+    new Chart(ctx2, {
+        type: 'line',
+        data: {
+            labels: ['-300', '-240s', '-180s', '-120s', '-60s', '0s'],
+            datasets: [{
+                label: 'Umidade',
+                data: [12, 19, 3, 5, 2, 3],
 
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
-});
-
-Chart.defaults.font.size = 18;
-let chart2 = new Chart(ctx2, {
-    type: 'line',
-    data: data,
-    options: {
-        plugins: {
-            legend: {
-                labels: {
-                    font: {
-                        family: 'Poppins',
-                        size: 18,
-                    }
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
                 }
             }
         }
-    }
-});
+    });
 
+</script>
+
+<script>
+    const ctx3 = document.getElementById('myChart3');
+
+    new Chart(ctx3, {
+        type: 'doughnut',
+        data: {
+            labels: ['-300', '-240s', '-180s', '-120s', '-60s', '0s'],
+            datasets: [{
+                label: 'Temperatura',
+                data: [12, 19, 3, 5, 2, 3],
+
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+
+<script>
+    const ctx4 = document.getElementById('myChart4');
+
+    new Chart(ctx4, {
+        type: 'doughnut',
+        data: {
+            labels: ['-300', '-240s', '-180s', '-120s', '-60s', '0s'],
+            datasets: [{
+                label: 'Umidade',
+                data: [12, 19, 3, 5, 2, 3],
+
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    Chart.defaults.font.size = 18;
+    Chart.defaults.font.family = 'poppins';
+    Chart.defaults.backgroundColor = '#9BD0F5';
+    Chart.defaults.borderColor = '#36A2EB';
+    Chart.defaults.color = '#000';
 
 </script>
