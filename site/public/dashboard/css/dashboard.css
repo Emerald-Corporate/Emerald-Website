@@ -198,3 +198,11 @@ nav.close~.dashboard .top {
 .b5{
     background-color: #ff2e00;
 }
+
+.analytics{
+    background-color: #161616;
+    width:65%;
+    border-radius: 10px;
+    padding: 15px;
+}
+
