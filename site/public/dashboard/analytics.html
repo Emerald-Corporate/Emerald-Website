@@ -15,7 +15,8 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">k
+    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <title>Light Center</title>
 </head>
@@ -34,7 +35,7 @@
 
         <div class="menu-items">
             <ul class="nav-links">
-                <li><a href="#">
+                <li><a href="dashboard.html">
                         <i class="uil uil-dashboard"></i>
                         <span class="link-name">Dahsboard</span>
                     </a></li>
@@ -87,7 +88,7 @@
         </div>
 
         <div class="dash-content">
-            <div class="overview">
+            <div class="visaogeral">
                 <div class="analytics">
                     <canvas id="myChart1" class="chart"></canvas>
                 </div>
@@ -100,7 +101,7 @@
         </div>
 
         <div class="dash-content">
-            <div class="overview">
+            <div class="visaogeral">
                 <div class="analytics">
                     <canvas id="myChart2" class="chart"></canvas>
                 </div>
@@ -114,13 +115,11 @@
     </section>
 
     </div>
+    <script src="js/script.js"></script>
 
 </body>
 
 </html>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
 <script>
     const ctx = document.getElementById('myChart1');
 

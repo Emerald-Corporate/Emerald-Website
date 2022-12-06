@@ -218,7 +218,11 @@ nav.close~.dashboard .top {
 
 .overview{
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
 }
 
+.visaogeral{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
