@@ -450,7 +450,7 @@ nav.close~.dashboard .top {
     box-shadow: 0 0 10px black;
     width: calc(100% / 5 - 15px);
     padding: 15px 20px;
-    background-color: var(--box1-color);
+    background-color: #c7c7c7;
     transition: .3s ease;
 }
 
@@ -476,20 +476,8 @@ nav.close~.dashboard .top {
     color: var(--text-color);
 }
 
-.boxes .box.box2 {
-    background-color: var(--box2-color);
-}
-
-.boxes .box.box3 {
-    background-color: var(--box3-color);
-}
-
-.boxes .box.box4 {
-    background-color: var(--box4-color);
-}
-
-.boxes .box.box5 {
-    background-color: var(--box5-color);
+.boxes .box.box1 {
+    background-color: #253bfe;
 }
 
 /* Externo */

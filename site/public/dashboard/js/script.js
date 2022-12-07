@@ -49,7 +49,7 @@ verificar_autenticacao();
 
 function alterarTitulo(idAquario) {
     var tituloAquario = document.getElementById(`tituloAquario${idAquario}`)
-    tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #09c25d'>Aquário " + idAquario + "</span>"
+    tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #09c25d'>Hack " + idAquario + "</span>"
 }
 
 function exibirAquario(idAquario) {
@@ -62,7 +62,7 @@ function exibirAquario(idAquario) {
             elementoAtual.classList.remove("display-block")
         }
         elementoAtual.classList.add("display-none")
-        
+
         // alterando estilo do botão
         let btnAtual = document.getElementById(`btnAquario${i}`)
         if (btnAtual.classList.contains("btn-pink")) {
@@ -70,12 +70,12 @@ function exibirAquario(idAquario) {
         }
         btnAtual.classList.add("btn-white")
     }
-    
+
     // exibindo - ou não - o gráfico
     let graficoExibir = document.getElementById(`grafico${idAquario}`)
     graficoExibir.classList.remove("display-none")
     graficoExibir.classList.add("display-block")
-    
+
     // alterando estilo do botão
     let btnExibir = document.getElementById(`btnAquario${idAquario}`)
     btnExibir.classList.remove("btn-white")
@@ -93,6 +93,8 @@ function exibirAquario(idAquario) {
 
 //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
 //     Para ajustar o "select", ajuste o comando sql em src/models
+
+
 function obterDadosGrafico(idAquario) {
 
     alterarTitulo(idAquario)
@@ -108,6 +110,57 @@ function obterDadosGrafico(idAquario) {
                 resposta.reverse();
 
                 plotarGrafico(resposta, idAquario);
+
+                var temperatura = resposta[0].temperatura
+                var umidade = resposta[0].umidade
+
+                var boxTemp = document.querySelectorAll(".boxTemp")
+                var boxUmi = document.querySelectorAll(".boxUmi")
+                var text = document.querySelectorAll(".text")
+                var number = document.querySelectorAll(".number")
+
+                console.log("Situação:", text);
+
+                if (temperatura > 26) {
+                    boxTemp[0].style.backgroundColor = "#FF2E00"
+                    text[0].innerHTML = "Risco"
+                } else if (temperatura == 26) {
+                    boxTemp[0].style.backgroundColor = "#BDFF00"
+                    text[0].innerHTML = "Alerta"
+                } else if (temperatura == 25) {
+                    boxTemp[0].style.backgroundColor = "#09C25D"
+                    text[0].innerHTML = "Ideal"
+                } else if (temperatura <= 24 && temperatura >= 19) {
+                    boxTemp[0].style.backgroundColor = "#00FFF0"
+                    text[0].innerHTML = "Alerta"
+                } else {
+                    boxTemp[0].style.backgroundColor = "#2339FE"
+                    text[0].innerHTML = "Risco"
+                }
+
+                if (umidade > 60) {
+                    boxUmi[0].style.backgroundColor = "#FF2E00"
+                    text[4].innerHTML = "Risco"
+                } else if (umidade >= 51 && umidade <= 59) {
+                    boxUmi[0].style.backgroundColor = "#BDFF00"
+                    text[4].innerHTML = "Alerta"
+                } else if (umidade == 50) {
+                    boxUmi[0].style.backgroundColor = "#09C25D"
+                    text[4].innerHTML = "Ideal"
+                } else if (umidade >= 40 && umidade <= 49) {
+                    boxUmi[0].style.backgroundColor = "#00FFF0"
+                    text[4].innerHTML = "Alerta"
+                } else {
+                    boxUmi[0].style.backgroundColor = "#2339FE"
+                    text[4].innerHTML = "Risco"
+                }
+
+                number[0].innerHTML = temperatura + "ºC"
+                number[4].innerHTML = umidade + "%"
+
+
+
+
             });
         } else {
             console.error('Nenhum dado encontrado ou erro na API');
@@ -135,14 +188,16 @@ function plotarGrafico(resposta, idAquario) {
             label: 'Umidade',
             data: [],
             fill: false,
-            borderColor: 'rgb(75, 192, 192)',
+            borderColor: 'rgb(0, 172, 77)',
+            backgroundColor: 'rgb(0, 172, 77)',
             tension: 0.1
         },
         {
             label: 'Temperatura',
             data: [],
             fill: false,
-            borderColor: 'rgb(199, 52, 52)',
+            borderColor: 'rgb(32, 0, 172)',
+            backgroundColor: 'rgb(32, 0, 172)',
             tension: 0.1
         }]
     };
@@ -184,7 +239,7 @@ function plotarGrafico(resposta, idAquario) {
 
 
 // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
-// buscando a última medida inserida em tabela contendo as capturas, 
+// buscando a última medida inserida em tabela contendo as capturas,
 
 //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
 //     Para ajustar o "select", ajuste o comando sql em src/models
@@ -203,6 +258,55 @@ function atualizarGrafico(idAquario, dados, myChart) {
                 let avisoCaptura = document.getElementById(`avisoCaptura${idAquario}`)
                 avisoCaptura.innerHTML = ""
 
+                var temperatura = novoRegistro[0].temperatura
+                var umidade = novoRegistro[0].umidade 
+
+                // var temperatura = novoRegistro[0].temperatura - (1 + Math.random() * 26)
+                // var umidade = novoRegistro[0].umidade - (1 + Math.random() * 60)
+
+                var boxTemp = document.querySelectorAll(".boxTemp")
+                var boxUmi = document.querySelectorAll(".boxUmi")
+                var text = document.querySelectorAll(".text")
+                var number = document.querySelectorAll(".number")
+
+                console.log("Situação:", text);
+
+                if (temperatura > 26) {
+                    boxTemp[0].style.backgroundColor = "#FF2E00"
+                    text[0].innerHTML = "Risco"
+                } else if (temperatura == 26) {
+                    boxTemp[0].style.backgroundColor = "#BDFF00"
+                    text[0].innerHTML = "Alerta"
+                } else if (temperatura == 25) {
+                    boxTemp[0].style.backgroundColor = "#09C25D"
+                    text[0].innerHTML = "Ideal"
+                } else if (temperatura <= 24 && temperatura >= 19) {
+                    boxTemp[0].style.backgroundColor = "#00FFF0"
+                    text[0].innerHTML = "Alerta"
+                } else {
+                    boxTemp[0].style.backgroundColor = "#2339FE"
+                    text[0].innerHTML = "Risco"
+                }
+
+                if (umidade > 60) {
+                    boxUmi[0].style.backgroundColor = "#FF2E00"
+                    text[4].innerHTML = "Risco"
+                } else if (umidade >= 51 && umidade <= 59) {
+                    boxUmi[0].style.backgroundColor = "#BDFF00"
+                    text[4].innerHTML = "Alerta"
+                } else if (umidade == 50) {
+                    boxUmi[0].style.backgroundColor = "#09C25D"
+                    text[4].innerHTML = "Ideal"
+                } else if (umidade >= 40 && umidade <= 49) {
+                    boxUmi[0].style.backgroundColor = "#00FFF0"
+                    text[4].innerHTML = "Alerta"
+                } else {
+                    boxUmi[0].style.backgroundColor = "#2339FE"
+                    text[4].innerHTML = "Risco"
+                }
+
+                number[0].innerHTML = temperatura.toFixed(1) + "ºC"
+                number[4].innerHTML = umidade.toFixed(1) + "%"
 
                 if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
                     console.log("---------------------------------------------------------------")
