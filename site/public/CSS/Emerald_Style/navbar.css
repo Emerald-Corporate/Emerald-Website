@@ -10,6 +10,7 @@
 html {
     scroll-behavior: smooth;
 }
+
 ::-webkit-scrollbar{
     width: 10px;
 }
@@ -87,16 +88,26 @@ ul {
     align-items: center;
 }
 
+.log_cad a{
+    font-weight: 500;
+}
+
 .botao_log {
     background-color: transparent;
     border: 1px solid #00AC4D;
     margin-left: 40px;
     padding: 0 1rem 0 1rem;
     border-radius: 40px;
+    transition: .2s ease;
+}
+
+.botao_log a:hover{
+    color: #fff;
 }
 
 .botao_log:hover {
     background-color: #00AC4D;
+    color: #fff;
     border: 1px solid #00AC4D;
     margin-left: 40px;
     padding: 0 1rem 0 1rem;
@@ -106,11 +117,13 @@ ul {
     background: #00AC4D;
     border-radius: 40px;
     padding: 0 1rem 0 1rem;
-    transform: scale(1.0);
     transition: all 0.5s;
+}
+
+.botao_cad a{
+    color: #fff;
 }
 
 .botao_cad:hover {
     transform: scale(1.1);
-    transition: all 0.5s;
 }

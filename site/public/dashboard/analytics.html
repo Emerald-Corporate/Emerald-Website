@@ -85,9 +85,29 @@
                 <img src="assets/dinorock.jpg" alt="Imagem de Perfil">
             </div>
         </div>
-        </div>
 
-        <div class="dash-content">
+        <div class="dash-content analise">
+            <div class="legenda">
+                <h1>Indíce de Temperatura:</h1>
+                <ul>
+                    <li>
+                        <div class="bola b1"></div>Miníma:<br>Abaixo de 19ºC
+                    </li>
+                    <li>
+                        <div class="bola b2"></div>Alerta Miníma:<br> Entre 19ºC e 24ºC
+                    </li>
+                    <li>
+                        <div class="bola b3"></div>Ideal: <br> 25ºC
+                    </li>
+                    <li>
+                        <div class="bola b4"></div>Alerta Maxíma: <br> 26ºC
+                    </li>
+                    <li>
+                        <div class="bola b5"></div>Maxíma: <br> Acima de 26ºC
+                    </li>
+                </ul>
+            </div>
+
             <div class="visaogeral">
                 <div class="analytics">
                     <canvas id="myChart1" class="chart"></canvas>
@@ -100,7 +120,28 @@
             </div>
         </div>
 
-        <div class="dash-content">
+        <div class="dash-content analise">
+            <div class="legenda">
+                <h1>Indíce de Umidade:</h1>
+                <ul>
+                    <li>
+                        <div class="bola b1"></div>Miníma:<br>Abaixo de 40%
+                    </li>
+                    <li>
+                        <div class="bola b2"></div>Alerta Miníma:<br> Entre 40% e 49%
+                    </li>
+                    <li>
+                        <div class="bola b3"></div>Ideal: <br> 50%
+                    </li>
+                    <li>
+                        <div class="bola b4"></div>Alerta Maxíma: <br> Entre 51% e 59%
+                    </li>
+                    <li>
+                        <div class="bola b5"></div>Maxíma: <br> Acima de 60%
+                    </li>
+                </ul>
+            </div>
+
             <div class="visaogeral">
                 <div class="analytics">
                     <canvas id="myChart2" class="chart"></canvas>
@@ -126,7 +167,7 @@
     new Chart(ctx, {
         type: 'line',
         data: {
-            labels: ['-300', '-240s', '-180s', '-120s', '-60s', '0s'],
+            labels: ['1', '2', '3', '4', '5', '6'],
             datasets: [{
                 label: 'Temperatura',
                 data: [12, 19, 3, 5, 2, 3],
@@ -149,7 +190,7 @@
     new Chart(ctx2, {
         type: 'line',
         data: {
-            labels: ['-300', '-240s', '-180s', '-120s', '-60s', '0s'],
+            labels: [1, 2, 3, 4, 5, 6],
             datasets: [{
                 label: 'Umidade',
                 data: [12, 19, 3, 5, 2, 3],
@@ -173,20 +214,11 @@
     new Chart(ctx3, {
         type: 'doughnut',
         data: {
-            labels: ['-300', '-240s', '-180s', '-120s', '-60s', '0s'],
             datasets: [{
-                label: 'Temperatura',
-                data: [12, 19, 3, 5, 2, 3],
+                data: [12, 19, 3, 5, 2],
 
             }]
         },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
     });
 </script>
 
@@ -196,26 +228,13 @@
     new Chart(ctx4, {
         type: 'doughnut',
         data: {
-            labels: ['-300', '-240s', '-180s', '-120s', '-60s', '0s'],
             datasets: [{
-                label: 'Umidade',
-                data: [12, 19, 3, 5, 2, 3],
+                data: [12, 19, 3, 5, 2],
 
             }]
         },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
     });
 
-    Chart.defaults.font.size = 18;
+    Chart.defaults.font.size = 12;
     Chart.defaults.font.family = 'poppins';
-    Chart.defaults.backgroundColor = '#9BD0F5';
-    Chart.defaults.borderColor = '#36A2EB';
-    Chart.defaults.color = '#000';
-
 </script>
