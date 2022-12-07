@@ -157,10 +157,6 @@ function obterDadosGrafico(idAquario) {
 
                 number[0].innerHTML = temperatura + "ºC"
                 number[4].innerHTML = umidade + "%"
-
-
-
-
             });
         } else {
             console.error('Nenhum dado encontrado ou erro na API');
