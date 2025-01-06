@@ -1,10 +1,20 @@
 {
-    "name": "site",
-    "version": "0.0.1",
-    "private": true,
-    "scripts": {
-      "start": "node ./site/app.js",
-      "dev": "cd site && npm run dev",
-      "postinstall": "cd site && npm install"
-    }
+  "name": "emerald",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon --exec node app.js"
+  },
+  "author": "Feito pelos desenvolvedores Giovanna Gonçalves, João Vitor, Luis Vitor, Paulo Alvares e Vitor Varela da São Paulo Tech School",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.17.1",
+    "mysql2": "^3.9.4",
+    "nodemon": "^2.0.7",
+    "path": "^0.12.7"
   }
+}

@@ -2,7 +2,9 @@
 node_modules
 package-lock.json
 
-site/node_modules
-site/package-lock.json
+.env
+.env.dev
+docs
+dev
 
 .github
