@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css2?family=Oxanium:wght@200;300;400;500;600;700;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Oxanium", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #181818;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #00ac4d;
+}
+
+header {
+  background-color: #ffffff;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 12px;
+  position: fixed;
+  border-radius: 0 0 1rem 1rem;
+  z-index: 1;
+}
+
+a {
+  color: #181818;
+  text-align: center;
+  margin-top: 2px;
+  padding: 14px 16px;
+  text-decoration: none;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bar {
+  width: 0;
+  height: 2px;
+  background-color: #00ac4d;
+  transition: 0.2s ease;
+}
+
+a:hover .bar {
+  width: 60%;
+}
+
+.logo {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav_home {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  overflow: hidden;
+}
+
+.log_cad {
+  list-style: none;
+  width: 22%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.log_cad a {
+  font-weight: 500;
+}
+
+.botao_log {
+  background-color: transparent;
+  border: 1px solid #00ac4d;
+  margin-left: 40px;
+  padding: 0 1rem 0 1rem;
+  border-radius: 40px;
+  transition: 0.2s ease;
+}
+
+.botao_log a:hover {
+  color: #fff;
+}
+
+.botao_log:hover {
+  background-color: #00ac4d;
+  color: #fff;
+  border: 1px solid #00ac4d;
+  margin-left: 40px;
+  padding: 0 1rem 0 1rem;
+}
+
+.botao_cad {
+  background: #00ac4d;
+  border-radius: 40px;
+  padding: 0 1rem 0 1rem;
+  transition: all 0.5s;
+}
+
+.botao_cad a {
+  color: #fff;
+}
+
+.botao_cad:hover {
+  transform: scale(1.1);
+}

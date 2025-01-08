@@ -1,192 +1,282 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/simulador.css">
-    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="CSS/simulador.css" />
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" />
     <title>Simulador Financeiro</title>
     <script src="js/funcoes.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- Navbar-->
     <div class="header">
-        <div class="logo">
-            <a href="index.html"><img src="assets/emerald_logo.png" width="160"></a>
-        </div>
+      <div class="logo">
+        <a href="index.html"
+          ><img src="assets/emerald_logo.png" width="160"
+        /></a>
+      </div>
 
-        <div class="nav_home">
-            <ul>
-                <li><a href="index.html">Home<div class="bar"></div></a></li>
-                <li><a href="index.html#serv">Serviços<div class="bar"></div></a></li>
-                <li><a href="index.html#quemsomos">Quem Somos?<div class="bar"></div></a></li>
-                <li><a href="index.html#contato">Contato<div class="bar"></div></a></li>
-            </ul>
-        </div>
+      <div class="nav_home">
+        <ul>
+          <li>
+            <a href="index.html"
+              >Home
+              <div class="bar"></div
+            ></a>
+          </li>
+          <li>
+            <a href="index.html#serv"
+              >Serviços
+              <div class="bar"></div
+            ></a>
+          </li>
+          <li>
+            <a href="index.html#quemsomos"
+              >Quem Somos?
+              <div class="bar"></div
+            ></a>
+          </li>
+          <li>
+            <a href="index.html#contato"
+              >Contato
+              <div class="bar"></div
+            ></a>
+          </li>
+        </ul>
+      </div>
 
-        <div class="log_cad">
-            <li class="botao_log"><a href="login.html">Login</a></li>
-            <li class="botao_cad"><a href="cadastro.html">Cadastro</a></li>
-        </div>
+      <div class="log_cad">
+        <li class="botao_log"><a href="login.html">Login</a></li>
+        <li class="botao_cad"><a href="cadastro.html">Cadastro</a></li>
+      </div>
     </div>
 
     <!-- Simulador Financeiro -->
     <div class="banner">
-        <h1>Veja sua econômia aqui!</h1>
-        <div class="container">
-            <div class="esquerdasimulador">
-                <img src="assets/simulador/financeiro.png" alt="" class="imgsimulador">
-                <a class="fazercadastro" href="cadastro.html"> Gostou? Clique aqui!<div class="bar"></div></a>
-            </div>
-            <div class="caixa-formulario">
-                <h1>Simulador</h1>
-                <div class="line">
-                    <div class="cl_input">
-                        <h2>Racks:</h2>
-                        <input id="in_rack" type="number" placeholder="Quantidade de racks">
-                    </div>
-
-                    <div class="cl_input">
-                        <h2>Computadores:</h2>
-                        <input id="in_computador" type="number" placeholder="Por racks">
-                    </div>
-                </div>
-
-                <div class="line">
-                    <div class="cl_input">
-                        <h2>Dowtime:</h2>
-                        <input id="in_downtime" type="number" placeholder="Por minuto">
-                    </div>
-                    <div class="cl_input">
-                        <h2>Tier:</h2>
-                        <select id="in_tier">
-                            <option value="">- Selecione uma tier -</option>
-                            <option value="1">Tier 1</option>
-                            <option value="2">Tier 2</option>
-                            <option value="3">Tier 3</option>
-                            <option value="4">Tier 4</option>
-                        </select>
-                    </div>
-                </div>
-                <button onclick="calcular()"><a href="#resultado">Calcular</a></button>
-            </div>
+      <h1>Veja sua econômia aqui!</h1>
+      <div class="container">
+        <div class="esquerdasimulador">
+          <img
+            src="assets/simulador/financeiro.png"
+            alt=""
+            class="imgsimulador"
+          />
+          <a class="fazercadastro" href="cadastro.html">
+            Gostou? Clique aqui!
+            <div class="bar"></div
+          ></a>
         </div>
+        <div class="caixa-formulario">
+          <h1>Simulador</h1>
+          <div class="line">
+            <div class="cl_input">
+              <h2>Racks:</h2>
+              <input
+                id="in_rack"
+                type="number"
+                placeholder="Quantidade de racks"
+              />
+            </div>
+
+            <div class="cl_input">
+              <h2>Computadores:</h2>
+              <input id="in_computador" type="number" placeholder="Por racks" />
+            </div>
+          </div>
+
+          <div class="line">
+            <div class="cl_input">
+              <h2>Dowtime:</h2>
+              <input id="in_downtime" type="number" placeholder="Por minuto" />
+            </div>
+            <div class="cl_input">
+              <h2>Tier:</h2>
+              <select id="in_tier">
+                <option value="">- Selecione uma tier -</option>
+                <option value="1">Tier 1</option>
+                <option value="2">Tier 2</option>
+                <option value="3">Tier 3</option>
+                <option value="4">Tier 4</option>
+              </select>
+            </div>
+          </div>
+          <button onclick="calcular()">
+            <a href="#resultado">Calcular</a>
+          </button>
+        </div>
+      </div>
     </div>
 
     <div class="envelope">
-        <div id="resultado" class="result">Seu orçamento aparece aqui</div>
+      <div id="resultado" class="result">Seu orçamento aparece aqui</div>
     </div>
-</body>
-
+  </body>
 </html>
 
 <script>
-    function calcular() {
-        //Criando variáveis 
-        var rack = Number(in_rack.value);
-        var computador = Number(in_computador.value);
-        var tier = in_tier.value;
-        var qtsensor = rack * 2;
-        var qtarduino = Math.trunc(qtsensor / 6);
+  function calcular() {
+    //Criando variáveis
+    var rack = Number(in_rack.value);
+    var computador = Number(in_computador.value);
+    var tier = in_tier.value;
+    var qtsensor = rack * 2;
+    var qtarduino = Math.trunc(qtsensor / 6);
 
-        //Valores cobrados
-        var valsensor = qtsensor * 15;
-        var valarduino = qtarduino * 150;
-        var instalacao = 1200;
-        var valprojeto = 5600;
+    //Valores cobrados
+    var valsensor = qtsensor * 15;
+    var valarduino = qtarduino * 150;
+    var instalacao = 1200;
+    var valprojeto = 5600;
 
-        //Dowtimes
-        var downtime = 5600;
-        var downtimedia = downtime * 1440;
-        var downtimeano = (downtimedia * 365) / 12;
+    //Dowtimes
+    var downtime = 5600;
+    var downtimedia = downtime * 1440;
+    var downtimeano = (downtimedia * 365) / 12;
 
-        //Econômia
-        var economia = downtime - (instalacao + valarduino + valsensor + valprojeto);
-        var economiadia = downtimedia - (instalacao + valarduino + valsensor + valprojeto);
-        var economiaano = downtimeano - (instalacao + valarduino + valsensor + valprojeto);
+    //Econômia
+    var economia =
+      downtime - (instalacao + valarduino + valsensor + valprojeto);
+    var economiadia =
+      downtimedia - (instalacao + valarduino + valsensor + valprojeto);
+    var economiaano =
+      downtimeano - (instalacao + valarduino + valsensor + valprojeto);
 
-        //Validações
-        if (rack == '' && computador == '' && downtime == '' && tier == '') {
-            alert("Todos os campos em branco, preencha para começar sua jornada conosco!")
-        } else if (rack == '' || computador == '' || downtime == '' || tier == '') {
-            if (rack <= 0) {
-                alert("Quantidade de racks inválida");
-            }
+    //Validações
+    if (rack == "" && computador == "" && downtime == "" && tier == "") {
+      alert(
+        "Todos os campos em branco, preencha para começar sua jornada conosco!"
+      );
+    } else if (rack == "" || computador == "" || downtime == "" || tier == "") {
+      if (rack <= 0) {
+        alert("Quantidade de racks inválida");
+      }
 
-            if (computador <= 0) {
-                alert("Quantidade de computadores inválida!")
-            }
+      if (computador <= 0) {
+        alert("Quantidade de computadores inválida!");
+      }
 
-            if (downtime == '') {
-                alert("Para melhorar sua experiência, informe seu dowtime por minutos")
-            }
+      if (downtime == "") {
+        alert("Para melhorar sua experiência, informe seu dowtime por minutos");
+      }
 
-            if (tier == '') {
-                alert("Tier inválida")
-            }
-        } else {
-            if (tier == 1) {
-                valprojeto = valprojeto + 0
-                resultado.innerHTML = `<h1>O quanto você perde:</h1><br>
-                A cada 1 minuto de dowtime: <strong>R$${downtime.toFixed(2)}</strong><br> 
-                A cada dia de dowtime: <strong>R$${downtimedia.toFixed(2)}</strong><br>
-                A cada ano (Paralisações frequêntes e imprevisíveis): <strong>R$${downtimeano.toFixed(2)}</strong><br><br>
+      if (tier == "") {
+        alert("Tier inválida");
+      }
+    } else {
+      if (tier == 1) {
+        valprojeto = valprojeto + 0;
+        resultado.innerHTML = `<h1>O quanto você perde:</h1><br>
+                A cada 1 minuto de dowtime: <strong>R$${downtime.toFixed(
+                  2
+                )}</strong><br> 
+                A cada dia de dowtime: <strong>R$${downtimedia.toFixed(
+                  2
+                )}</strong><br>
+                A cada ano (Paralisações frequêntes e imprevisíveis): <strong>R$${downtimeano.toFixed(
+                  2
+                )}</strong><br><br>
                 
                 <h1>Quanto custa nosso projeto:</h1><br>
-                Primeiro mês (Mensal + Instalação): <strong>R$${valprojeto + instalacao}</strong><br>
-                Aluguel Mensal: <strong>R$${valarduino + valprojeto + valsensor}</strong><br><br>
+                Primeiro mês (Mensal + Instalação): <strong>R$${
+                  valprojeto + instalacao
+                }</strong><br>
+                Aluguel Mensal: <strong>R$${
+                  valarduino + valprojeto + valsensor
+                }</strong><br><br>
                 
                 <h1>O quanto você vai previnir:</h1><br>
-                Econômia por dowtime: <strong>R$${economia.toFixed(2)}</strong><br>
-                Econômia por dia: <strong>R$${economiadia.toFixed(2)}</strong><br>
-                Econômia por ano: <strong>R$${economiaano.toFixed(2)}</strong>`
-            } else if (tier == 2) {
-                valprojeto = valprojeto + (valprojeto * 0.10)
-                resultado.innerHTML = `<h1>O quanto você perde:</h1><br>
-                A cada 1 minuto de dowtime: <strong>R$${downtime.toFixed(2)}</strong><br> 
-                A cada dia de dowtime: <strong>R$${downtimedia.toFixed(2)}</strong><br>
-                A cada ano (Paralisações frequêntes e imprevisíveis): <strong>R$${downtimeano.toFixed(2)}</strong><br><br>
+                Econômia por dowtime: <strong>R$${economia.toFixed(
+                  2
+                )}</strong><br>
+                Econômia por dia: <strong>R$${economiadia.toFixed(
+                  2
+                )}</strong><br>
+                Econômia por ano: <strong>R$${economiaano.toFixed(2)}</strong>`;
+      } else if (tier == 2) {
+        valprojeto = valprojeto + valprojeto * 0.1;
+        resultado.innerHTML = `<h1>O quanto você perde:</h1><br>
+                A cada 1 minuto de dowtime: <strong>R$${downtime.toFixed(
+                  2
+                )}</strong><br> 
+                A cada dia de dowtime: <strong>R$${downtimedia.toFixed(
+                  2
+                )}</strong><br>
+                A cada ano (Paralisações frequêntes e imprevisíveis): <strong>R$${downtimeano.toFixed(
+                  2
+                )}</strong><br><br>
                 
                 <h1>Quanto custa nosso projeto:</h1><br>
-                Primeiro mês (Mensal + Instalação): <strong>R$${valprojeto + instalacao}</strong><br>
-                Aluguel Mensal: <strong>R$${valarduino + valprojeto + valsensor}</strong><br><br>
+                Primeiro mês (Mensal + Instalação): <strong>R$${
+                  valprojeto + instalacao
+                }</strong><br>
+                Aluguel Mensal: <strong>R$${
+                  valarduino + valprojeto + valsensor
+                }</strong><br><br>
                 
                 <h1>O quanto você vai previnir:</h1><br>
-                Econômia por dowtime: <strong>R$${economia.toFixed(2)}</strong><br>
-                Econômia por dia: <strong>R$${economiadia.toFixed(2)}</strong><br>
-                Econômia por ano: <strong>R$${economiaano.toFixed(2)}</strong>`
-            } else if (tier == 3) {
-                valprojeto = valprojeto + (valprojeto * 0.15)
-                resultado.innerHTML = `<h1>O quanto você perde:</h1><br>
-                A cada 1 minuto de dowtime: <strong>R$${downtime.toFixed(2)}</strong><br> 
-                A cada dia de dowtime: <strong>R$${downtimedia.toFixed(2)}</strong><br>
-                A cada ano (Paralisações frequêntes e imprevisíveis): <strong>R$${downtimeano.toFixed(2)}</strong><br><br>
+                Econômia por dowtime: <strong>R$${economia.toFixed(
+                  2
+                )}</strong><br>
+                Econômia por dia: <strong>R$${economiadia.toFixed(
+                  2
+                )}</strong><br>
+                Econômia por ano: <strong>R$${economiaano.toFixed(2)}</strong>`;
+      } else if (tier == 3) {
+        valprojeto = valprojeto + valprojeto * 0.15;
+        resultado.innerHTML = `<h1>O quanto você perde:</h1><br>
+                A cada 1 minuto de dowtime: <strong>R$${downtime.toFixed(
+                  2
+                )}</strong><br> 
+                A cada dia de dowtime: <strong>R$${downtimedia.toFixed(
+                  2
+                )}</strong><br>
+                A cada ano (Paralisações frequêntes e imprevisíveis): <strong>R$${downtimeano.toFixed(
+                  2
+                )}</strong><br><br>
                 
                 <h1>Quanto custa nosso projeto:</h1><br>
-                Aluguel Mensal: <strong>R$${valarduino + valprojeto}</strong><br><br>
+                Aluguel Mensal: <strong>R$${
+                  valarduino + valprojeto
+                }</strong><br><br>
                 
                 <h1>O quanto você vai previnir:</h1><br>
-                Econômia por dowtime: <strong>R$${economia.toFixed(2)}</strong><br>
-                Econômia por dia: <strong>R$${economiadia.toFixed(2)}</strong><br>
-                Econômia por ano: <strong>R$${economiaano.toFixed(2)}</strong>`
-            } else {
-                valprojeto = valprojeto + (valprojeto * 0.20)
-                resultado.innerHTML = `<h1>O quanto você perde:</h1><br>
-                A cada 1 minuto de dowtime: <strong>R$${downtime.toFixed(2)}</strong><br> 
-                A cada dia de dowtime: <strong>R$${downtimedia.toFixed(2)}</strong><br>
-                A cada ano (Paralisações frequêntes e imprevisíveis): <strong>R$${downtimeano.toFixed(2)}</strong><br><br>
+                Econômia por dowtime: <strong>R$${economia.toFixed(
+                  2
+                )}</strong><br>
+                Econômia por dia: <strong>R$${economiadia.toFixed(
+                  2
+                )}</strong><br>
+                Econômia por ano: <strong>R$${economiaano.toFixed(2)}</strong>`;
+      } else {
+        valprojeto = valprojeto + valprojeto * 0.2;
+        resultado.innerHTML = `<h1>O quanto você perde:</h1><br>
+                A cada 1 minuto de dowtime: <strong>R$${downtime.toFixed(
+                  2
+                )}</strong><br> 
+                A cada dia de dowtime: <strong>R$${downtimedia.toFixed(
+                  2
+                )}</strong><br>
+                A cada ano (Paralisações frequêntes e imprevisíveis): <strong>R$${downtimeano.toFixed(
+                  2
+                )}</strong><br><br>
                 
                 <h1>Quanto custa nosso projeto:</h1><br>
-                Aluguel Mensal: <strong>R$${valarduino + valprojeto}</strong><br><br>
+                Aluguel Mensal: <strong>R$${
+                  valarduino + valprojeto
+                }</strong><br><br>
                 
                 <h1>O quanto você vai previnir:</h1><br>
-                Econômia por dowtime: <strong>R$${economia.toFixed(2)}</strong><br>
-                Econômia por dia: <strong>R$${economiadia.toFixed(2)}</strong><br>
-                Econômia por ano: <strong>R$${economiaano.toFixed(2)}</strong>`
-            }
-        }
+                Econômia por dowtime: <strong>R$${economia.toFixed(
+                  2
+                )}</strong><br>
+                Econômia por dia: <strong>R$${economiadia.toFixed(
+                  2
+                )}</strong><br>
+                Econômia por ano: <strong>R$${economiaano.toFixed(2)}</strong>`;
+      }
     }
+  }
 </script>

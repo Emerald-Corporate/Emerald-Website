@@ -1,0 +1,248 @@
+h1 {
+  color: #00ac4d;
+  font-weight: 50;
+}
+
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8rem 4rem 4rem 4rem;
+  background-color: #181818;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 98%;
+}
+
+.banner .frases {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 40%;
+  margin-right: 2rem;
+}
+
+.banner .img_banner {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.img_banner img {
+  width: 700px;
+}
+
+.banner h1 {
+  font-weight: 700;
+  font-size: 96px;
+  color: #ffffff;
+  width: 100%;
+  margin: 0;
+}
+
+.banner p {
+  font-weight: 500;
+  font-size: 20px;
+  color: #ffffff;
+}
+
+.servico {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #181818;
+  padding: 4rem;
+}
+
+.servico .info {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+}
+
+.servico .img_servico {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.img_servico img {
+  width: 600px;
+}
+
+.servico h1 {
+  font-weight: 700;
+  font-size: 96px;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+}
+
+.servico p {
+  font-weight: 700;
+  font-size: 24px;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+}
+
+.botao_serv {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #00ac4d;
+  border-radius: 40px;
+  padding: 0.3rem;
+  transform: scale(1);
+  transition: all 0.5s;
+  border: none;
+  outline: none;
+}
+
+.botao_serv a {
+  font-size: 15px;
+  color: #ffffff;
+}
+
+.botao_serv:hover {
+  transform: scale(1.1);
+}
+
+.qm_somos {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 600px;
+  background: #181818;
+}
+
+.title {
+  color: rgb(7, 7, 7);
+  background-color: #00ac4d;
+  font-size: 18px;
+  margin: 60px;
+  width: 50%;
+  border-radius: 20px 20px 20px 20px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title p {
+  text-align: center;
+  color: #ffffff;
+}
+
+.title h1 {
+  display: flex;
+  justify-content: center;
+  font-size: 50px;
+  color: #ffffff;
+}
+
+.equipe {
+  margin: 60px;
+  width: 60%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.equipe .NE {
+  display: flex;
+  justify-content: center;
+  font-size: 50px;
+  color: #ffffff;
+  margin-bottom: 2rem;
+}
+
+.parte {
+  font-size: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  gap: -4;
+}
+
+.membro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  margin-bottom: 2rem;
+}
+
+.membro img {
+  width: 100px;
+  height: 115px;
+  margin-bottom: 1rem;
+}
+
+.membro h1 {
+  font-size: 12px;
+  color: #ffffff;
+}
+
+.membro span {
+  font-size: 12px;
+  color: #ffffff;
+}
+
+.fale_conosco {
+  background-color: #cccccc;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+}
+
+.fale_conosco h1 {
+  color: #181818;
+  font-size: 80px;
+  margin-bottom: 2rem;
+}
+
+.fale_conosco p {
+  color: #181818;
+  font-size: 30px;
+}
+
+.social {
+  color: #ffffff;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  padding: 2rem;
+}
+
+.icone {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #181818;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s ease;
+}
+
+.icone:hover {
+  background-color: #3d3d3d;
+}
+
+.icone img {
+  width: 35px;
+}
