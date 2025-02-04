@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="CSS/reset.css" />
-    <link rel="stylesheet" href="CSS/index.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/index.css" />
     <title>Emerald</title>
     <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" />
   </head>
@@ -14,19 +14,19 @@
     <!-- Navbar-->
     <header>
       <div class="logo">
-        <a href="#home"><img src="assets/emerald_logo.png" width="160" /></a>
+        <a href="#hero"><img src="assets/emerald_logo.png" width="160" /></a>
       </div>
 
       <div class="nav_home">
         <ul>
           <li>
-            <a href="#home"
+            <a href="#hero"
               >Home
               <div class="bar"></div
             ></a>
           </li>
           <li>
-            <a href="#serv"
+            <a href="#service"
               >Serviços
               <div class="bar"></div
             ></a>
@@ -52,101 +52,104 @@
       </div>
     </header>
 
-    <!-- Home -->
-    <div id="home" class="banner">
-      <div class="container">
-        <div class="frases">
-          <h1>Emerald</h1>
-          <p>Fazendo muito enquanto você paga pouco</p>
+    <main>
+      <!-- Hero -->
+      <section id="hero">
+        <div class="banner">
+          <img src="assets/logo_light.png" alt="Logotipo da Emerald" />
+          <p>Fazendo muito enquanto você investe pouco</p>
         </div>
 
-        <div class="img_banner">
-          <img src="assets/index/visionario.png" alt="" />
-        </div>
-      </div>
-    </div>
+        <img
+          src="assets/index/visionario.png"
+          alt="Imagem ilustrativa de um homem centralizado em tecnologia"
+        />
+      </section>
 
-    <!-- Serviços -->
-    <div id="serv" class="servico">
-      <div class="container">
-        <div class="img_servico">
-          <img src="assets/index/data.png" alt="" />
-        </div>
+      <!-- Serviços -->
+      <section id="service">
+        <img src="assets/index/data.png" alt="Imagem ilustrativa de um datacenter" />
 
-        <div class="info">
-          <h1>Light Center</h1>
-          <p>Você não compra, você investe!</p>
-          <button class="botao_serv">
-            <a href="simulador.html">Que tal um orçamento?</a>
+        <div class="light-center">
+          <img src="assets/logo_light_center_light.png" alt="Logo do Light Center">
+          <p>Experimente nossa solução para seu DataCenter!</p>
+          <button>
+            <a href="simulador.html">Simule Aqui!</a>
           </button>
         </div>
-      </div>
-    </div>
+      </section>
 
-    <!-- Quem Somos? -->
-    <div id="quemsomos" class="qm_somos">
-      <div class="title">
-        <h1>Quem Somos?</h1>
-        <p>
-          Emerald é uma empresa de tecnologia focada em segurança da informação,
-          prezando pela confiabilidade e responsabilidade para todos os
-          clientes. Fundada em 2022, tendo como seu principal produto 'Light
-          Center', um monitorador de temperatura para data-centers.<br />
-          Nossa empresa tem como principais valores a confiabilidade, a parceria
-          e proxímidade, além de qualidade nas entregas com todos os clientes
-          que nos escolherem como opção. <br />
-          A equipe presa pelo desenvolvimento da tecnologia, sempre criando
-          medidas e alternativas criativas, usando a tecnologia a favor da
-          solução de um problema. <br />
-          Vamos começar sua jornada conosco?
-        </p>
-      </div>
+      <!-- Quem Somos? -->
+      <section id="quemsomos" class="qm_somos">
+        <div class="title">
+          <h1>Quem Somos?</h1>
+          <p>
+            Emerald é uma empresa de tecnologia focada em segurança da
+            informação, prezando pela confiabilidade e responsabilidade para
+            todos os clientes. Fundada em 2022, tendo como seu principal produto
+            'Light Center', um monitorador de temperatura para data-centers.<br />
+            Nossa empresa tem como principais valores a confiabilidade, a
+            parceria e proxímidade, além de qualidade nas entregas com todos os
+            clientes que nos escolherem como opção. <br />
+            A equipe presa pelo desenvolvimento da tecnologia, sempre criando
+            medidas e alternativas criativas, usando a tecnologia a favor da
+            solução de um problema. <br />
+            Vamos começar sua jornada conosco?
+          </p>
+        </div>
 
-      <div class="equipe">
-        <h1 class="NE">Nossa equipe</h1>
-        <div class="parte">
-          <div class="membro">
-            <img
-              src="assets/index/giovanna.png"
-              alt="Imagem de membro da equipe"
-            />
-            <h1>Giovanna Gonçalves</h1>
-            <span>Documentação</span>
+        <div class="equipe">
+          <h1 class="NE">Nossa equipe</h1>
+          <div class="parte">
+            <div class="membro">
+              <img
+                src="assets/index/giovanna.png"
+                alt="Imagem de membro da equipe"
+              />
+              <h1>Giovanna Gonçalves</h1>
+              <span>Documentação</span>
+            </div>
+            <div class="membro">
+              <img
+                src="assets/index/joao.png"
+                alt="Imagem de membro da equipe"
+              />
+              <h1>João Vitor</h1>
+              <span>Front-End / Back-End</span>
+            </div>
+            <div class="membro">
+              <img
+                src="assets/index/luis.png"
+                alt="Imagem de membro da equipe"
+              />
+              <h1>Luís Vitor</h1>
+              <span>Documentação</span>
+            </div>
           </div>
-          <div class="membro">
-            <img src="assets/index/joao.png" alt="Imagem de membro da equipe" />
-            <h1>João Vitor</h1>
-            <span>Front-End / Back-End</span>
-          </div>
-          <div class="membro">
-            <img src="assets/index/luis.png" alt="Imagem de membro da equipe" />
-            <h1>Luís Vitor</h1>
-            <span>Documentação</span>
+          <div class="parte">
+            <div class="membro">
+              <img
+                src="assets/index/paulo.png"
+                alt="Imagem de membro da equipe"
+              />
+              <h1>Paulo Alvares</h1>
+              <span>Front-End / Back-End</span>
+            </div>
+            <div class="membro">
+              <img
+                src="assets/index/vitor.png"
+                alt="Imagem de membro da equipe"
+              />
+              <h1>Vitor Varela</h1>
+              <span>Banco de Dados</span>
+            </div>
           </div>
         </div>
-        <div class="parte">
-          <div class="membro">
-            <img
-              src="assets/index/paulo.png"
-              alt="Imagem de membro da equipe"
-            />
-            <h1>Paulo Alvares</h1>
-            <span>Front-End / Back-End</span>
-          </div>
-          <div class="membro">
-            <img
-              src="assets/index/vitor.png"
-              alt="Imagem de membro da equipe"
-            />
-            <h1>Vitor Varela</h1>
-            <span>Banco de Dados</span>
-          </div>
-        </div>
-      </div>
-    </div>
+      </section>
+    </main>
 
     <!-- Footer -->
-    <div id="contato" class="fale_conosco">
+    <footer id="contato" class="fale_conosco">
       <h1>Fale Conosco</h1>
       <div class="social">
         <a
@@ -166,7 +169,7 @@
         </a>
       </div>
       <p>Ficaremos felizes em falar com você!</p>
-    </div>
+    </footer>
 
     <script src="js/funcoes.js"></script>
   </body>
