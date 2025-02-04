@@ -49,7 +49,7 @@
 
   5. Acesse o projeto em seu navegador:
      ```
-     http://localhost:3000
+     http://localhost:3333
      ```
 
 # 🔗Recursos Adicionais
