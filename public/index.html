@@ -6,49 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/index.css" />
-    <title>Emerald</title>
     <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" />
+    <title>Emerald</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oxanium:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
   </head>
 
   <body>
     <!-- Navbar-->
     <header>
-      <div class="logo">
-        <a href="#hero"><img src="assets/emerald_logo.png" width="160" /></a>
-      </div>
+      <div class="navbar-container">
+        <a href="#hero">
+          <img src="assets/emerald_logo.png" alt="Logo da Emerald" />
+        </a>
 
-      <div class="nav_home">
-        <ul>
-          <li>
-            <a href="#hero"
-              >Home
-              <div class="bar"></div
-            ></a>
-          </li>
-          <li>
-            <a href="#service"
-              >Serviços
-              <div class="bar"></div
-            ></a>
-          </li>
-          <li>
-            <a href="#quemsomos"
-              >Quem Somos?
-              <div class="bar"></div
-            ></a>
-          </li>
-          <li>
-            <a href="#contato"
-              >Contato
-              <div class="bar"></div
-            ></a>
-          </li>
-        </ul>
-      </div>
+        <nav>
+          <a href="#hero">
+            Home
+            <div class="bar"></div>
+          </a>
+          <a href="#service">
+            Serviços
+            <div class="bar"></div>
+          </a>
+          <a href="#corporate">
+            Quem Somos?
+            <div class="bar"></div>
+          </a>
+          <a href="#contato">
+            Contato
+            <div class="bar"></div>
+          </a>
+        </nav>
 
-      <div class="log_cad">
-        <li class="botao_log"><a href="login.html">Login</a></li>
-        <li class="botao_cad"><a href="cadastro.html">Cadastro</a></li>
+        <div class="connection">
+          <a class="simple-button" href="cadastro.html">Cadastro</a>
+          <a class="expand-button" href="login.html">Login</a>
+        </div>
       </div>
     </header>
 
@@ -56,33 +55,37 @@
       <!-- Hero -->
       <section id="hero">
         <div class="banner">
-          <img src="assets/logo_light.png" alt="Logotipo da Emerald" />
+          <img src="assets/logo_emerald_light.png" alt="Logotipo da Emerald" />
           <p>Fazendo muito enquanto você investe pouco</p>
         </div>
 
         <img
-          src="assets/index/visionario.png"
+          src="assets/technological.png"
           alt="Imagem ilustrativa de um homem centralizado em tecnologia"
         />
       </section>
 
       <!-- Serviços -->
       <section id="service">
-        <img src="assets/index/data.png" alt="Imagem ilustrativa de um datacenter" />
+        <img
+          src="assets/datacenter.png"
+          alt="Imagem ilustrativa de um datacenter"
+        />
 
         <div class="light-center">
-          <img src="assets/logo_light_center_light.png" alt="Logo do Light Center">
+          <img
+            src="assets/logo_light_center_light.png"
+            alt="Logo do Light Center"
+          />
           <p>Experimente nossa solução para seu DataCenter!</p>
-          <button>
-            <a href="simulador.html">Simule Aqui!</a>
-          </button>
+          <a class="expand-button" href="simulador.html">Simule Aqui!</a>
         </div>
       </section>
 
       <!-- Quem Somos? -->
-      <section id="quemsomos" class="qm_somos">
-        <div class="title">
-          <h1>Quem Somos?</h1>
+      <section id="corporate">
+        <div class="apresentation">
+          <h2>Quem Somos?</h2>
           <p>
             Emerald é uma empresa de tecnologia focada em segurança da
             informação, prezando pela confiabilidade e responsabilidade para
@@ -98,49 +101,49 @@
           </p>
         </div>
 
-        <div class="equipe">
-          <h1 class="NE">Nossa equipe</h1>
-          <div class="parte">
-            <div class="membro">
+        <div class="team">
+          <h2>Nossa equipe</h2>
+          <div class="team-container">
+            <div class="member">
               <img
-                src="assets/index/giovanna.png"
-                alt="Imagem de membro da equipe"
+                src="assets/giovanna.png"
+                alt="Foto do membro da equipe Giovanna Gonçalves"
               />
-              <h1>Giovanna Gonçalves</h1>
+              <h3>Giovanna Gonçalves</h3>
               <span>Documentação</span>
             </div>
-            <div class="membro">
+            <div class="member">
               <img
-                src="assets/index/joao.png"
-                alt="Imagem de membro da equipe"
+                src="assets/joao.png"
+                alt="Foto do membro da equipe João Vitor"
               />
-              <h1>João Vitor</h1>
+              <h3>João Vitor</h3>
               <span>Front-End / Back-End</span>
             </div>
-            <div class="membro">
+            <div class="member">
               <img
-                src="assets/index/luis.png"
-                alt="Imagem de membro da equipe"
+                src="assets/luis.png"
+                alt="Foto do membro da equipe Luís Vitor"
               />
-              <h1>Luís Vitor</h1>
+              <h3>Luís Vitor</h3>
               <span>Documentação</span>
             </div>
           </div>
-          <div class="parte">
-            <div class="membro">
+          <div class="team-container">
+            <div class="member">
               <img
-                src="assets/index/paulo.png"
-                alt="Imagem de membro da equipe"
+                src="assets/paulo.png"
+                alt="Foto do membro da equipe Paulo Alvares"
               />
-              <h1>Paulo Alvares</h1>
+              <h3>Paulo Alvares</h3>
               <span>Front-End / Back-End</span>
             </div>
-            <div class="membro">
+            <div class="member">
               <img
-                src="assets/index/vitor.png"
-                alt="Imagem de membro da equipe"
+                src="assets/vitor.png"
+                alt="Foto do membro da equipe Vitor Varela"
               />
-              <h1>Vitor Varela</h1>
+              <h3>Vitor Varela</h3>
               <span>Banco de Dados</span>
             </div>
           </div>
@@ -149,26 +152,33 @@
     </main>
 
     <!-- Footer -->
-    <footer id="contato" class="fale_conosco">
-      <h1>Fale Conosco</h1>
+    <footer id="contato">
+      <h3>Fale Conosco!</h3>
       <div class="social">
         <a
           href="https://twitter.com/emerald_tech_/status/1584601329267183616?s=46&t=A-gxlykVYIj6O7MZdMqkWQ"
           target="_blank"
         >
-          <div class="icone"><img src="assets/twitter.png" /><br /></div>
+          <div class="icon">
+            <i class="ph ph-x-logo"></i>
+          </div>
         </a>
         <a href="mailto: emerald.tech@outlook.com" target="_blank">
-          <div class="icone"><img src="assets/mail.png" /><br /></div>
+          <div class="icon">
+            <i class="ph ph-envelope"></i>
+          </div>
         </a>
         <a href="https://instagram.com/emerald_tech_?r=nametag" target="_blank">
-          <div class="icone"><img src="assets/instagram.png" /><br /></div>
+          <div class="icon">
+            <i class="ph ph-instagram-logo"></i>
+          </div>
         </a>
         <a href="https://github.com/PauloCezaretto/Emerald" target="_blank">
-          <div class="icone"><img src="assets/git hub.png" /><br /></div>
+          <div class="icon">
+            <i class="ph ph-github-logo"></i>
+          </div>
         </a>
       </div>
-      <p>Ficaremos felizes em falar com você!</p>
     </footer>
 
     <script src="js/funcoes.js"></script>
