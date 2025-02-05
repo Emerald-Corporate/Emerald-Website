@@ -5,207 +5,150 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" />
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/cadastro.css" />
     <title>Emerald</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/cadastro.css" />
   </head>
 
   <body>
+    <!-- Modais -->
+    <div class="alerta_erro">
+      <div class="card_erro" id="cardErro">
+        <span id="mensagem_erro"></span>
+      </div>
+    </div>
+
+    <div id="div_aguardar" class="loading-div">
+      <img src="assets/loading.gif" id="loading-gif" width="100px" />
+    </div>
+
+    <div id="div_erros_login"></div>
+
     <!-- Navbar-->
-    <div class="header">
-      <div class="logo">
-        <a href="index.html"
-          ><img src="assets/emerald_logo.png" width="160"
-        /></a>
-      </div>
+    <header>
+      <div class="navbar-container">
+        <a href="index.html#hero">
+          <img src="assets/emerald_logo.png" alt="Logo da Emerald" />
+        </a>
 
-      <div class="nav_home">
-        <ul>
-          <li>
-            <a href="index.html"
-              >Home
-              <div class="bar"></div
-            ></a>
-          </li>
-          <li>
-            <a href="index.html#serv"
-              >Serviços
-              <div class="bar"></div
-            ></a>
-          </li>
-          <li>
-            <a href="index.html#quemsomos"
-              >Quem Somos?
-              <div class="bar"></div
-            ></a>
-          </li>
-          <li>
-            <a href="index.html#contato"
-              >Contato
-              <div class="bar"></div
-            ></a>
-          </li>
-        </ul>
-      </div>
+        <nav>
+          <a href="index.html#hero">
+            Home
+            <div class="bar"></div>
+          </a>
+          <a href="index.html#service">
+            Serviços
+            <div class="bar"></div>
+          </a>
+          <a href="index.html#corporate">
+            Quem Somos?
+            <div class="bar"></div>
+          </a>
+          <a href="index.html#contato">
+            Contato
+            <div class="bar"></div>
+          </a>
+        </nav>
 
-      <div class="log_cad">
-        <li class="botao_log"><a href="login.html">Login</a></li>
-        <li class="botao_cad"><a href="cadastro.html">Cadastro</a></li>
-      </div>
-    </div>
-
-    <!-- Tela de Cadastro -->
-    <div class="cadastro">
-      <div class="alerta_erro">
-        <div class="card_erro" id="cardErro">
-          <span id="mensagem_erro"></span>
+        <div class="connection">
+          <a class="simple-button" href="cadastro.html">Cadastro</a>
+          <a class="expand-button" href="login.html">Login</a>
         </div>
       </div>
-      <div class="box_form">
-        <div class="esquerda">
-          <img src="assets/cadastro/server.png" alt="" class="imagemcadastro" />
-          <a class="fazerlogin" href="login.html">
-            Já tem uma conta? Clique aqui!
-            <div class="bar"></div
-          ></a>
-        </div>
+    </header>
 
-        <div class="caixa_forms">
-          <div class="forms">
-            <h1>Sua Empresa</h1>
-            <div class="cl_input">
-              <input
-                class="cl_nome"
-                type="text"
-                placeholder="Nome"
-                id="in_nome"
-              />
-              <input
-                class="cl_cnpj"
-                maxlength="14"
-                type="text"
-                placeholder="CNPJ"
-                id="in_cnpj"
-              />
-              <input
-                class="cl_email"
-                type="mail"
-                placeholder="seuemail@email.com"
-                id="in_email"
-              />
-            </div>
-
-            <div class="cl_input">
-              <input
-                class="cl_senha"
-                type="password"
-                placeholder="********"
-                id="in_senha"
-              />
-              <input
-                class="cl_confirmacao"
-                type="password"
-                placeholder="********"
-                id="in_confirmacao"
-              />
-            </div>
+    <!-- Cadastro -->
+    <main>
+      <form>
+        <fieldset>
+          <legend>Empresa</legend>
+          <div class="input_group">
+            <input type="text" placeholder="Nome" id="in_nome" />
+            <input type="text" placeholder="CNPJ" id="in_cnpj" maxlength="14" />
+            <input type="mail" placeholder="user@email.com" id="in_email" />
           </div>
-
-          <div class="forms">
-            <h1>Seu Data-Center</h1>
-            <div class="cl_input">
-              <input
-                class="cl_server"
-                type="number"
-                placeholder="Servidores"
-                id="in_server"
-              />
-              <select id="sel_center">
-                <option value="">-Selecione uma tier-</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-              </select>
-              <input
-                class="cl_tamanho"
-                type="number"
-                placeholder="Tamanho (m²)"
-                id="in_tamanho"
-              />
-            </div>
+          <div class="input_group">
+            <input type="password" placeholder="Senha" id="in_senha" />
+            <input type="password" placeholder="Repetir Senha" id="in_confirmacao" />
           </div>
+        </fieldset>
 
-          <div class="forms">
-            <h1>Endereço do seu Data-Center</h1>
-            <div class="cl_input">
-              <input
-                class="cl_cep"
-                maxlength="8"
-                type="text"
-                placeholder="CEP"
-                id="in_cep"
-                onblur="pesquisacep(this.value);"
-              />
-              <select class="cl_estado" id="in_uf">
-                <option value="">-Selecione um estado-</option>
-                <option value="AC">AC</option>
-                <option value="AL">AL</option>
-                <option value="AP">AP</option>
-                <option value="AM">AM</option>
-                <option value="BA">BA</option>
-                <option value="CE">CE</option>
-                <option value="DF">DF</option>
-                <option value="ES">ES</option>
-                <option value="GO">GO</option>
-                <option value="MA">MA</option>
-                <option value="MT">MT</option>
-                <option value="MS">MS</option>
-                <option value="MG">MG</option>
-                <option value="PA">PA</option>
-                <option value="PB">PB</option>
-                <option value="PR">PR</option>
-                <option value="PE">PE</option>
-                <option value="PI">PI</option>
-                <option value="RJ">RJ</option>
-                <option value="RN">RN</option>
-                <option value="RS">RS</option>
-                <option value="RO">RO</option>
-                <option value="RO">RR</option>
-                <option value="SC">SC</option>
-                <option value="SP">SP</option>
-                <option value="SE">SE</option>
-                <option value="TO">TO</option>
-              </select>
-              <input
-                class="cl_cidade"
-                type="text"
-                placeholder="Cidade"
-                id="in_cidade"
-              />
-            </div>
-
-            <div class="cl_input">
-              <input
-                class="cl_bairro"
-                type="text"
-                placeholder="Bairro"
-                id="in_bairro"
-              />
-              <input class="cl_rua" type="text" placeholder="Rua" id="in_rua" />
-            </div>
+        <fieldset>
+          <legend>Data-Center</legend>
+          <div class="input_group">
+            <input type="number" placeholder="Servidores" id="in_server" />
+            <select id="sel_center">
+              <option value="">- Tier -</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+            <input type="number" placeholder="Tamanho (m²)" id="in_tamanho" />
           </div>
+        </fieldset>
 
-          <button class="btn" onclick="cadastrar()">Cadastrar</button>
-
-          <div id="div_aguardar" class="loading-div">
-            <img src="assets/loading.gif" id="loading-gif" width="100px" />
+        <fieldset>
+          <legend>Endereço</legend>
+          <div class="input_group">
+            <input
+              maxlength="8"
+              type="text"
+              placeholder="CEP"
+              id="in_cep"
+              onblur="pesquisacep(this.value);"
+            />
+            <select id="in_uf">
+              <option value="">- Estado -</option>
+              <option value="AC">AC</option>
+              <option value="AL">AL</option>
+              <option value="AP">AP</option>
+              <option value="AM">AM</option>
+              <option value="BA">BA</option>
+              <option value="CE">CE</option>
+              <option value="DF">DF</option>
+              <option value="ES">ES</option>
+              <option value="GO">GO</option>
+              <option value="MA">MA</option>
+              <option value="MT">MT</option>
+              <option value="MS">MS</option>
+              <option value="MG">MG</option>
+              <option value="PA">PA</option>
+              <option value="PB">PB</option>
+              <option value="PR">PR</option>
+              <option value="PE">PE</option>
+              <option value="PI">PI</option>
+              <option value="RJ">RJ</option>
+              <option value="RN">RN</option>
+              <option value="RS">RS</option>
+              <option value="RO">RO</option>
+              <option value="RO">RR</option>
+              <option value="SC">SC</option>
+              <option value="SP">SP</option>
+              <option value="SE">SE</option>
+              <option value="TO">TO</option>
+            </select>
+            <input type="text" placeholder="Cidade" id="in_cidade" />
           </div>
+          <div class="input_group">
+            <input type="text" placeholder="Bairro" id="in_bairro" />
+            <input type="text" placeholder="Rua" id="in_rua" />
+          </div>
+        </fieldset>
 
-          <div id="div_erros_login"></div>
-        </div>
-      </div>
-    </div>
+        <a class="expand-button" onclick="cadastrar()">Cadastrar</a>
+      </form>
+
+      <section class="banner">
+        <img
+          src="assets/cadastro.png"
+          alt="Imagem ilustrativa de um homem conectando computadores"
+        />
+        <a class="simple-button" href="login.html">
+          Já tem uma conta? Clique aqui!
+        </a>
+      </section>
+    </main>
 
     <script src="js/cadastro.js"></script>
   </body>

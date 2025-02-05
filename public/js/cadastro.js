@@ -1,3 +1,14 @@
+document.querySelectorAll("select").forEach(select => {
+  select.addEventListener("change", function () {
+    if (this.value) {
+      this.classList.add("select-active");
+    } else {
+      this.classList.remove("select-active");
+    }
+  });
+});
+
+
 // sessão
 function validarSessao() {
   // aguardar();
@@ -196,7 +207,7 @@ function cadastrar() {
   }
 }
 
-// Valida CEP 
+// Valida CEP
 function limpa_formulário_cep() {
   //Limpa valores do formulário de cep.
   document.getElementById("in_rua").value = "";
@@ -242,9 +253,7 @@ function pesquisacep(valor) {
 
       //Sincroniza com o callback.
       script.src =
-        "https://viacep.com.br/ws/" +
-        cep +
-        "/json/?callback=meu_callback";
+        "https://viacep.com.br/ws/" + cep + "/json/?callback=meu_callback";
 
       //Insere script no documento e carrega o conteúdo.
       document.body.appendChild(script);
