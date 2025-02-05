@@ -1,8 +1,3 @@
-body {
-  background-color: #181818;
-  color: #ffffff;
-}
-
 main {
   width: 90%;
   margin: 0 auto;
@@ -79,6 +74,10 @@ main section#corporate .team-container {
   justify-content: space-evenly;
 }
 
+main section#corporate .two {
+  justify-content: center;
+}
+
 main section#corporate .team-container .member {
   display: flex;
   flex-direction: column;
@@ -90,6 +89,7 @@ main section#corporate .team-container .member {
 
 main section#corporate .team-container .member img {
   width: 6.5rem;
+  margin-bottom: .5rem;
 }
 
 main section#corporate .team-container .member h3 {
