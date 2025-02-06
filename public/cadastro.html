@@ -11,18 +11,11 @@
   </head>
 
   <body>
-    <!-- Modais -->
-    <div class="alerta_erro">
-      <div class="card_erro" id="cardErro">
-        <span id="mensagem_erro"></span>
-      </div>
+    <!-- Modal -->
+    <div class="modal">
+      <h1 class="title">Sucesso!</h1>
+      <p class="message"></p>
     </div>
-
-    <div id="div_aguardar" class="loading-div">
-      <img src="assets/loading.gif" id="loading-gif" width="100px" />
-    </div>
-
-    <div id="div_erros_login"></div>
 
     <!-- Navbar-->
     <header>
@@ -69,7 +62,11 @@
           </div>
           <div class="input_group">
             <input type="password" placeholder="Senha" id="in_senha" />
-            <input type="password" placeholder="Repetir Senha" id="in_confirmacao" />
+            <input
+              type="password"
+              placeholder="Repetir Senha"
+              id="in_confirmacao"
+            />
           </div>
         </fieldset>
 

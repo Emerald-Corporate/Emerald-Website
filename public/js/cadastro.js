@@ -1,66 +1,5 @@
-// sessão
-function validarSessao() {
-  // aguardar();
-
-  var email = sessionStorage.EMAIL_USUARIO;
-  var nome = sessionStorage.NOME_USUARIO;
-
-  var b_usuario = document.getElementById("b_usuario");
-
-  if (email != null && nome != null) {
-    // window.alert(`Seja bem-vindo, ${nome}!`);
-    b_usuario.innerHTML = nome;
-
-    // finalizarAguardar();
-  } else {
-    window.location = "../login.html";
-  }
-}
-
-function limparSessao() {
-  // aguardar();
-  sessionStorage.clear();
-  // finalizarAguardar();
-  window.location = "../login.html";
-}
-
-// carregamento (loading)
-function aguardar() {
-  var divAguardar = document.getElementById("div_aguardar");
-  divAguardar.style.display = "flex";
-}
-
-function finalizarAguardar(texto) {
-  var divAguardar = document.getElementById("div_aguardar");
-  divAguardar.style.display = "none";
-
-  var divErrosLogin = document.getElementById("div_erros_login");
-  if (texto) {
-    divErrosLogin.innerHTML = texto;
-  }
-}
-
-// modal
-function mostrarModal() {
-  var divModal = document.getElementById("div_modal");
-  divModal.style.display = "flex";
-}
-
-function fecharModal() {
-  var divModal = document.getElementById("div_modal");
-  divModal.style.display = "none";
-}
-
-function sumirMensagem() {
-  cardErro.style.display = "none";
-}
-
 // Parte Cadastro
-
 function cadastrar() {
-  aguardar();
-
-  // empresa
   var empresa = {
     nomeServer: in_nome.value,
     cnpjServer: in_cnpj.value,
@@ -68,7 +7,6 @@ function cadastrar() {
     senhaServer: in_senha.value,
   };
 
-  // end
   var endereco = {
     cepServer: in_cep.value,
     ufServer: in_uf.value,
@@ -77,7 +15,6 @@ function cadastrar() {
     ruaServer: in_rua.value,
   };
 
-  // data center
   var dataCenter = {
     tierServer: sel_center.value,
     tamanhoServer: in_tamanho.value,
@@ -93,7 +30,6 @@ function cadastrar() {
   if (in_senha.value != in_confirmacao.value) {
     cardErro.style.display = "block";
     cardErro.innerHTML = `Senhas não condizem`;
-
     finalizarAguardar();
     return false;
   }
@@ -115,7 +51,6 @@ function cadastrar() {
     cardErro.style.display = "block";
     mensagem_erro.innerHTML =
       "Campos em branco, preencha corretamente para continuar";
-
     finalizarAguardar();
     return false;
   } else {
@@ -198,7 +133,6 @@ function cadastrar() {
 
 // Valida CEP
 function limpa_formulário_cep() {
-  //Limpa valores do formulário de cep.
   document.getElementById("in_rua").value = "";
   document.getElementById("in_bairro").value = "";
   document.getElementById("in_cidade").value = "";
@@ -207,54 +141,41 @@ function limpa_formulário_cep() {
 
 function meu_callback(conteudo) {
   if (!("erro" in conteudo)) {
-    //Atualiza os campos com os valores.
     document.getElementById("in_rua").value = conteudo.logradouro;
     document.getElementById("in_bairro").value = conteudo.bairro;
     document.getElementById("in_cidade").value = conteudo.localidade;
     document.getElementById("in_uf").value = conteudo.uf;
-  } //end if.
-  else {
-    //CEP não Encontrado.
+  } else {
     limpa_formulário_cep();
     alert("CEP não encontrado.");
   }
 }
 
 function pesquisacep(valor) {
-  //Nova variável "cep" somente com dígitos.
   var cep = valor.replace(/\D/g, "");
 
-  //Verifica se campo cep possui valor informado.
   if (cep != "") {
-    //Expressão regular para validar o CEP.
     var validacep = /^[0-9]{8}$/;
 
-    //Valida o formato do CEP.
     if (validacep.test(cep)) {
-      //Preenche os campos com "..." enquanto consulta webservice.
       document.getElementById("in_rua").value = "...";
       document.getElementById("in_bairro").value = "...";
       document.getElementById("in_cidade").value = "...";
       document.getElementById("in_uf").value = "...";
 
-      //Cria um elemento javascript.
       var script = document.createElement("script");
 
-      //Sincroniza com o callback.
       script.src =
         "https://viacep.com.br/ws/" + cep + "/json/?callback=meu_callback";
 
-      //Insere script no documento e carrega o conteúdo.
       document.body.appendChild(script);
-    } //end if.
+    }
     else {
-      //cep é inválido.
       limpa_formulário_cep();
       alert("Formato de CEP inválido.");
     }
-  } //end if.
+  }
   else {
-    //cep sem valor, limpa formulário.
     limpa_formulário_cep();
   }
 }
