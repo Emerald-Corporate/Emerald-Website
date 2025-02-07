@@ -1,181 +1,81 @@
-// Parte Cadastro
-function cadastrar() {
-  var empresa = {
-    nomeServer: in_nome.value,
-    cnpjServer: in_cnpj.value,
-    emailServer: in_email.value,
-    senhaServer: in_senha.value,
+// Validações
+function signUp() {
+  const enterprise = {
+    name: input_name.value,
+    mail: input_mail.value,
+    phone: input_phone.value,
+    cnpj: input_cnpj.value,
+    password: input_password.value,
+    confirmation: input_confirmation.value,
+    cep: input_cep.value,
+    uf: select_uf.value,
+    city: input_city.value,
+    neighborhood: input_neighborhood.value,
+    street: input_street.value,
+    number: input_number.value,
   };
 
-  var endereco = {
-    cepServer: in_cep.value,
-    ufServer: in_uf.value,
-    bairroServer: in_bairro.value,
-    cidadeServer: in_cidade.value,
-    ruaServer: in_rua.value,
-  };
+  const missingFields = Object.keys(enterprise).filter(
+    (key) => !enterprise[key]
+  );
 
-  var dataCenter = {
-    tierServer: sel_center.value,
-    tamanhoServer: in_tamanho.value,
-    servidorServer: in_server.value,
-    fkEmpresa: undefined,
-    fkEndereco: undefined,
-  };
-
-  console.log(empresa);
-  console.log(endereco);
-  console.log(dataCenter);
-
-  if (in_senha.value != in_confirmacao.value) {
-    cardErro.style.display = "block";
-    cardErro.innerHTML = `Senhas não condizem`;
-    finalizarAguardar();
-    return false;
-  }
-
-  if (
-    !empresa.nomeServer ||
-    !empresa.cnpjServer ||
-    !empresa.emailServer ||
-    !empresa.senhaServer ||
-    !dataCenter.servidorServer ||
-    !dataCenter.tierServer ||
-    !dataCenter.tamanhoServer ||
-    !endereco.cepServer ||
-    !endereco.ufServer ||
-    !endereco.cidadeServer ||
-    !endereco.bairroServer ||
-    !endereco.ruaServer
-  ) {
-    cardErro.style.display = "block";
-    mensagem_erro.innerHTML =
-      "Campos em branco, preencha corretamente para continuar";
-    finalizarAguardar();
-    return false;
+  if (missingFields.length > 0) {
+    showModal("Preencha todos os campos", true);
+  } else if (enterprise.password !== enterprise.confirmation) {
+    showModal("Senhas diferentes", true);
   } else {
-    console.log("ELSE: ", empresa.nome);
-
-    var idEmpresa;
-    var idEndereco;
-
-    fetch("/usuarios/cadastrar-emp", {
+    fetch("/enterprises/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(empresa),
+      body: JSON.stringify(enterprise),
     })
-      .then(function (resposta) {
-        console.log("RESPOSTA EMP: ", resposta);
-
+      .then((resposta) => {
         if (resposta.ok) {
-          resposta
-            .json()
-            .then(function (respostaJson) {
-              console.log("respostaJson", respostaJson);
-              idEmpresa = respostaJson.insertId;
-
-              fetch("/usuarios/cadastrar-end", {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify(endereco),
-              }).then(function (resposta) {
-                console.log("RESPOSTA END: ", resposta);
-
-                if (resposta.ok) {
-                  resposta
-                    .json()
-                    .then(function (respostaJson) {
-                      console.log("respostaJson", respostaJson);
-                      idEndereco = respostaJson.insertId;
-
-                      (dataCenter.fkEmpresa = idEmpresa),
-                        (dataCenter.fkEndereco = idEndereco),
-                        fetch("/usuarios/cadastrar-server", {
-                          method: "POST",
-                          headers: {
-                            "Content-Type": "application/json",
-                          },
-                          body: JSON.stringify(dataCenter),
-                        }).then(function (resposta) {
-                          console.log("RESPOSTA END: ", resposta);
-                        });
-                    })
-                    .catch();
-
-                  console.log("JSON: ");
-                }
-              });
-            })
-            .catch();
-
-          console.log("JSON: ");
-
-          cardErro.style.display = "block";
-          mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso, direcionando para a tela de login...";
+          showModal("Cadastro realizado com sucesso!", false);
           setTimeout(() => {
             window.location = "login.html";
-          }, "3000");
+          }, 3000);
+          cleanForm();
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
         }
       })
-      .catch(function (resposta) {
+      .catch((resposta) => {
         console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
       });
   }
 }
 
 // Valida CEP
-function limpa_formulário_cep() {
-  document.getElementById("in_rua").value = "";
-  document.getElementById("in_bairro").value = "";
-  document.getElementById("in_cidade").value = "";
-  document.getElementById("in_uf").value = "";
-}
-
-function meu_callback(conteudo) {
-  if (!("erro" in conteudo)) {
-    document.getElementById("in_rua").value = conteudo.logradouro;
-    document.getElementById("in_bairro").value = conteudo.bairro;
-    document.getElementById("in_cidade").value = conteudo.localidade;
-    document.getElementById("in_uf").value = conteudo.uf;
+function completeCEP(content) {
+  if (!("erro" in content)) {
+    document.getElementById("input_street").value = content.logradouro;
+    document.getElementById("input_neighborhood").value = content.bairro;
+    document.getElementById("input_city").value = content.localidade;
+    document.getElementById("select_uf").value = content.uf;
   } else {
-    limpa_formulário_cep();
-    alert("CEP não encontrado.");
+    showModal("CEP não encontrado.", true);
   }
 }
 
-function pesquisacep(valor) {
-  var cep = valor.replace(/\D/g, "");
+function searchCEP(valor) {
+  const cep = valor.replace(/\D/g, "");
 
-  if (cep != "") {
-    var validacep = /^[0-9]{8}$/;
+  if (cep && /^[0-9]{8}$/.test(cep)) {
+    document
+      .querySelectorAll(
+        "#input_street, #input_neighborhood, #input_city, #input_uf"
+      )
+      .forEach((field) => {
+        field.value = "...";
+      });
 
-    if (validacep.test(cep)) {
-      document.getElementById("in_rua").value = "...";
-      document.getElementById("in_bairro").value = "...";
-      document.getElementById("in_cidade").value = "...";
-      document.getElementById("in_uf").value = "...";
-
-      var script = document.createElement("script");
-
-      script.src =
-        "https://viacep.com.br/ws/" + cep + "/json/?callback=meu_callback";
-
-      document.body.appendChild(script);
-    }
-    else {
-      limpa_formulário_cep();
-      alert("Formato de CEP inválido.");
-    }
-  }
-  else {
-    limpa_formulário_cep();
+    const script = document.createElement("script");
+    script.src = `https://viacep.com.br/ws/${cep}/json/?callback=completeCEP`;
+    document.body.appendChild(script);
+  } else {
+    showModal("Formato de CEP inválido.", true);
   }
 }

@@ -5,22 +5,16 @@ let messageModal = document.querySelector(".message");
 
 function showModal(message, error) {
   messageModal.innerHTML = message;
+  titleModal.innerHTML = error ? "Erro!" : "Sucesso!";
+  titleModal.style.background = error ? "red" : "#00ac4d";
   
-  if(error) {
-    titleModal.innerHTML = "Erro";
-    titleModal.style.background = "red";
-  }
-
   modal.classList.add("active");
-
-  setTimeout(() => {
-    modal.classList.remove("active");
-  }, 3000)
+  setTimeout(() => modal.classList.remove("active"), 3000);
 }
 
 // Border Select
 document.querySelectorAll("select").forEach((select) => {
-  select.addEventListener("change", function () {
+  select.addEventListener("change", () => {
     if (this.value) {
       this.classList.add("select-active");
     } else {

@@ -56,32 +56,23 @@
         <fieldset>
           <legend>Empresa</legend>
           <div class="input_group">
-            <input type="text" placeholder="Nome" id="in_nome" />
-            <input type="text" placeholder="CNPJ" id="in_cnpj" maxlength="14" />
-            <input type="mail" placeholder="user@email.com" id="in_email" />
+            <input type="text" placeholder="Nome" id="input_name" />
+            <input type="mail" placeholder="user@email.com" id="input_mail" />
+            <input type="tel" placeholder="(XX) XXXXX-XXXX" id="input_phone" />
           </div>
           <div class="input_group">
-            <input type="password" placeholder="Senha" id="in_senha" />
+            <input
+              type="text"
+              placeholder="CNPJ"
+              id="input_cnpj"
+              maxlength="14"
+            />
+            <input type="password" placeholder="Senha" id="input_password" />
             <input
               type="password"
               placeholder="Repetir Senha"
-              id="in_confirmacao"
+              id="input_confirmation"
             />
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>Data-Center</legend>
-          <div class="input_group">
-            <input type="number" placeholder="Servidores" id="in_server" />
-            <select id="sel_center">
-              <option value="">- Tier -</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-            </select>
-            <input type="number" placeholder="Tamanho (m²)" id="in_tamanho" />
           </div>
         </fieldset>
 
@@ -92,10 +83,10 @@
               maxlength="8"
               type="text"
               placeholder="CEP"
-              id="in_cep"
-              onblur="pesquisacep(this.value);"
+              id="input_cep"
+              onblur="searchCEP(this.value);"
             />
-            <select id="in_uf">
+            <select id="select_uf">
               <option value="">- Estado -</option>
               <option value="AC">AC</option>
               <option value="AL">AL</option>
@@ -125,15 +116,16 @@
               <option value="SE">SE</option>
               <option value="TO">TO</option>
             </select>
-            <input type="text" placeholder="Cidade" id="in_cidade" />
+            <input type="text" placeholder="Cidade" id="input_city" />
           </div>
           <div class="input_group">
-            <input type="text" placeholder="Bairro" id="in_bairro" />
-            <input type="text" placeholder="Rua" id="in_rua" />
+            <input type="text" placeholder="Bairro" id="input_neighborhood" />
+            <input type="text" placeholder="Rua" id="input_street" />
+            <input type="text" placeholder="Número" id="input_number" />
           </div>
         </fieldset>
 
-        <a class="expand-button" onclick="cadastrar()">Cadastrar</a>
+        <a class="expand-button" onclick="signUp()">Cadastrar</a>
       </form>
 
       <section class="banner">
