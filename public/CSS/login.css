@@ -35,11 +35,6 @@ main .right-side form {
   gap: 2rem;
 }
 
-main .right-side form input {
+main .right-side form label {
   width: 50%;
-}
-
-main .right-side form a {
-  width: 30%;
-  text-align: center;
 }

@@ -44,8 +44,20 @@
         </nav>
 
         <div class="connection">
-          <a class="simple-button" href="cadastro.html">Cadastro</a>
-          <a class="expand-button" href="login.html">Login</a>
+          <a href="cadastro.html">
+            <button class="simple-button">
+              <span>Cadastro</span>
+              <span></span>
+            </button>
+          </a>
+
+          <a href="login.html">
+            <div class="expand-button">
+              <button>
+                <span class="btn-title">Login</span>
+              </button>
+            </div>
+          </a>
         </div>
       </div>
     </header>
@@ -54,17 +66,40 @@
     <main>
       <section class="left-side">
         <img src="assets/login.png" alt="Imagem ilustrativa de login" />
-        <a class="simple-button" href="cadastro.html">
-          Não tem uma conta? Clique aqui!
+
+        <a href="cadastro.html">
+          <button class="simple-button">
+            <span>Não tem uma conta? Clique aqui!</span>
+            <span></span>
+          </button>
         </a>
       </section>
 
       <section class="right-side">
         <h2>Login</h2>
         <form>
-          <input type="mail" placeholder="Email" id="input_mail" />
-          <input type="password" placeholder="Senha" id="input_password" />
-          <a class="expand-button" onclick="login()">Entrar</a>
+          <label>
+            <input
+              type="mail"
+              placeholder="E-mail"
+              id="input_mail"
+              required=""
+            />
+          </label>
+          <label>
+            <input
+              type="password"
+              placeholder="Senha"
+              id="input_password"
+              required=""
+            />
+          </label>
+
+          <div class="expand-button" onclick="login()">
+            <button>
+              <span class="btn-title">Entrar</span>
+            </button>
+          </div>
         </form>
       </section>
     </main>

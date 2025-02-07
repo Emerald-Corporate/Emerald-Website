@@ -43,8 +43,20 @@
         </nav>
 
         <div class="connection">
-          <a class="simple-button" href="cadastro.html">Cadastro</a>
-          <a class="expand-button" href="login.html">Login</a>
+          <a href="cadastro.html">
+            <button class="simple-button">
+              <span>Cadastro</span>
+              <span></span>
+            </button>
+          </a>
+
+          <a href="login.html">
+            <div class="expand-button">
+              <button>
+                <span class="btn-title">Login</span>
+              </button>
+            </div>
+          </a>
         </div>
       </div>
     </header>
@@ -54,29 +66,50 @@
       <form>
         <h2>Simule seu investimento!</h2>
         <div class="input_group">
-          <input id="in_rack" type="number" placeholder="Racks" />
-          <input
-            id="in_computador"
-            type="number"
-            placeholder="Computadores (Por Rack)"
-          />
+          <label>
+            <input
+              type="number"
+              placeholder="Racks"
+              id="input_racks"
+              required=""
+            />
+          </label>
+          <label>
+            <input
+              type="number"
+              placeholder="Computadores (Por Rack)"
+              id="input_computers"
+              required=""
+            />
+          </label>
+        </div>
+        <div class="input_group">
+          <label>
+            <input
+              type="number"
+              placeholder="Downtime (Por Minuto)"
+              id="input_downtime"
+              required=""
+            />
+          </label>
+          <label>
+            <select id="select_tier">
+              <option value="">- Tier -</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </label>
         </div>
 
-        <div class="input_group">
-          <input
-            id="in_downtime"
-            type="number"
-            placeholder="Downtime (Por Minuto)"
-          />
-          <select id="in_tier">
-            <option value="">- Tier -</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-          </select>
-        </div>
-        <a class="expand-button" onclick="calcular()"> Calcular </a>
+        <a href="login.html" onclick="calcular()">
+          <div class="expand-button">
+            <button>
+              <span class="btn-title">Login</span>
+            </button>
+          </div>
+        </a>
       </form>
 
       <div class="banner">
@@ -84,7 +117,12 @@
           src="assets/simulator.png"
           alt="Imagem ilustrativa de investimento"
         />
-        <a class="simple-button" href="cadastro.html"> Gostou? Clique aqui! </a>
+        <a href="cadastro.html">
+          <button class="simple-button">
+            <span>Gostou? Clique aqui!</span>
+            <span></span>
+          </button>
+        </a>
       </div>
     </main>
 

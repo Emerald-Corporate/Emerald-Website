@@ -11,14 +11,3 @@ function showModal(message, error) {
   modal.classList.add("active");
   setTimeout(() => modal.classList.remove("active"), 3000);
 }
-
-// Border Select
-document.querySelectorAll("select").forEach((select) => {
-  select.addEventListener("change", () => {
-    if (this.value) {
-      this.classList.add("select-active");
-    } else {
-      this.classList.remove("select-active");
-    }
-  });
-});

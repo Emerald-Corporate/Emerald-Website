@@ -18,13 +18,6 @@ main form {
   gap: 2.5rem;
 }
 
-main form fieldset .input_group {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-}
-
 main .banner {
   background-color: #fff;
   height: 100%;

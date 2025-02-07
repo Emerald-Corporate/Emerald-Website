@@ -44,6 +44,15 @@ main .banner img {
   width: 85%;
 }
 
+main form .input_group label {
+  width: 40%;
+}
+
+main form .input_group label input,
+main form .input_group label select {
+  width: 90%;
+}
+
 /* Modal de Resultado */
 
 .envelope {
