@@ -1,203 +1,173 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="CSS/reset.css" />
+    <link rel="stylesheet" href="CSS/index.css" />
     <title>Emerald</title>
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/index.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oxanium:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" />
   </head>
 
   <body>
     <!-- Navbar-->
     <header>
-      <div class="navbar-container">
-        <a href="#hero">
-          <img src="assets/emerald_logo.png" alt="Logo da Emerald" />
-        </a>
+      <div class="logo">
+        <a href="#home"><img src="assets/emerald_logo.png" width="160" /></a>
+      </div>
 
-        <nav>
-          <a href="#hero">
-            Home
-            <div class="bar"></div>
-          </a>
-          <a href="#service">
-            Serviços
-            <div class="bar"></div>
-          </a>
-          <a href="#corporate">
-            Quem Somos?
-            <div class="bar"></div>
-          </a>
-          <a href="#contato">
-            Contato
-            <div class="bar"></div>
-          </a>
-        </nav>
+      <div class="nav_home">
+        <ul>
+          <li>
+            <a href="#home"
+              >Home
+              <div class="bar"></div
+            ></a>
+          </li>
+          <li>
+            <a href="#serv"
+              >Serviços
+              <div class="bar"></div
+            ></a>
+          </li>
+          <li>
+            <a href="#quemsomos"
+              >Quem Somos?
+              <div class="bar"></div
+            ></a>
+          </li>
+          <li>
+            <a href="#contato"
+              >Contato
+              <div class="bar"></div
+            ></a>
+          </li>
+        </ul>
+      </div>
 
-        <div class="connection">
-          <a href="cadastro.html">
-            <button class="simple-button">
-              <span>Cadastro</span>
-              <span></span>
-            </button>
-          </a>
-
-          <a href="login.html">
-            <div class="expand-button">
-              <button>
-                <span class="btn-title">Login</span>
-              </button>
-            </div>
-          </a>
-        </div>
+      <div class="log_cad">
+        <li class="botao_log"><a href="login.html">Login</a></li>
+        <li class="botao_cad"><a href="cadastro.html">Cadastro</a></li>
       </div>
     </header>
 
-    <main>
-      <!-- Hero -->
-      <section id="hero">
-        <div class="banner">
-          <img src="assets/logo_emerald_light.png" alt="Logotipo da Emerald" />
-          <p>Fazendo muito enquanto você investe pouco</p>
+    <!-- Home -->
+    <div id="home" class="banner">
+      <div class="container">
+        <div class="frases">
+          <h1>Emerald</h1>
+          <p>Fazendo muito enquanto você paga pouco</p>
         </div>
 
-        <img
-          src="assets/technological.png"
-          alt="Imagem ilustrativa de um homem centralizado em tecnologia"
-        />
-      </section>
-
-      <!-- Serviços -->
-      <section id="service">
-        <img
-          src="assets/datacenter.png"
-          alt="Imagem ilustrativa de um datacenter"
-        />
-
-        <div class="light-center">
-          <img
-            src="assets/logo_light_center_light.png"
-            alt="Logo do Light Center"
-          />
-          <p>Experimente nossa solução para seu DataCenter!</p>
-          <a href="simulador.html">
-            <div class="expand-button">
-              <button>
-                <span class="btn-title">Simule Aqui!</span>
-              </button>
-            </div>
-          </a>
+        <div class="img_banner">
+          <img src="assets/index/visionario.png" alt="" />
         </div>
-      </section>
+      </div>
+    </div>
 
-      <!-- Quem Somos? -->
-      <section id="corporate">
-        <div class="apresentation">
-          <p>
-            Emerald é uma empresa de tecnologia focada em segurança da
-            informação, prezando pela confiabilidade e responsabilidade para
-            todos os clientes. Fundada em 2022, tendo como seu principal produto
-            'Light Center', um monitorador de temperatura para data-centers.<br />
-            Nossa empresa tem como principais valores a confiabilidade, a
-            parceria e proxímidade, além de qualidade nas entregas com todos os
-            clientes que nos escolherem como opção. <br />
-            A equipe presa pelo desenvolvimento da tecnologia, sempre criando
-            medidas e alternativas criativas, usando a tecnologia a favor da
-            solução de um problema. <br />
-            Vamos começar sua jornada conosco?
-          </p>
+    <!-- Serviços -->
+    <div id="serv" class="servico">
+      <div class="container">
+        <div class="img_servico">
+          <img src="assets/index/data.png" alt="" />
         </div>
 
-        <div class="team">
-          <h2>Nossa equipe</h2>
-          <div class="team-container">
-            <div class="member">
-              <img
-                src="assets/giovanna.png"
-                alt="Foto do membro da equipe Giovanna Gonçalves"
-              />
-              <h3>Giovanna Gonçalves</h3>
-              <span>Documentação</span>
-            </div>
-            <div class="member">
-              <img
-                src="assets/joao.png"
-                alt="Foto do membro da equipe João Vitor"
-              />
-              <h3>João Vitor</h3>
-              <span>Front-End / Back-End</span>
-            </div>
-            <div class="member">
-              <img
-                src="assets/luis.png"
-                alt="Foto do membro da equipe Luís Vitor"
-              />
-              <h3>Luís Vitor</h3>
-              <span>Documentação</span>
-            </div>
+        <div class="info">
+          <h1>Light Center</h1>
+          <p>Você não compra, você investe!</p>
+          <button class="botao_serv">
+            <a href="simulador.html">Que tal um orçamento?</a>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quem Somos? -->
+    <div id="quemsomos" class="qm_somos">
+      <div class="title">
+        <h1>Quem Somos?</h1>
+        <p>
+          Emerald é uma empresa de tecnologia focada em segurança da informação,
+          prezando pela confiabilidade e responsabilidade para todos os
+          clientes. Fundada em 2022, tendo como seu principal produto 'Light
+          Center', um monitorador de temperatura para data-centers.<br />
+          Nossa empresa tem como principais valores a confiabilidade, a parceria
+          e proxímidade, além de qualidade nas entregas com todos os clientes
+          que nos escolherem como opção. <br />
+          A equipe presa pelo desenvolvimento da tecnologia, sempre criando
+          medidas e alternativas criativas, usando a tecnologia a favor da
+          solução de um problema. <br />
+          Vamos começar sua jornada conosco?
+        </p>
+      </div>
+
+      <div class="equipe">
+        <h1 class="NE">Nossa equipe</h1>
+        <div class="parte">
+          <div class="membro">
+            <img
+              src="assets/index/giovanna.png"
+              alt="Imagem de membro da equipe"
+            />
+            <h1>Giovanna Gonçalves</h1>
+            <span>Documentação</span>
           </div>
-          <div class="team-container two">
-            <div class="member">
-              <img
-                src="assets/paulo.png"
-                alt="Foto do membro da equipe Paulo Alvares"
-              />
-              <h3>Paulo Alvares</h3>
-              <span>Front-End / Back-End</span>
-            </div>
-            <div class="member">
-              <img
-                src="assets/vitor.png"
-                alt="Foto do membro da equipe Vitor Varela"
-              />
-              <h3>Vitor Varela</h3>
-              <span>Banco de Dados</span>
-            </div>
+          <div class="membro">
+            <img src="assets/index/joao.png" alt="Imagem de membro da equipe" />
+            <h1>João Vitor</h1>
+            <span>Front-End / Back-End</span>
+          </div>
+          <div class="membro">
+            <img src="assets/index/luis.png" alt="Imagem de membro da equipe" />
+            <h1>Luís Vitor</h1>
+            <span>Documentação</span>
           </div>
         </div>
-      </section>
-    </main>
+        <div class="parte">
+          <div class="membro">
+            <img
+              src="assets/index/paulo.png"
+              alt="Imagem de membro da equipe"
+            />
+            <h1>Paulo Alvares</h1>
+            <span>Front-End / Back-End</span>
+          </div>
+          <div class="membro">
+            <img
+              src="assets/index/vitor.png"
+              alt="Imagem de membro da equipe"
+            />
+            <h1>Vitor Varela</h1>
+            <span>Banco de Dados</span>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Footer -->
-    <footer id="contato">
-      <h3>Fale Conosco!</h3>
+    <div id="contato" class="fale_conosco">
+      <h1>Fale Conosco</h1>
       <div class="social">
         <a
           href="https://twitter.com/emerald_tech_/status/1584601329267183616?s=46&t=A-gxlykVYIj6O7MZdMqkWQ"
           target="_blank"
         >
-          <div class="icon">
-            <i class="ph ph-x-logo"></i>
-          </div>
+          <div class="icone"><img src="assets/twitter.png" /><br /></div>
         </a>
         <a href="mailto: emerald.tech@outlook.com" target="_blank">
-          <div class="icon">
-            <i class="ph ph-envelope"></i>
-          </div>
+          <div class="icone"><img src="assets/mail.png" /><br /></div>
         </a>
         <a href="https://instagram.com/emerald_tech_?r=nametag" target="_blank">
-          <div class="icon">
-            <i class="ph ph-instagram-logo"></i>
-          </div>
+          <div class="icone"><img src="assets/instagram.png" /><br /></div>
         </a>
         <a href="https://github.com/PauloCezaretto/Emerald" target="_blank">
-          <div class="icon">
-            <i class="ph ph-github-logo"></i>
-          </div>
+          <div class="icone"><img src="assets/git hub.png" /><br /></div>
         </a>
       </div>
-    </footer>
+      <p>Ficaremos felizes em falar com você!</p>
+    </div>
 
-    <script src="js/index.js"></script>
+    <script src="js/funcoes.js"></script>
   </body>
 </html>

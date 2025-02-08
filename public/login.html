@@ -1,110 +1,165 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="CSS/login.css" />
     <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" />
     <title>Login</title>
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/login.css" />
+    <script src="js/funcoes.js"></script>
   </head>
 
   <body>
-    <!-- Modal -->
-    <div class="modal">
-      <h1 class="title">Sucesso!</h1>
-      <p class="message"></p>
+    <!-- Navbar-->
+    <div class="header">
+      <div class="logo">
+        <a href="index.html"
+          ><img src="assets/emerald_logo.png" width="160"
+        /></a>
+      </div>
+
+      <div class="nav_home">
+        <ul>
+          <li>
+            <a href="index.html"
+              >Home
+              <div class="bar"></div
+            ></a>
+          </li>
+          <li>
+            <a href="index.html#serv"
+              >Serviços
+              <div class="bar"></div
+            ></a>
+          </li>
+          <li>
+            <a href="index.html#quemsomos"
+              >Quem Somos?
+              <div class="bar"></div
+            ></a>
+          </li>
+          <li>
+            <a href="index.html#contato"
+              >Contato
+              <div class="bar"></div
+            ></a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="log_cad">
+        <li class="botao_log"><a href="login.html">Login</a></li>
+        <li class="botao_cad"><a href="cadastro.html">Cadastro</a></li>
+      </div>
     </div>
 
-    <!-- Navbar-->
-    <header>
-      <div class="navbar-container">
-        <a href="index.html#hero">
-          <img src="assets/emerald_logo.png" alt="Logo da Emerald" />
-        </a>
-
-        <nav>
-          <a href="index.html#hero">
-            Home
-            <div class="bar"></div>
-          </a>
-          <a href="index.html#service">
-            Serviços
-            <div class="bar"></div>
-          </a>
-          <a href="index.html#corporate">
-            Quem Somos?
-            <div class="bar"></div>
-          </a>
-          <a href="index.html#contato">
-            Contato
-            <div class="bar"></div>
-          </a>
-        </nav>
-
-        <div class="connection">
-          <a href="cadastro.html">
-            <button class="simple-button">
-              <span>Cadastro</span>
-              <span></span>
-            </button>
-          </a>
-
-          <a href="login.html">
-            <div class="expand-button">
-              <button>
-                <span class="btn-title">Login</span>
-              </button>
-            </div>
-          </a>
+    <!-- Tela de Login -->
+    <div class="telaLogin">
+      <div class="alerta_erro">
+        <div class="card_erro" id="cardErro">
+          <span id="mensagem_erro"></span>
         </div>
       </div>
-    </header>
+      <div class="esquerda-login">
+        <img src="assets/login/login.png" alt="" class="imagemlogin" />
+        <a class="fazercadastro" href="cadastro.html">
+          Não tem uma conta? Clique aqui!
+          <div class="bar"></div
+        ></a>
+      </div>
 
-    <!-- Login -->
-    <main>
-      <section class="left-side">
-        <img src="assets/login.png" alt="Imagem ilustrativa de login" />
+      <div class="textologin">
+        <h1 class="fraselogin">Login</h1>
+        <br />
+        <div class="centralizar_input">
+          <input type="mail" name="Usuario" placeholder="Email" id="in_mail" />
+          <input
+            type="password"
+            name="senha"
+            placeholder="Senha"
+            id="in_senha"
+          />
+        </div>
 
-        <a href="cadastro.html">
-          <button class="simple-button">
-            <span>Não tem uma conta? Clique aqui!</span>
-            <span></span>
-          </button>
-        </a>
-      </section>
+        <div class="div_botaologin">
+          <button class="botaologin" onclick="entrar()">Entrar</button>
+        </div>
 
-      <section class="right-side">
-        <h2>Login</h2>
-        <form>
-          <label>
-            <input
-              type="mail"
-              placeholder="E-mail"
-              id="input_mail"
-              required=""
-            />
-          </label>
-          <label>
-            <input
-              type="password"
-              placeholder="Senha"
-              id="input_password"
-              required=""
-            />
-          </label>
+        <div id="div_aguardar" class="loading-div">
+          <img src="assets/loading.gif" id="loading-gif" />
+        </div>
 
-          <div class="expand-button" onclick="login()">
-            <button>
-              <span class="btn-title">Entrar</span>
-            </button>
-          </div>
-        </form>
-      </section>
-    </main>
-
-    <script src="js/utils.js"></script>
-    <script src="js/login.js"></script>
+        <div id="div_erros_login"></div>
+      </div>
+    </div>
   </body>
 </html>
+
+<script>
+  function entrar() {
+    aguardar();
+
+    var emailVar = in_mail.value;
+    var senhaVar = in_senha.value;
+
+    if (emailVar == "" || senhaVar == "") {
+      cardErro.style.display = "block";
+      alert("Campos em branco, preencha corretamente para entrar");
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+
+    console.log("FORM LOGIN: ", emailVar);
+    console.log("FORM SENHA: ", senhaVar);
+
+    fetch("/usuarios/autenticar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        emailServer: emailVar,
+        senhaServer: senhaVar,
+      }),
+    })
+      .then(function (resposta) {
+        console.log("ESTOU NO THEN DO entrar()!");
+
+        if (resposta.ok) {
+          console.log(resposta);
+
+          resposta.json().then((json) => {
+            console.log(json);
+            console.log(JSON.stringify(json));
+
+            sessionStorage.EMAIL_USUARIO = json.email;
+            sessionStorage.NOME_USUARIO = json.nome;
+            sessionStorage.ID_USUARIO = json.id;
+
+            setTimeout(function () {
+              window.location = "dashboard/dashboard.html";
+            }, 2000); // apenas para exibir o loading
+          });
+        } else {
+          console.log("Houve um erro ao tentar realizar o login!");
+
+          resposta.text().then((texto) => {
+            console.error(texto);
+            finalizarAguardar(texto);
+          });
+        }
+      })
+      .catch(function (erro) {
+        console.log(erro);
+      });
+
+    return false;
+  }
+
+  function sumirMensagem() {
+    cardErro.style.display = "none";
+  }
+</script>

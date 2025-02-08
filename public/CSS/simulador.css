@@ -1,59 +1,258 @@
-main {
-  height: 100vh;
-  display: flex;
-  align-items: center;
+@import url("https://fonts.googleapis.com/css2?family=Oxanium:wght@200;300;400;500;600;700;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Oxanium", sans-serif;
 }
 
-main form,
-main .banner {
-  width: 50%;
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #181818;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #00ac4d;
+}
+
+.header {
+  background-color: #cccccc;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 12px;
+  position: fixed;
+  width: 100%;
+  border-radius: 0 0 10px 10px;
+  z-index: 10000000;
+}
+
+a {
+  color: #181818;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  background-color: transparent;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 0.5rem;
 }
 
-main form {
-  padding-top: 5rem;
-  gap: 2.5rem;
+.bar {
+  width: 0;
+  height: 2px;
+  background-color: #00ac4d;
+  transition: 0.2s ease;
 }
 
-main form h2 {
-  font-size: 2.5rem;
+a:hover .bar {
+  width: 60%;
 }
 
-main form .input_group {
-  width: 100%;
+.logo {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav_home {
+  width: 40%;
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  align-items: center;
 }
 
-main form .input_group input,
-main form .input_group select {
+ul {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  overflow: hidden;
+}
+
+.log_cad {
+  list-style: none;
+  width: 22%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.botao_log {
+  background-color: transparent;
+  border: 1px solid #00ac4d;
+  margin-left: 40px;
+  padding: 0 1rem 0 1rem;
+  border-radius: 40px;
+}
+
+.botao_log:hover {
+  background-color: #00ac4d;
+  border: 1px solid #00ac4d;
+  margin-left: 40px;
+  padding: 0 1rem 0 1rem;
+}
+
+.botao_cad {
+  background: #00ac4d;
+  border-radius: 40px;
+  padding: 0 1rem 0 1rem;
+  transform: scale(1);
+  transition: all 0.5s;
+}
+
+.botao_cad:hover {
+  transform: scale(1.1);
+  transition: all 0.5s;
+}
+
+.banner {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 7rem;
+}
+
+.container {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  padding-top: 3rem;
+}
+
+.caixa-formulario {
+  background-color: #181818;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 45%;
+  gap: 3rem;
+  border-radius: 15px 15px 15px 15px;
+  color: #ffffff;
+}
+
+.caixa-formulario h1 {
+  padding: 2rem 0 0 0;
+}
+
+.caixa-formulario button {
+  color: black;
+  background-color: #28ff88;
+  font-weight: bold;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+}
+
+.line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.cl_input {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  align-items: center;
+}
+
+input,
+select,
+button {
+  width: 50%;
+  background-color: #ffffff;
+  border: none;
+  padding: 0.3rem;
+  margin: 1.1rem;
+  border-radius: 50px;
+  transition: 0.4s ease;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+select {
+  text-align: left;
+}
+
+select:focus {
+  background-color: #28ff88;
+  outline: 1px solid #00ac4d;
+}
+
+input::placeholder {
+  font-size: 10px;
+  font-weight: 700;
+}
+
+input:focus {
+  background-color: #28ff88;
+  outline: 1px solid #00ac4d;
+}
+
+button {
+  margin-top: 1rem;
+  background-color: #28ff88;
+  color: #181818;
+  padding: 0.5rem;
   width: 35%;
 }
 
-main .banner {
-  background-color: #fff;
-  height: 100%;
-  padding-top: 4.5rem;
+button:hover {
+  background-color: #00ac4d;
+  cursor: pointer;
 }
 
-main .banner img {
-  width: 85%;
+.esquerdasimulador {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 1rem;
 }
 
-main form .input_group label {
-  width: 40%;
+.esquerdasimulador a:hover .bar {
+  width: 60%;
 }
 
-main form .input_group label input,
-main form .input_group label select {
-  width: 90%;
+.fazercadastro {
+  color: #181818;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  font-size: 16pt;
 }
 
-/* Modal de Resultado */
+.imgsimulador {
+  width: 500px;
+}
 
 .envelope {
   width: 100%;
@@ -73,4 +272,8 @@ main form .input_group label select {
   align-items: center;
   border-radius: 30px;
   padding: 1rem 0 1rem;
+}
+
+strong {
+  color: #00ac4d;
 }
