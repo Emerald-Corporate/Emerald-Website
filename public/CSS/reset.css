@@ -1,4 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Oxanium:wght@200;300;400;500;600;700;800&display=swap");
+@-webkit-keyframes btn-content {
+  0% {
+    outline: 0.2em solid #00ac4d;
+    outline-offset: 0;
+  }
+}
+
+@keyframes btn-content {
+  0% {
+    outline: 0.2em solid #00ac4d;
+    outline-offset: 0;
+  }
+}
 
 * {
   margin: 0;
@@ -16,32 +28,242 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #181818;
+  background-color: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
   background-color: #00ac4d;
 }
 
-header {
-  background-color: #ffffff;
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  padding: 12px;
-  position: fixed;
-  border-radius: 0 0 1rem 1rem;
-  z-index: 1;
+body {
+  background-color: #181818;
+  color: #ffffff;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+p {
+  font-weight: 400;
+  font-size: 1.2rem;
 }
 
 a {
   color: #181818;
-  text-align: center;
-  margin-top: 2px;
-  padding: 14px 16px;
   text-decoration: none;
-  background-color: transparent;
+  cursor: pointer;
+}
+
+/* Inputs e Selects */
+
+.input_group {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+label {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #3d3d3d;
+  padding: 9px;
+}
+
+label:hover {
+  border-color: gray;
+}
+
+label:focus-within {
+  background: #464646;
+  border-color: gray;
+}
+
+label input,
+label select {
+  width: 100%;
+  outline: none;
+  border: none;
+  background: none;
+  color: rgb(162, 162, 162);
+}
+
+label input:valid,
+label select:valid {
+  width: calc(100% - 22px);
+  transform: translateX(20px);
+}
+
+/* Modal */
+.modal {
+  background-color: #fff;
+  width: 25vw;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 1rem;
+  padding: 1rem;
+  position: absolute;
+  top: 15vh;
+  right: 5vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  z-index: 2;
+  transform: translateY(-100vh);
+  transition: 1s;
+}
+
+.modal.active {
+  transform: translateY(0px);
+}
+
+.modal .title {
+  width: 100%;
+  background-color: #00ac4d;
+  padding: 0.5rem;
+  color: #fff;
+  border-radius: 0.5rem;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.modal .message {
+  margin-top: 1rem;
+  color: #181818;
+  font-size: 1em;
+}
+
+/* Botões */
+.simple-button,
+.expand-button button {
+  border: none;
+  background-color: inherit;
+  color: #00ac4d;
+  box-shadow: 0 0 0 2px rgba(0, 172, 77, 0.384);
+  padding: 9px 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.simple-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.simple-button span:last-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: #00ac4d;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.simple-button span:first-child {
+  position: relative;
+  z-index: 1;
+}
+
+.simple-button:hover {
+  box-shadow: 0 0 0 5px #00ac4d60;
+  color: #ffffff;
+}
+
+.simple-button:active {
+  scale: 0.95;
+}
+
+.simple-button:hover span:last-child {
+  width: 102%;
+  height: 150px;
+  opacity: 1;
+}
+
+.expand-button {
+  display: flex;
+  justify-content: center;
+}
+
+.expand-button button {
+  color: #fff;
+  background: #00ac4d;
+  transition: 1s;
+  box-shadow: 0 0 0.2em 0 #00ac4d;
+}
+
+.expand-button button:hover,
+.expand-button button:focus {
+  transition: 0.5s;
+  -webkit-animation: btn-content 1s;
+  animation: btn-content 1s;
+  outline: 0.1em solid transparent;
+  outline-offset: 0.2em;
+  background: #02883e;
+  box-shadow: 0 0 0.4em 0 #00ac4d;
+  transform: scale(1.15);
+}
+
+/* Navbar */
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header .navbar-container {
+  width: 90%;
+  height: 4rem;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  top: 0.5rem;
+  border-radius: 2rem;
+  margin: 10px auto;
+  transition: 0.2s ease;
+  z-index: 1;
+}
+
+header .navbar-container img {
+  width: 150px;
+}
+
+header .navbar-container nav {
+  padding-top: 2px;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+
+header .navbar-container nav .bar {
+  width: 0;
+  height: 2px;
+  background-color: #00ac4d;
+  transition: 0.2s ease;
+}
+
+header .navbar-container nav a {
+  margin-top: 0.5rem;
+  padding: 0 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -49,82 +271,12 @@ a {
   gap: 0.5rem;
 }
 
-.bar {
-  width: 0;
-  height: 2px;
-  background-color: #00ac4d;
-  transition: 0.2s ease;
-}
-
-a:hover .bar {
+header .navbar-container nav a:hover .bar {
   width: 60%;
 }
 
-.logo {
-  width: 20%;
+header .navbar-container .connection {
   display: flex;
+  gap: 1rem;
   align-items: center;
-  justify-content: center;
-}
-
-.nav_home {
-  width: 40%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-ul {
-  display: flex;
-  flex-direction: row;
-  list-style-type: none;
-  overflow: hidden;
-}
-
-.log_cad {
-  list-style: none;
-  width: 22%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.log_cad a {
-  font-weight: 500;
-}
-
-.botao_log {
-  background-color: transparent;
-  border: 1px solid #00ac4d;
-  margin-left: 40px;
-  padding: 0 1rem 0 1rem;
-  border-radius: 40px;
-  transition: 0.2s ease;
-}
-
-.botao_log a:hover {
-  color: #fff;
-}
-
-.botao_log:hover {
-  background-color: #00ac4d;
-  color: #fff;
-  border: 1px solid #00ac4d;
-  margin-left: 40px;
-  padding: 0 1rem 0 1rem;
-}
-
-.botao_cad {
-  background: #00ac4d;
-  border-radius: 40px;
-  padding: 0 1rem 0 1rem;
-  transition: all 0.5s;
-}
-
-.botao_cad a {
-  color: #fff;
-}
-
-.botao_cad:hover {
-  transform: scale(1.1);
 }

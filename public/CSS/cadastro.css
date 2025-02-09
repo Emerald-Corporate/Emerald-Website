@@ -1,272 +1,29 @@
-@import url("https://fonts.googleapis.com/css2?family=Oxanium:wght@200;300;400;500;600;700;800&display=swap");
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Oxanium", sans-serif;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background-color: #181818;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #00ac4d;
-}
-
-.header {
-  background-color: #cccccc;
+main {
+  height: 100vh;
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
-  padding: 12px;
-  position: fixed;
-  width: 100%;
-  border-radius: 0 0 10px 10px;
-  z-index: 10000000;
 }
 
-a {
-  color: #181818;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  background-color: transparent;
+main form,
+main .banner {
+  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
 }
 
-.bar {
-  width: 0;
-  height: 2px;
-  background-color: #00ac4d;
-  transition: 0.2s ease;
+main form {
+  padding-top: 5rem;
+  gap: 2.5rem;
 }
 
-a:hover .bar {
-  width: 60%;
-}
-
-.logo {
-  width: 20%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.nav_home {
-  width: 40%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-ul {
-  display: flex;
-  flex-direction: row;
-  list-style-type: none;
-  overflow: hidden;
-}
-
-.log_cad {
-  list-style: none;
-  width: 22%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.botao_log {
-  background-color: transparent;
-  border: 1px solid #00ac4d;
-  margin-left: 40px;
-  padding: 0 1rem 0 1rem;
-  border-radius: 40px;
-}
-
-.botao_log:hover {
-  background-color: #00ac4d;
-  border: 1px solid #00ac4d;
-  margin-left: 40px;
-  padding: 0 1rem 0 1rem;
-}
-
-.botao_cad {
-  background: #00ac4d;
-  border-radius: 40px;
-  padding: 0 1rem 0 1rem;
-  transform: scale(1);
-  transition: all 0.5s;
-}
-
-.botao_cad:hover {
-  transform: scale(1.1);
-  transition: all 0.5s;
-}
-
-.cadastro {
-  background-color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 10rem 0;
-}
-
-.box_form {
-  width: 90%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 600px;
-}
-
-.caixa_forms {
-  background-color: #181818;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 70%;
-  height: 650px;
-  border-radius: 15px;
-  gap: 2rem;
-  padding-top: 3rem;
-}
-
-.forms {
-  color: #ffffff;
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  border-radius: 5px;
-  border-bottom: 1px solid #ffffff;
-}
-
-.forms h1 {
-  font-size: 20px;
-  font-weight: 400;
-  color: #ffffff;
-  margin-bottom: 0.5rem;
-}
-
-input,
-select,
-button {
-  background-color: #ffffff;
-  border: none;
-  padding: 0.3rem;
-  margin: 1.1rem;
-  border-radius: 50px;
-  transition: 0.4s ease;
-  text-align: center;
-}
-
-select {
-  text-align: left;
-}
-
-select:focus {
-  background-color: #28ff88;
-  outline: 1px solid #00ac4d;
-}
-
-input::placeholder {
-  font-size: 10px;
-  font-weight: 700;
-}
-
-input:focus {
-  background-color: #28ff88;
-  outline: 1px solid #00ac4d;
-}
-
-button {
-  margin-top: 1rem;
-  background-color: #28ff88;
-  color: #181818;
-  padding: 0.5rem;
-  width: 35%;
-}
-
-button:hover {
-  background-color: #00ac4d;
-  cursor: pointer;
-}
-
-.cl_input {
-  display: flex;
-}
-
-.alerta_erro {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.card_erro {
-  display: none;
+main .banner {
   background-color: #fff;
-  color: black;
-  width: 230px;
-  position: fixed;
-  border-radius: 4px;
-  border: #00ac4d 3px solid;
-  padding: 10px;
-  margin-right: 10%;
+  height: 100%;
+  padding-top: 4.5rem;
 }
 
-.card_erro #mensagem_erro {
-  font-weight: 500;
-  font-size: 20px;
-}
-
-.formulario .tipo_campo {
-  font-size: 20px;
-  font-weight: 600 !important;
-}
-
-.loading-div {
-  width: 50px;
-  margin: auto;
-  display: none;
-}
-
-.loading-div img {
-  height: 50px;
-  width: 50px;
-}
-
-.esquerda {
-  display: flex;
-  flex-direction: column;
-}
-
-.fazerlogin {
-  border: 0;
-  color: #181818;
-  font-size: 13px;
-  font-weight: bold;
-  cursor: pointer;
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  font-size: 16pt;
-}
-
-.imagemcadastro {
-  width: 475px;
+main .banner img {
+  height: 85%;
 }

@@ -1,4 +1,6 @@
-<img src="public/assets/emerald_logo.png" alt="Logo da Emerald" width="600px" align="center">
+<div align="center">
+  <img src="public/assets/emerald_logo.png" alt="Logo da Emerald" width="600px">
+</div>
 
 <p align="center">
   <a href="#">Português</a> · <a href="/docs/README_EN.md">English</a>
