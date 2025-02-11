@@ -13,52 +13,55 @@ ttChatLoaderS.src =
   encodeURIComponent(document.URL);
 document.body.appendChild(ttChatLoaderS);
 
+$(document).ready(function () {
+  animateDiv(".circle1");
+  animateDiv(".circle2");
+  animateDiv(".circle3");
+  animateDiv(".circle4");
+  animateDiv(".circle5");
+  animateDiv(".circle6");
+  animateDiv(".circle7");
+  animateDiv(".circle8");
+  animateDiv(".circle9");
+  animateDiv(".circle10");
+});
 
-function signUp() {
-  let errors = [];
-  let missingFields = [];
-  let fields = [
-    { id: "input_name", name: "Nome" },
-    { id: "input_cnpj", name: "CNPJ" },
-    { id: "input_mail", name: "E-mail" },
-    { id: "input_password", name: "Senha" },
-    { id: "input_confirmation", name: "Confirmação de Senha" },
-    { id: "input_server", name: "Servidores" },
-    { id: "select_tier", name: "Tier" },
-    { id: "input_size", name: "Tamanho" },
-    { id: "input_cep", name: "CEP" },
-    { id: "select_uf", name: "Estado" },
-    { id: "input_city", name: "Cidade" },
-    { id: "input_neighborhood", name: "Bairro" },
-    { id: "input_street", name: "Rua" },
-  ];
+function makeNewPosition($container) {
+  // Get viewport dimensions (remove the dimension of the div)
+  $container = $container || $(window);
+  var h = $container.height() - 50;
+  var w = $container.width() - 50;
 
-  fields.forEach((field) => {
-    let input = document.getElementById(field.id);
-    if (!input.value.trim()) {
-      missingFields.push(field.name);
-      input.style.outline = "2px solid red";
-    } else {
-      input.style.outline = "";
+  var nh = Math.floor(Math.random() * h);
+  var nw = Math.floor(Math.random() * w);
+
+  return [nh, nw];
+}
+
+function animateDiv(itemToMove) {
+  var $target = $(itemToMove);
+  var newq = makeNewPosition($target.parent());
+  var oldq = $target.offset();
+  var speed = calcSpeed([oldq.top, oldq.left], newq);
+
+  $(itemToMove).animate(
+    {
+      top: newq[0],
+      left: newq[1],
+    },
+    speed,
+    function () {
+      animateDiv(itemToMove);
     }
-  });
+  );
+}
 
-  if (missingFields.length > 0) {
-    errors.push(`Os campos ${missingFields.join(", ")} estão vazios.`);
-  }
+function calcSpeed(prev, next) {
+  var x = Math.abs(prev[1] - next[1]);
+  var y = Math.abs(prev[0] - next[0]);
+  var greatest = x > y ? x : y;
+  var speedModifier = 0.1;
+  var speed = Math.ceil(greatest / speedModifier);
 
-  let password = document.getElementById("input_password");
-  let confirmation = document.getElementById("input_confirmation");
-  if (password.value !== confirmation.value) {
-    errors.push("As senhas não coincidem.");
-    password.style.outline = "2px solid red";
-    confirmation.style.outline = "2px solid red";
-  }
-
-  if (errors.length > 0) {
-    showModal(errors.join("<br>"), true);
-    return;
-  }
-
-  showModal("Cadastro realizado com sucesso!", false);
+  return speed;
 }

@@ -39,6 +39,7 @@ html {
 body {
   background-color: #181818;
   color: #ffffff;
+  overflow-x: hidden;
 }
 
 h2 {
