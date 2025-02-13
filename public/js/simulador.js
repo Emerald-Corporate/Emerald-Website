@@ -1,70 +1,61 @@
 function calcular() {
-  //Criando variáveis
-  var rack = Number(in_rack.value);
-  var computador = Number(in_computador.value);
-  var tier = in_tier.value;
-  var qtsensor = rack * 2;
-  var qtarduino = Math.trunc(qtsensor / 6);
+  event.preventDefault();
 
-  //Valores cobrados
-  var valsensor = qtsensor * 15;
-  var valarduino = qtarduino * 150;
-  var instalacao = 1200;
-  var valprojeto = 5600;
+  let racks = Number(input_racks.value);
+  let computers = Number(input_computers.value);
+  let downtime = Number(input_downtime.value);
+  let tier = Number(select_tier.value);
 
-  //Dowtimes
-  var downtime = 5600;
-  var downtimedia = downtime * 1440;
-  var downtimeano = (downtimedia * 365) / 12;
+  let sensors = racks * 2;
+  let arduino = Math.trunc(sensors / 6);
+  let sensors_value = sensors * 15;
+  let arduino_value = arduino * 150;
+  let installation = 1200;
+  let project = 5600;
+  let downtime_media = downtime * 1440;
+  let downtime_year = (downtime_media * 365) / 12;
+  let economia =
+    downtime - (installation + arduino_value + sensors_value + project);
+  let economiadia =
+    downtime_media - (installation + arduino_value + sensors_value + project);
+  let economiaano =
+    downtime_year - (installation + arduino_value + sensors_value + project);
 
-  //Econômia
-  var economia = downtime - (instalacao + valarduino + valsensor + valprojeto);
-  var economiadia =
-    downtimedia - (instalacao + valarduino + valsensor + valprojeto);
-  var economiaano =
-    downtimeano - (instalacao + valarduino + valsensor + valprojeto);
+  console.log(racks);
+  console.log(computers);
+  console.log(downtime);
+  console.log(racks);
 
-  //Validações
-  if (rack == "" && computador == "" && downtime == "" && tier == "") {
-    alert(
-      "Todos os campos em branco, preencha para começar sua jornada conosco!"
-    );
-  } else if (rack == "" || computador == "" || downtime == "" || tier == "") {
-    if (rack <= 0) {
-      alert("Quantidade de racks inválida");
-    }
-
-    if (computador <= 0) {
-      alert("Quantidade de computadores inválida!");
-    }
-
-    if (downtime == "") {
-      alert("Para melhorar sua experiência, informe seu dowtime por minutos");
-    }
-
-    if (tier == "") {
-      alert("Tier inválida");
-    }
+  if (racks === 0 && computers === 0 && downtime === 0 && tier <= 0) {
+    showModal("Todos os campos inválidos!", true);
+  } else if (racks === 0) {
+    showModal("Quantidade de racks inválida", true);
+  } else if (computers === 0) {
+    showModal("Quantidade de computadores inválida!", true);
+  } else if (downtime === 0) {
+    showModal("Dowtime por minutos inválido!", true);
+  } else if (tier <= 0) {
+    showModal("Tier inválida", true);
   } else {
     if (tier == 1) {
-      valprojeto = valprojeto + 0;
+      project = project + 0;
       resultado.innerHTML = `<h1>O quanto você perde:</h1><br>
               A cada 1 minuto de dowtime: <strong>R$${downtime.toFixed(
                 2
               )}</strong><br> 
-              A cada dia de dowtime: <strong>R$${downtimedia.toFixed(
+              A cada dia de dowtime: <strong>R$${downtime_media.toFixed(
                 2
               )}</strong><br>
-              A cada ano (Paralisações frequêntes e imprevisíveis): <strong>R$${downtimeano.toFixed(
+              A cada ano (Paralisações frequêntes e imprevisíveis): <strong>R$${downtime_year.toFixed(
                 2
               )}</strong><br><br>
               
               <h1>Quanto custa nosso projeto:</h1><br>
               Primeiro mês (Mensal + Instalação): <strong>R$${
-                valprojeto + instalacao
+                project + installation
               }</strong><br>
               Aluguel Mensal: <strong>R$${
-                valarduino + valprojeto + valsensor
+                arduino_value + project + sensors_value
               }</strong><br><br>
               
               <h1>O quanto você vai previnir:</h1><br>
@@ -74,24 +65,24 @@ function calcular() {
               Econômia por dia: <strong>R$${economiadia.toFixed(2)}</strong><br>
               Econômia por ano: <strong>R$${economiaano.toFixed(2)}</strong>`;
     } else if (tier == 2) {
-      valprojeto = valprojeto + valprojeto * 0.1;
+      project = project + project * 0.1;
       resultado.innerHTML = `<h1>O quanto você perde:</h1><br>
               A cada 1 minuto de dowtime: <strong>R$${downtime.toFixed(
                 2
               )}</strong><br> 
-              A cada dia de dowtime: <strong>R$${downtimedia.toFixed(
+              A cada dia de dowtime: <strong>R$${downtime_media.toFixed(
                 2
               )}</strong><br>
-              A cada ano (Paralisações frequêntes e imprevisíveis): <strong>R$${downtimeano.toFixed(
+              A cada ano (Paralisações frequêntes e imprevisíveis): <strong>R$${downtime_year.toFixed(
                 2
               )}</strong><br><br>
               
               <h1>Quanto custa nosso projeto:</h1><br>
               Primeiro mês (Mensal + Instalação): <strong>R$${
-                valprojeto + instalacao
+                project + installation
               }</strong><br>
               Aluguel Mensal: <strong>R$${
-                valarduino + valprojeto + valsensor
+                arduino_value + project + sensors_value
               }</strong><br><br>
               
               <h1>O quanto você vai previnir:</h1><br>
@@ -101,21 +92,21 @@ function calcular() {
               Econômia por dia: <strong>R$${economiadia.toFixed(2)}</strong><br>
               Econômia por ano: <strong>R$${economiaano.toFixed(2)}</strong>`;
     } else if (tier == 3) {
-      valprojeto = valprojeto + valprojeto * 0.15;
+      project = project + project * 0.15;
       resultado.innerHTML = `<h1>O quanto você perde:</h1><br>
               A cada 1 minuto de dowtime: <strong>R$${downtime.toFixed(
                 2
               )}</strong><br> 
-              A cada dia de dowtime: <strong>R$${downtimedia.toFixed(
+              A cada dia de dowtime: <strong>R$${downtime_media.toFixed(
                 2
               )}</strong><br>
-              A cada ano (Paralisações frequêntes e imprevisíveis): <strong>R$${downtimeano.toFixed(
+              A cada ano (Paralisações frequêntes e imprevisíveis): <strong>R$${downtime_year.toFixed(
                 2
               )}</strong><br><br>
               
               <h1>Quanto custa nosso projeto:</h1><br>
               Aluguel Mensal: <strong>R$${
-                valarduino + valprojeto
+                arduino_value + project
               }</strong><br><br>
               
               <h1>O quanto você vai previnir:</h1><br>
@@ -125,21 +116,21 @@ function calcular() {
               Econômia por dia: <strong>R$${economiadia.toFixed(2)}</strong><br>
               Econômia por ano: <strong>R$${economiaano.toFixed(2)}</strong>`;
     } else {
-      valprojeto = valprojeto + valprojeto * 0.2;
+      project = project + project * 0.2;
       resultado.innerHTML = `<h1>O quanto você perde:</h1><br>
               A cada 1 minuto de dowtime: <strong>R$${downtime.toFixed(
                 2
               )}</strong><br> 
-              A cada dia de dowtime: <strong>R$${downtimedia.toFixed(
+              A cada dia de dowtime: <strong>R$${downtime_media.toFixed(
                 2
               )}</strong><br>
-              A cada ano (Paralisações frequêntes e imprevisíveis): <strong>R$${downtimeano.toFixed(
+              A cada ano (Paralisações frequêntes e imprevisíveis): <strong>R$${downtime_year.toFixed(
                 2
               )}</strong><br><br>
               
               <h1>Quanto custa nosso projeto:</h1><br>
               Aluguel Mensal: <strong>R$${
-                valarduino + valprojeto
+                arduino_value + project
               }</strong><br><br>
               
               <h1>O quanto você vai previnir:</h1><br>

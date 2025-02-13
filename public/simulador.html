@@ -12,9 +12,10 @@
 
   <body>
     <!-- Modal -->
-    <!-- <div class="envelope">
-      <div id="resultado" class="result">Seu orçamento aparece aqui</div>
-    </div> -->
+    <div class="modal">
+      <h1 class="title">Sucesso!</h1>
+      <p class="message"></p>
+    </div>
 
     <!-- Navbar-->
     <header>
@@ -71,6 +72,7 @@
               type="number"
               placeholder="Racks"
               id="input_racks"
+              min="0"
               required=""
             />
           </label>
@@ -79,6 +81,7 @@
               type="number"
               placeholder="Computadores (Por Rack)"
               id="input_computers"
+              min="0"
               required=""
             />
           </label>
@@ -89,6 +92,7 @@
               type="number"
               placeholder="Downtime (Por Minuto)"
               id="input_downtime"
+              min="0"
               required=""
             />
           </label>
@@ -103,13 +107,11 @@
           </label>
         </div>
 
-        <a href="login.html" onclick="calcular()">
-          <div class="expand-button">
-            <button>
-              <span class="btn-title">Login</span>
-            </button>
-          </div>
-        </a>
+        <div class="expand-button" onclick="calcular()">
+          <button>
+            <span class="btn-title">Simular</span>
+          </button>
+        </div>
       </form>
 
       <div class="banner">

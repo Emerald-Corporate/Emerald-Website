@@ -52,25 +52,3 @@ main form .input_group label input,
 main form .input_group label select {
   width: 90%;
 }
-
-/* Modal de Resultado */
-
-.envelope {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10rem;
-}
-
-.result {
-  background-color: #181818;
-  color: #ffffff;
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 30px;
-  padding: 1rem 0 1rem;
-}
