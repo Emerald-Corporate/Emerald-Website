@@ -1,144 +1,132 @@
-function calcular() {
+const result = document.querySelector(".banner");
+
+function calculate() {
   event.preventDefault();
 
-  let racks = Number(input_racks.value);
-  let computers = Number(input_computers.value);
-  let downtime = Number(input_downtime.value);
-  let tier = Number(select_tier.value);
+  const racks = Number(input_racks.value);
+  const computers = Number(input_computers.value);
+  const downtime = Number(input_downtime.value);
+  const tier = Number(select_tier.value);
 
-  let sensors = racks * 2;
-  let arduino = Math.trunc(sensors / 6);
-  let sensors_value = sensors * 15;
-  let arduino_value = arduino * 150;
-  let installation = 1200;
-  let project = 5600;
-  let downtime_media = downtime * 1440;
-  let downtime_year = (downtime_media * 365) / 12;
-  let economia =
-    downtime - (installation + arduino_value + sensors_value + project);
-  let economiadia =
-    downtime_media - (installation + arduino_value + sensors_value + project);
-  let economiaano =
-    downtime_year - (installation + arduino_value + sensors_value + project);
+  if (!validate(racks, computers, downtime, tier)) return;
 
-  console.log(racks);
-  console.log(computers);
-  console.log(downtime);
-  console.log(racks);
+  const {
+    downtimePerMinute,
+    downtimePerDay,
+    downtimePerYear,
+    projectCost,
+    monthlyCost,
+    savings,
+  } = costs(racks, downtime, tier);
 
+  showResult(
+    downtimePerMinute,
+    downtimePerDay,
+    downtimePerYear,
+    projectCost,
+    monthlyCost,
+    savings
+  );
+}
+
+function validate(racks, computers, downtime, tier) {
   if (racks === 0 && computers === 0 && downtime === 0 && tier <= 0) {
     showModal("Todos os campos inválidos!", true);
-  } else if (racks === 0) {
-    showModal("Quantidade de racks inválida", true);
-  } else if (computers === 0) {
-    showModal("Quantidade de computadores inválida!", true);
-  } else if (downtime === 0) {
-    showModal("Dowtime por minutos inválido!", true);
-  } else if (tier <= 0) {
-    showModal("Tier inválida", true);
-  } else {
-    if (tier == 1) {
-      project = project + 0;
-      resultado.innerHTML = `<h1>O quanto você perde:</h1><br>
-              A cada 1 minuto de dowtime: <strong>R$${downtime.toFixed(
-                2
-              )}</strong><br> 
-              A cada dia de dowtime: <strong>R$${downtime_media.toFixed(
-                2
-              )}</strong><br>
-              A cada ano (Paralisações frequêntes e imprevisíveis): <strong>R$${downtime_year.toFixed(
-                2
-              )}</strong><br><br>
-              
-              <h1>Quanto custa nosso projeto:</h1><br>
-              Primeiro mês (Mensal + Instalação): <strong>R$${
-                project + installation
-              }</strong><br>
-              Aluguel Mensal: <strong>R$${
-                arduino_value + project + sensors_value
-              }</strong><br><br>
-              
-              <h1>O quanto você vai previnir:</h1><br>
-              Econômia por dowtime: <strong>R$${economia.toFixed(
-                2
-              )}</strong><br>
-              Econômia por dia: <strong>R$${economiadia.toFixed(2)}</strong><br>
-              Econômia por ano: <strong>R$${economiaano.toFixed(2)}</strong>`;
-    } else if (tier == 2) {
-      project = project + project * 0.1;
-      resultado.innerHTML = `<h1>O quanto você perde:</h1><br>
-              A cada 1 minuto de dowtime: <strong>R$${downtime.toFixed(
-                2
-              )}</strong><br> 
-              A cada dia de dowtime: <strong>R$${downtime_media.toFixed(
-                2
-              )}</strong><br>
-              A cada ano (Paralisações frequêntes e imprevisíveis): <strong>R$${downtime_year.toFixed(
-                2
-              )}</strong><br><br>
-              
-              <h1>Quanto custa nosso projeto:</h1><br>
-              Primeiro mês (Mensal + Instalação): <strong>R$${
-                project + installation
-              }</strong><br>
-              Aluguel Mensal: <strong>R$${
-                arduino_value + project + sensors_value
-              }</strong><br><br>
-              
-              <h1>O quanto você vai previnir:</h1><br>
-              Econômia por dowtime: <strong>R$${economia.toFixed(
-                2
-              )}</strong><br>
-              Econômia por dia: <strong>R$${economiadia.toFixed(2)}</strong><br>
-              Econômia por ano: <strong>R$${economiaano.toFixed(2)}</strong>`;
-    } else if (tier == 3) {
-      project = project + project * 0.15;
-      resultado.innerHTML = `<h1>O quanto você perde:</h1><br>
-              A cada 1 minuto de dowtime: <strong>R$${downtime.toFixed(
-                2
-              )}</strong><br> 
-              A cada dia de dowtime: <strong>R$${downtime_media.toFixed(
-                2
-              )}</strong><br>
-              A cada ano (Paralisações frequêntes e imprevisíveis): <strong>R$${downtime_year.toFixed(
-                2
-              )}</strong><br><br>
-              
-              <h1>Quanto custa nosso projeto:</h1><br>
-              Aluguel Mensal: <strong>R$${
-                arduino_value + project
-              }</strong><br><br>
-              
-              <h1>O quanto você vai previnir:</h1><br>
-              Econômia por dowtime: <strong>R$${economia.toFixed(
-                2
-              )}</strong><br>
-              Econômia por dia: <strong>R$${economiadia.toFixed(2)}</strong><br>
-              Econômia por ano: <strong>R$${economiaano.toFixed(2)}</strong>`;
-    } else {
-      project = project + project * 0.2;
-      resultado.innerHTML = `<h1>O quanto você perde:</h1><br>
-              A cada 1 minuto de dowtime: <strong>R$${downtime.toFixed(
-                2
-              )}</strong><br> 
-              A cada dia de dowtime: <strong>R$${downtime_media.toFixed(
-                2
-              )}</strong><br>
-              A cada ano (Paralisações frequêntes e imprevisíveis): <strong>R$${downtime_year.toFixed(
-                2
-              )}</strong><br><br>
-              
-              <h1>Quanto custa nosso projeto:</h1><br>
-              Aluguel Mensal: <strong>R$${
-                arduino_value + project
-              }</strong><br><br>
-              
-              <h1>O quanto você vai previnir:</h1><br>
-              Econômia por dowtime: <strong>R$${economia.toFixed(
-                2
-              )}</strong><br>
-              Econômia por dia: <strong>R$${economiadia.toFixed(2)}</strong><br>
-              Econômia por ano: <strong>R$${economiaano.toFixed(2)}</strong>`;
-    }
+    return false;
   }
+
+  if (racks === 0) {
+    showModal("Quantidade de racks inválida", true);
+    return false;
+  }
+
+  if (computers === 0) {
+    showModal("Quantidade de computadores inválida!", true);
+    return false;
+  }
+
+  if (downtime === 0) {
+    showModal("Downtime por minuto inválido!", true);
+    return false;
+  }
+
+  if (tier <= 0) {
+    showModal("Tier inválida", true);
+    return false;
+  }
+
+  return true;
+}
+
+function costs(racks, downtime, tier) {
+  const sensors = racks * 2;
+  const arduino = Math.trunc(sensors / 6);
+  const sensorCost = sensors * 15;
+  const arduinoCost = arduino * 150;
+  const installationCost = 1200;
+  let projectCost = 5600 * (1 + [0, 0, 0.1, 0.15, 0.2][tier]);
+
+  const downtimePerMinute = downtime;
+  const downtimePerDay = downtime * 1440;
+  const downtimePerYear = (downtimePerDay * 365) / 12;
+
+  const totalCost = installationCost + arduinoCost + sensorCost + projectCost;
+  const savings = {
+    perMinute: downtimePerMinute - totalCost,
+    perDay: downtimePerDay - totalCost,
+    perYear: downtimePerYear - totalCost,
+  };
+
+  return {
+    downtimePerMinute,
+    downtimePerDay,
+    downtimePerYear,
+    projectCost: projectCost + (tier === 1 ? installationCost : 0),
+    monthlyCost: arduinoCost + projectCost + sensorCost,
+    savings,
+  };
+}
+
+function showResult(
+  downtimePerMinute,
+  downtimePerDay,
+  downtimePerYear,
+  projectCost,
+  monthlyCost,
+  savings
+) {
+  result.innerHTML = `
+    <h2>O quanto você perde:</h2>
+    <p>A cada 1 minuto de downtime: <strong>R$${downtimePerMinute.toFixed(
+      2
+    )}</strong></p>
+    <p>A cada dia de downtime: <strong>R$${downtimePerDay.toFixed(
+      2
+    )}</strong></p>
+    <p>A cada ano (Paralisações frequentes e imprevisíveis): <strong>R$${downtimePerYear.toFixed(
+      2
+    )}</strong></p>
+
+    <h2>Quanto custa nosso projeto:</h2>
+    <p>Primeiro mês (Mensal + Instalação): <strong>R$${projectCost.toFixed(
+      2
+    )}</strong></p>
+    <p>Aluguel Mensal: <strong>R$${monthlyCost.toFixed(2)}</strong></p>
+
+    <h2>O quanto você vai prevenir:</h2>
+    <p>Economia por downtime: <strong>R$${savings.perMinute.toFixed(
+      2
+    )}</strong></p>
+    <p>Economia por dia: <strong>R$${savings.perDay.toFixed(2)}</strong></p>
+    <p>Economia por ano: <strong>R$${savings.perYear.toFixed(2)}</strong></p>
+
+    <a href="cadastro.html">
+      <button class="simple-button">
+        <span>Gostou? Clique aqui!</span>
+        <span></span>
+      </button>
+    </a>
+  `;
+
+  result.classList.add("active");
 }

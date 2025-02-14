@@ -52,3 +52,37 @@ main form .input_group label input,
 main form .input_group label select {
   width: 90%;
 }
+
+/* Modal de Resultado */
+.banner.active {
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center;
+  transition: 1s;
+}
+
+.banner.active h2 {
+  margin-top: 1rem;
+  width: 60%;
+  background-color: #00ac4d;
+  padding: 0.5rem;
+  color: #fff;
+  border-radius: 0.5rem;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.banner.active p {
+  margin-top: 1rem;
+  color: #181818;
+  font-size: 1em;
+}
+
+.banner.active a {
+  margin: 1rem 0;
+}
